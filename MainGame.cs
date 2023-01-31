@@ -14,6 +14,7 @@ namespace GuildOfHeaven
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            //test
         }
 
         protected override void Initialize()

@@ -16,8 +16,12 @@ namespace GuildOfHeaven
         readonly string walkAnimDirectory = "assets/characters/genericTestMale/male_animation_walk_001/";
         readonly string runAnimDirectory = "assets/characters/genericTestMale/male_animation_run_001/";
         readonly string walkLabel = "male_animation_walk_001_";
+        readonly string runLabel = "male_animation_run_001_";
         string direction;
         string texturePath;
+        readonly float runSpeed = 100f;
+        readonly float walkSpeed = 50f;
+        bool isWalking = true;
         int currFrame;
         int startFrame;
         int endFrame;
@@ -36,7 +40,7 @@ namespace GuildOfHeaven
             // TODO: Add your initialization logic here
             spaceManPos = new Vector2(_graphics.PreferredBackBufferWidth / 2,
 _graphics.PreferredBackBufferHeight / 2);
-            spaceManSpeed = 50f;
+            spaceManSpeed = walkSpeed;
             currFrame = 0;
             startFrame = 0;
             endFrame = 60;
@@ -64,14 +68,27 @@ _graphics.PreferredBackBufferHeight / 2);
             
             var kstate = Keyboard.GetState();
             var keyCount = kstate.GetPressedKeyCount();
+            if (kstate.IsKeyDown(Keys.Space))
+            {
+                isWalking = false;
+                endFrame = 37;
+            }
+            else
+            {
+                isWalking = true;
+                endFrame = 60;
+            }
+
             if ( keyCount > 0)
             {
                 currFrame = DevUtils.updateFrame(currFrame, startFrame, endFrame);
+                spaceManSpeed = isWalking ? walkSpeed : runSpeed;
             }
 
             //UP
-            else if (kstate.IsKeyDown(Keys.W) && keyCount == 1)
+            if (kstate.IsKeyDown(Keys.W) && !kstate.IsKeyDown(Keys.D) && !kstate.IsKeyDown(Keys.S) && !kstate.IsKeyDown(Keys.A))
             {
+
                 spaceManPos.Y -= spaceManSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "up";
                 flip = false;
@@ -80,7 +97,7 @@ _graphics.PreferredBackBufferHeight / 2);
             }
 
             //UP RIGHT
-            else if (kstate.IsKeyDown(Keys.W) && kstate.IsKeyDown(Keys.D) && keyCount == 2)
+            if (kstate.IsKeyDown(Keys.W) && kstate.IsKeyDown(Keys.D))
             {
                 spaceManPos.Y -= (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 spaceManPos.X += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -91,23 +108,46 @@ _graphics.PreferredBackBufferHeight / 2);
             }
 
             //RIGHT
-            else if (kstate.IsKeyDown(Keys.S) && keyCount == 1)
+            if (kstate.IsKeyDown(Keys.D) && !kstate.IsKeyDown(Keys.S) && !kstate.IsKeyDown(Keys.W) && !kstate.IsKeyDown(Keys.A))
+            {
+                spaceManPos.X += spaceManSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                direction = "right";
+                flip = false;
+
+            }
+
+            //DOWN RIGHT
+            if (kstate.IsKeyDown(Keys.S) && kstate.IsKeyDown(Keys.D))
+            {
+                spaceManPos.Y += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.X += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                direction = "down_right_tween_mid";
+                flip = false;
+            }
+
+            
+
+            //DOWN
+            if (kstate.IsKeyDown(Keys.S) && !kstate.IsKeyDown(Keys.D) && !kstate.IsKeyDown(Keys.W) && !kstate.IsKeyDown(Keys.A))
             {
                 spaceManPos.Y += spaceManSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "down";
                 flip = false;
             }
 
-            //DOWN RIGHT
-            else if (kstate.IsKeyDown(Keys.S) && kstate.IsKeyDown(Keys.D) && keyCount == 2)
+            //DOWN LEFT
+            if (kstate.IsKeyDown(Keys.S) && kstate.IsKeyDown(Keys.A))
             {
                 spaceManPos.Y += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                spaceManPos.X += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                direction = "down";
-                flip = false;
+                spaceManPos.X -= (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                direction = "down_right_tween_mid";
+                flip = true;
             }
 
-            else if (kstate.IsKeyDown(Keys.A) && keyCount == 1)
+
+
+            //LEFT
+            if (kstate.IsKeyDown(Keys.A) && !kstate.IsKeyDown(Keys.D) && !kstate.IsKeyDown(Keys.W) && !kstate.IsKeyDown(Keys.S))
             {
                 
                 spaceManPos.X -= spaceManSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -116,16 +156,26 @@ _graphics.PreferredBackBufferHeight / 2);
 
             }
 
-            else if (kstate.IsKeyDown(Keys.D) && keyCount == 1)
+            //UP LEFT
+            if (kstate.IsKeyDown(Keys.A) && kstate.IsKeyDown(Keys.W))
             {
-                spaceManPos.X += spaceManSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                direction = "right";
-                flip = false;
+
+                spaceManPos.X -= (spaceManSpeed /2 )* (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.Y -= (spaceManSpeed /2 )* (float)gameTime.ElapsedGameTime.TotalSeconds;
+                direction = "up_right_tween_mid";
+                flip = true;
 
             }
 
 
-            spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(walkAnimDirectory, walkLabel, direction, currFrame));
+
+            if (isWalking) {
+                spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(walkAnimDirectory, walkLabel, direction, currFrame));
+            }
+            else
+            {
+                spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(runAnimDirectory, runLabel, direction, currFrame));
+            }
 
 
             base.Update(gameTime);

@@ -10,9 +10,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MainGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\States\Base\BaseGameState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\Base\BaseGameObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\Events.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\States\GameplayState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\States\SplashState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\SplashImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\States\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\States\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Objects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Objects\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Enum\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />

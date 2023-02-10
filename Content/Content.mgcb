@@ -10705,6 +10705,18 @@
 /processorParam:TextureFormat=Color
 /build:assets/characters/genericTestMale/male_animation_walk_001/up/male_animation_walk_001_up.9.png
 
+#begin assets/ui/backgrounds/testSplashBG.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/ui/backgrounds/testSplashBG.png
+
 #begin assets/vehicles/genericCarTest/car_animation_001/down_right_tween_down/car_animation_go_001_down_right_tween_down.0.png
 /importer:TextureImporter
 /processor:TextureProcessor

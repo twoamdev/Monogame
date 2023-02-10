@@ -895,6 +895,7 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericTestMale/male_animation_walk_001/up/male_animation_walk_001_up.7.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericTestMale/male_animation_walk_001/up/male_animation_walk_001_up.8.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericTestMale/male_animation_walk_001/up/male_animation_walk_001_up.9.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/ui/backgrounds/testSplashBG.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/down_right_tween_down/car_animation_go_001_down_right_tween_down.0.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/down_right_tween_down/car_animation_go_001_down_right_tween_down.1.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/down_right_tween_down/car_animation_go_001_down_right_tween_down.2.png</File>
@@ -951,6 +952,7 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/up/car_animation_go_001_up.5.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

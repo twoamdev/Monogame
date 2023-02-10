@@ -15,12 +15,15 @@ namespace GuildOfHeaven
         float spaceManSpeed;
         readonly string walkAnimDirectory = "assets/characters/genericTestMale/male_animation_walk_001/";
         readonly string runAnimDirectory = "assets/characters/genericTestMale/male_animation_run_001/";
+        readonly string carAnimDirector = "assets/vehicles/genericCarTest/car_animation_001/";
         readonly string walkLabel = "male_animation_walk_001_";
         readonly string runLabel = "male_animation_run_001_";
+        readonly string carLabel = "car_animation_go_001_";
         string direction;
         string texturePath;
-        readonly float runSpeed = 100f;
+        readonly float runSpeed = 150f;
         readonly float walkSpeed = 50f;
+        readonly float carSpeed = 150f;
         bool isWalking = true;
         int currFrame;
         int startFrame;
@@ -68,10 +71,11 @@ _graphics.PreferredBackBufferHeight / 2);
             
             var kstate = Keyboard.GetState();
             var keyCount = kstate.GetPressedKeyCount();
+            double diagSpeedMult = 1.4142;
             if (kstate.IsKeyDown(Keys.Space))
             {
                 isWalking = false;
-                endFrame = 37;
+                endFrame = 5;// 37;
             }
             else
             {
@@ -82,7 +86,7 @@ _graphics.PreferredBackBufferHeight / 2);
             if ( keyCount > 0)
             {
                 currFrame = DevUtils.updateFrame(currFrame, startFrame, endFrame);
-                spaceManSpeed = isWalking ? walkSpeed : runSpeed;
+                spaceManSpeed = isWalking ? walkSpeed : carSpeed; //runSpeed;
             }
 
             //UP
@@ -99,8 +103,8 @@ _graphics.PreferredBackBufferHeight / 2);
             //UP RIGHT
             if (kstate.IsKeyDown(Keys.W) && kstate.IsKeyDown(Keys.D))
             {
-                spaceManPos.Y -= (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                spaceManPos.X += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.Y -= (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.X += (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "up_right_tween_mid";
                 flip = false;
 
@@ -119,8 +123,8 @@ _graphics.PreferredBackBufferHeight / 2);
             //DOWN RIGHT
             if (kstate.IsKeyDown(Keys.S) && kstate.IsKeyDown(Keys.D))
             {
-                spaceManPos.Y += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                spaceManPos.X += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.Y += (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.X += (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "down_right_tween_mid";
                 flip = false;
             }
@@ -138,8 +142,8 @@ _graphics.PreferredBackBufferHeight / 2);
             //DOWN LEFT
             if (kstate.IsKeyDown(Keys.S) && kstate.IsKeyDown(Keys.A))
             {
-                spaceManPos.Y += (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                spaceManPos.X -= (spaceManSpeed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.Y += (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.X -= (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "down_right_tween_mid";
                 flip = true;
             }
@@ -160,8 +164,8 @@ _graphics.PreferredBackBufferHeight / 2);
             if (kstate.IsKeyDown(Keys.A) && kstate.IsKeyDown(Keys.W))
             {
 
-                spaceManPos.X -= (spaceManSpeed /2 )* (float)gameTime.ElapsedGameTime.TotalSeconds;
-                spaceManPos.Y -= (spaceManSpeed /2 )* (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.X -= (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                spaceManPos.Y -= (spaceManSpeed / ((float)diagSpeedMult)) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 direction = "up_right_tween_mid";
                 flip = true;
 
@@ -174,7 +178,8 @@ _graphics.PreferredBackBufferHeight / 2);
             }
             else
             {
-                spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(runAnimDirectory, runLabel, direction, currFrame));
+                //spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(runAnimDirectory, runLabel, direction, currFrame));
+                spaceman = Content.Load<Texture2D>(DevUtils.createTexturePath(carAnimDirector, carLabel, direction, currFrame));
             }
 
 
@@ -189,13 +194,37 @@ _graphics.PreferredBackBufferHeight / 2);
             _spriteBatch.Begin();
             //_spriteBatch.Draw(spaceman, spaceManPos, Color.White);
             //(Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth)
-
-            if (flip) {
-                _spriteBatch.Draw(spaceman, spaceManPos, null, Color.White, 0, new Vector2(0, 0), 1, SpriteEffects.FlipHorizontally, 0);
+            if (!isWalking)
+            {
+                if (flip)
+                {
+                    
+                    Rectangle rect2 = new Rectangle(0, 0, 64, 64);
+                    _spriteBatch.Draw(spaceman, spaceManPos, rect2, Color.White, 0,
+                        new Vector2(16,16), 2, SpriteEffects.FlipHorizontally, 0);
+                    /*
+                     * (Texture2D texture, Vector2 position, Rectangle? sourceRectangle, Color color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth)
+{
+                     */
+                }
+                else
+                {
+                    Rectangle rect = new Rectangle((int)spaceManPos.X-32, (int)spaceManPos.Y-32, 128, 128);
+                    Rectangle rect2 = new Rectangle(0, 0, 64, 64);
+                    _spriteBatch.Draw(spaceman, rect, rect2, Color.White);
+                }
             }
             else
             {
-                _spriteBatch.Draw(spaceman, spaceManPos, Color.White);
+                if (flip)
+                {
+                    _spriteBatch.Draw(spaceman, spaceManPos, null, Color.White, 0,
+                        new Vector2(0, 0), 1, SpriteEffects.FlipHorizontally, 0);
+                }
+                else
+                {
+                    _spriteBatch.Draw(spaceman, spaceManPos, Color.White);
+                }
             }
             
             _spriteBatch.End();

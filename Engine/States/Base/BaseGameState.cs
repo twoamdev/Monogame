@@ -4,6 +4,7 @@ using System.Linq;
 
 using Engine.Enum;
 using Engine.Objects.Base;
+using Engine.Input.Base;
 
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,12 +15,49 @@ namespace Engine.States.Base
     public abstract class BaseGameState
     {
         private readonly List<BaseGameObject> _gameObjects = new List<BaseGameObject>();
+        private const string missingTexture = "assets/ui/icons/errorTexture";
+        private ContentManager _contentManager;
+        protected int _viewportHeight;
+        protected int _viewportWidth;
+        protected InputManager InputManager { get; set; }
 
-        public abstract void LoadContent(ContentManager contentManager);
+        protected abstract void SetInputManager();
 
-        public abstract void UnloadContent(ContentManager contentManager);
+        public void Initialize(ContentManager contentManager, int viewportWidth, int viewportHeight)
+        {
+            _contentManager = contentManager;
+            _viewportWidth = viewportWidth;
+            _viewportHeight = viewportHeight;
+
+            SetInputManager();
+        }
+
+        public abstract void LoadContent();
+
+        public void UnloadContent(ContentManager contentManager)
+        {
+            _contentManager.Unload();
+        }
 
         public abstract void HandleInput();
+
+        protected Texture2D LoadTexture(string textureName)
+        {
+            try
+            {
+                var texture = _contentManager.Load<Texture2D>(textureName);
+                return texture;
+            }
+            catch(Exception)
+            {
+                var errorTexture = _contentManager.Load<Texture2D>(missingTexture);
+                return errorTexture;
+            }
+            
+           
+ 
+            
+        }
 
         public event EventHandler<BaseGameState> OnStateSwitched;
 

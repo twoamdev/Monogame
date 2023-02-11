@@ -1,7 +1,7 @@
 ﻿using Engine.Objects.Base;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Engine.Objects
+namespace Objects
 {
     public class SplashImage : BaseGameObject
     {

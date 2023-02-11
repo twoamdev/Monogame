@@ -13,9 +13,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\States\Base\BaseGameState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\Base\BaseGameObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\Events.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\States\GameplayState.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\States\SplashState.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\SplashImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\SplashState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\GameplayState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\SplashImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\Base\InputManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\Base\BaseInputMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\Base\BaseInputCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\GameplayInputCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\GameplayInputMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\SplashInputCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\SplashInputMapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\CharacterSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
@@ -25,6 +33,10 @@
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Objects\" />
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Objects\Base\" />
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Enum\" />
+    <Folder Include="$(MSBuildThisFileDirectory)States\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Objects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Input\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Input\Base\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />

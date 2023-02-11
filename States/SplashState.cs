@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Engine.Input;
 using Engine.Input.Base;
+using Engine.Enum;
+using Engine.Objects;
 
 namespace States
 {
@@ -20,10 +22,15 @@ namespace States
 
         public override void HandleInput()
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            InputManager.GetCommands(cmd =>
             {
-                SwitchState(new GameplayState());
+                if (cmd is SplashInputCommand.GameSelect)
+                {
+                    SwitchState(new GameplayState());
+                }
             }
+            );
+
         }
 
         protected override void SetInputManager()

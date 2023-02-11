@@ -17,5 +17,21 @@ namespace Engine.Input
 
             return commands;
         }
+
+
+        public override IEnumerable<BaseInputCommand> GetGamePadState(GamePadState state) {
+
+            var commands = new List<SplashInputCommand>();
+            
+            if (state.IsButtonDown(Buttons.A))
+            {
+                commands.Add(new SplashInputCommand.GameSelect());
+            }
+
+            return commands;
+        }
+        
+         
+
     }
 }

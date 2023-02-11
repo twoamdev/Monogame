@@ -19,7 +19,7 @@ namespace Engine.Input
             }
 
 
-            var moveResult = IsMoveKeyDown(state);
+            var moveResult = IsKeyboardMoveKeyDown(state);
             if (moveResult.Item1)
             {
                 commands.Add(new GameplayInputCommand.PlayerMove(moveResult.Item2));
@@ -30,8 +30,23 @@ namespace Engine.Input
             return commands;
         }
 
-        private (bool, Vector2) IsMoveKeyDown(KeyboardState state)
+        public override IEnumerable<BaseInputCommand> GetGamePadState(GamePadState state) {
+            var commands = new List<GameplayInputCommand>();
+            
+            if(state.IsButtonDown(Buttons.LeftThumbstickDown) || state.IsButtonDown(Buttons.LeftThumbstickUp) ||
+                state.IsButtonDown(Buttons.LeftThumbstickLeft) || state.IsButtonDown(Buttons.LeftThumbstickRight))
+            {
+                Vector2 direction = new Vector2(state.ThumbSticks.Left.X, -1 * state.ThumbSticks.Left.Y);
+                commands.Add(new GameplayInputCommand.PlayerMove(direction));
+            }
+
+            return commands;
+        }
+
+
+        private (bool, Vector2) IsKeyboardMoveKeyDown(KeyboardState state)
         {
+
             if(state.IsKeyDown(Keys.W))
             {
                 return (true, new Vector2(0,-1));

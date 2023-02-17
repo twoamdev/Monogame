@@ -52,11 +52,7 @@ namespace Engine.States.Base
             {
                 var errorTexture = _contentManager.Load<Texture2D>(missingTexture);
                 return errorTexture;
-            }
-            
-           
- 
-            
+            } 
         }
 
         public event EventHandler<BaseGameState> OnStateSwitched;

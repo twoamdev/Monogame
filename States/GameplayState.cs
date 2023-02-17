@@ -15,14 +15,17 @@ namespace States
     public class GameplayState : BaseGameState
     {
         private const string bgImage = "assets/dev/testDungeonSheet/dungeon_sheet";
-        private const string characterTexture = "assets/characters/genericTestMale/male_animation_walk_001/down_right_tween_down/male_animation_walk_001_down_right_tween_down.0";
+        //private const string characterTexture = "assets/characters/genericTestMale/male_animation_walk_001";
+        private const string characterTexture = "assets/characters/genericMaleJake/maleJake_test2";
         private CharacterSprite _characterSprite;
+        private EnvironmentBackground _levelBackground;
 
 
         public override void LoadContent()
         {
-            _characterSprite = new CharacterSprite(LoadTexture(characterTexture));
-            AddGameObject(new SplashImage(LoadTexture(bgImage)));
+            _characterSprite = new CharacterSprite(LoadTexture(characterTexture), 40, 40);
+            _levelBackground = new EnvironmentBackground(LoadTexture(bgImage));
+            //AddGameObject(_levelBackground);
             AddGameObject(_characterSprite);
         }
 
@@ -41,6 +44,7 @@ namespace States
                         var playerMoveCmd = (GameplayInputCommand.PlayerMove) cmd;
                         _characterSprite.Move(playerMoveCmd.GetDirection());
                     }
+                    
                 }
             );
 

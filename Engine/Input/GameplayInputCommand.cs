@@ -21,5 +21,8 @@ namespace Engine.Input
                 return _direction;
             }
         }
+        public class ChangeAnimationState : GameplayInputCommand { }
+
+
     }
 }

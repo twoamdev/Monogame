@@ -19,11 +19,16 @@ namespace Engine.Input
             }
 
 
-            var moveResult = IsKeyboardMoveKeyDown(state);
-            if (moveResult.Item1)
+            var moveResult = GetMoveDirectionOnKeyDown(state);
+            if (moveResult.isKeyDown)
             {
-                commands.Add(new GameplayInputCommand.PlayerMove(moveResult.Item2));
+                commands.Add(new GameplayInputCommand.PlayerMove(moveResult.direction));
             }
+            else
+            {
+                commands.Add(new GameplayInputCommand.ChangeAnimationState());
+            }
+
 
             
 
@@ -44,7 +49,7 @@ namespace Engine.Input
         }
 
 
-        private (bool, Vector2) IsKeyboardMoveKeyDown(KeyboardState state)
+        private (bool isKeyDown, Vector2 direction) GetMoveDirectionOnKeyDown(KeyboardState state)
         {
 
             if(state.IsKeyDown(Keys.W))

@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterAnimationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\CharacterFrameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
@@ -46,6 +47,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Input\Base\" />
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Animation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Engine\Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />

@@ -9,6 +9,7 @@ using Engine.Input;
 using Engine.Input.Base;
 using Engine.Enum;
 using Engine.Objects;
+using Engine.Utilities;
 
 namespace States
 {
@@ -17,7 +18,8 @@ namespace States
         public override void LoadContent()
         {
             // TODO: Add Content Loading
-            AddGameObject(new SplashImage(LoadTexture("assets/ui/backgrounds/testSplashBG")));
+            SpriteSheet sheet = new SpriteSheet(LoadTexture("assets/ui/backgrounds/testSplashBG"), 120, 60);
+            AddGameObject(new SplashImage(sheet));
         }
 
         public override void HandleInput()

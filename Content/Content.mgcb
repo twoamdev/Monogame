@@ -13,6 +13,66 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin assets/buildings/test/buildingA_STATIC_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/buildings/test/buildingA_STATIC_spriteSheet.png
+
+#begin assets/buildings/test/buildingB_STATIC_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/buildings/test/buildingB_STATIC_spriteSheet.png
+
+#begin assets/buildings/test/buildingC_STATIC_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/buildings/test/buildingC_STATIC_spriteSheet.png
+
+#begin assets/characters/genericMaleJake/maleJake_ROLL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/characters/genericMaleJake/maleJake_ROLL_spriteSheet.png
+
+#begin assets/characters/genericMaleJake/maleJake_RUN_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/characters/genericMaleJake/maleJake_RUN_spriteSheet.png
+
 #begin assets/characters/genericMaleJake/maleJake_test2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -24,6 +84,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/characters/genericMaleJake/maleJake_test2.png
+
+#begin assets/characters/genericMaleJake/maleJake_WALK_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/characters/genericMaleJake/maleJake_WALK_spriteSheet.png
 
 #begin assets/characters/genericMaleJake/maleJake_WALK.png
 /importer:TextureImporter

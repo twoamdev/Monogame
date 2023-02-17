@@ -1,28 +1,25 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using Engine.Objects.Base;
 using Engine.Animation;
 using Engine.Enum;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Engine.Utilities;
 
 namespace Engine.Objects
 {
     public class CharacterSprite : BaseGameObject
     {
         private const float CHARACTER_SPEED = 1.25f;
-        private int _spriteWidth;
-        private int _spriteHeight;
+        
         private CharacterAnimationState _animationState = new CharacterAnimationState();
         private CharacterFrameManager _frameManager;
 
-        public CharacterSprite(Texture2D texture, int spriteWidth, int spriteHeight)
+        public CharacterSprite(List<SpriteSheet> spriteSheets)
         {
-            _texture = texture;
-            _spriteWidth = spriteWidth;
-            _spriteHeight = spriteHeight;
-            _frameManager = new CharacterFrameManager(_spriteWidth, _spriteHeight, Position);
-
+            _frameManager = new CharacterFrameManager(Position, spriteSheets);
         }
 
         public void Move(Vector2 direction)
@@ -34,15 +31,20 @@ namespace Engine.Objects
             _frameManager.UpdatePosition(Position);
         }
 
+        public void ChangeState(AnimationStates state)
+        {
+            _frameManager.ChangeState(state);
+        }
+
         public override void Render(SpriteBatch spriteBatch)
         {
             
             if (_frameManager.DrawFlipped) {
-                spriteBatch.Draw(_texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(_frameManager.CurrentSheet.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
             else
             {
-                spriteBatch.Draw(_texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White);
+                spriteBatch.Draw(_frameManager.CurrentSheet.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White);
 
             }
             

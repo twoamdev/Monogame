@@ -1,4 +1,5 @@
 ﻿using Engine.Input.Base;
+using Engine.Enum;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -21,7 +22,18 @@ namespace Engine.Input
                 return _direction;
             }
         }
-        public class ChangeAnimationState : GameplayInputCommand { }
+        public class ChangeAnimationState : GameplayInputCommand
+        {
+            private AnimationStates _state;
+            public ChangeAnimationState(AnimationStates state)
+            {
+                _state = state;
+            }
+            public AnimationStates State
+            {
+                get { return _state; }
+            }
+        }
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using Engine.Input.Base;
+using Engine.Enum;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,10 +25,7 @@ namespace Engine.Input
             {
                 commands.Add(new GameplayInputCommand.PlayerMove(moveResult.direction));
             }
-            else
-            {
-                commands.Add(new GameplayInputCommand.ChangeAnimationState());
-            }
+            
 
 
             
@@ -44,6 +42,23 @@ namespace Engine.Input
                 Vector2 direction = new Vector2(state.ThumbSticks.Left.X, -1 * state.ThumbSticks.Left.Y);
                 commands.Add(new GameplayInputCommand.PlayerMove(direction));
             }
+
+            if (state.IsButtonDown(Buttons.A))
+            {
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
+            }
+
+            if (state.IsButtonUp(Buttons.A))
+            {
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
+            }
+
+            if (state.IsButtonDown(Buttons.B))
+            {
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.ROLLING));
+            }
+
+
 
             return commands;
         }

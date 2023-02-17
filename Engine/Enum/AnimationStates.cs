@@ -6,7 +6,8 @@ namespace Engine.Enum
         STATIC,
         IDLE,
         WALKING,
-        RUNNING
+        RUNNING,
+        ROLLING
 
     }
 

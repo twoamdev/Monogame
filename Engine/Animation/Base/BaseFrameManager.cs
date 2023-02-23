@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Utilities;
+using Engine.Enum;
 
 namespace Engine.Animation.Base
 {
 	public class BaseFrameManager
 	{
         protected List<SpriteSheet> _spriteSheets;
-        protected SpriteSheet _currentSheet;
 		protected Rectangle _destRectangle;
 		protected Rectangle _sourceRectangle;
-		protected bool _drawFlipped;
+        protected bool _drawFlipped = false;
+        protected Directions _currentDirection = Directions.DIR_0;
+        private double _currentFrame = 0.0;
+
+        public double CurrentFrame
+        {
+            get { return _currentFrame; }
+            set { _currentFrame = value; }
+        }
 
         public Rectangle DestinationRectangle {
             get { return _destRectangle; }
@@ -30,27 +38,75 @@ namespace Engine.Animation.Base
             set { _drawFlipped = value; }
         }
 
+        public Directions FrameDirection
+        {
+            get { return _currentDirection; }
+            set { _currentDirection = value; }
+        }
+
         public List<SpriteSheet> SpriteSheets
         {
-            get { return _spriteSheets; }
-            set {
-                _spriteSheets = value;
-                if(_spriteSheets.Count > 0 && _currentSheet == null)
+            set { _spriteSheets = value; }
+        }
+
+        public bool UpdateCurrentSpriteSheet(AnimationStates state)
+        {
+            for (int i = 0; i < _spriteSheets.Count; i++)
+            {
+                if (_spriteSheets[i].AnimationState == state)
                 {
-                    _currentSheet = _spriteSheets[0];
+                    if(i != 0)
+                    {
+                        var sheet = _spriteSheets[i];
+                        _spriteSheets.RemoveAt(i);
+                        _spriteSheets.Insert(0, sheet);
+                    }
+                    return true;
                 }
             }
+
+            return false;
         }
 
-
-        public SpriteSheet CurrentSheet
+        private SpriteSheet CurrentSpriteSheet
         {
-            get { return _currentSheet; }
-            set { _currentSheet = value; }
+            get { return _spriteSheets[0]; }
         }
 
+        public bool AnimationTriggered
+        {
+            get{ return CurrentSpriteSheet.PlaysOnChange; }
+        }
 
+        public Texture2D Texture
+        {
+            get { return CurrentSpriteSheet.Texture; }
+        }
 
+        public double FrameDuration
+        {
+            get { return CurrentSpriteSheet.FrameDuration; }
+        }
+
+        public int FrameCount
+        {
+            get { return CurrentSpriteSheet.FrameCount(FrameDirection); }
+        }
+
+        public Vector2 FrameSourcePos
+        {
+            get { return CurrentSpriteSheet.FrameSourcePosition((int) CurrentFrame, FrameDirection); }
+        }
+
+        public Vector2 FrameSize
+        {
+            get { return CurrentSpriteSheet.FrameSize((int)CurrentFrame, FrameDirection); }
+        }
+
+        public Vector2 FrameAnchor
+        {
+            get { return CurrentSpriteSheet.FrameAnchor((int)CurrentFrame, FrameDirection); }
+        }
     }
 }
 

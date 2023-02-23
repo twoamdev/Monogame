@@ -9,9 +9,7 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingC_STATIC_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericMaleJake/maleJake_ROLL_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericMaleJake/maleJake_RUN_spriteSheet.png</File>
-    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericMaleJake/maleJake_test2.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericMaleJake/maleJake_WALK_spriteSheet.png</File>
-    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericMaleJake/maleJake_WALK.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/characters/genericTestMale/male_animation_walk_001.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/dev/testDungeonSheet/dungeon_sheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/ui/backgrounds/testSplashBG.png</File>
@@ -72,8 +70,6 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/up/car_animation_go_001_up.5.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

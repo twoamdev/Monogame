@@ -10,36 +10,46 @@ namespace Engine.Animation
 {
 	public class CharacterFrameManager : BaseFrameManager
 	{
-        private Vector2 Y_POSITIVE_DIRECTION = new Vector2(0, 1);
-        private Enum.Directions _drawDirection;
-        
-        private double _currentFrame;
+        private bool _isAnimationPlaying = false;
+        private bool _characterMoved = false;
 
-        public CharacterFrameManager(Vector2 characterPosition, List<SpriteSheet> sheets)
+        public CharacterFrameManager(List<SpriteSheet> sheets)
 		{
-            _drawDirection = Enum.Directions.DIR_0_DOWN;
             SpriteSheets = sheets;
-            _currentFrame = 0;
-            DrawFlipped = false;
-            
-            SourceRectangle = new Rectangle((int)_currentFrame * CurrentSheet.SpriteWidth, (int) _drawDirection * CurrentSheet.SpriteHeight, CurrentSheet.SpriteWidth, CurrentSheet.SpriteHeight);
-            DestinationRectangle = new Rectangle((int)characterPosition.X, (int)characterPosition.Y, CurrentSheet.SpriteWidth, CurrentSheet.SpriteHeight);
+        }
+
+        public void UpdateCurrentFrame()
+        {
+            if (_characterMoved || _isAnimationPlaying)
+            {
+                CurrentFrame += FrameDuration;
+                if (CurrentFrame >= FrameCount)
+                {
+                    _isAnimationPlaying = false;
+                }
+                CurrentFrame %= FrameCount;
+                _characterMoved = false;
+            }
         }
 
         public void ChangeState(AnimationStates state)
         {
-            foreach(SpriteSheet sheet in SpriteSheets)
+            if (_isAnimationPlaying) {
+                return;
+            }
+
+            bool wasUpdated = UpdateCurrentSpriteSheet(state);
+            if (wasUpdated && AnimationTriggered)
             {
-                if(sheet.AnimationState == state)
-                {
-                    CurrentSheet = sheet;
-                }
+                _isAnimationPlaying = true;
+                CurrentFrame = 0.0;
             }
         }
 
         public void CalculateDirection(Vector2 direction)
         {
-            float dotResult = Vector2.Dot(Y_POSITIVE_DIRECTION, direction);
+            float dotResult = Vector2.Dot(new Vector2(0,1), direction);
+            _characterMoved = true;
 
             double upperBound = 1.0;
             double lowerBound = 0;
@@ -51,20 +61,20 @@ namespace Engine.Animation
                 if (dotResult <= upperBound && dotResult >= lowerBound)
                 {
                     DrawFlipped = direction.X < 0 && (i != 0) && (i != 9) ? true : false;
-                    _drawDirection = (Enum.Directions) i;
+                    FrameDirection = (Enum.Directions) i;
                     settingsAdjusted = true;
                 }
                 upperBound = lowerBound;
             }
             if (!settingsAdjusted)
             {
-                _drawDirection = Enum.Directions.DIR_0_DOWN;
+                FrameDirection = Enum.Directions.DIR_0;
                 DrawFlipped = false;
             }
 
             //account for flipping up or down
-            bool upOrDown = _drawDirection == Enum.Directions.DIR_0_DOWN ||
-                _drawDirection == Enum.Directions.DIR_8_UP ? true : false;
+            bool upOrDown = FrameDirection == Enum.Directions.DIR_0 ||
+                FrameDirection == Enum.Directions.DIR_8 ? true : false;
             if(upOrDown && DrawFlipped)
             {
                 DrawFlipped = false;
@@ -72,16 +82,11 @@ namespace Engine.Animation
             
         }
 
-        public void UpdatePosition(Vector2 position)
+        public void UpdateDrawPosition(Vector2 characterPosition)
         {
-            _currentFrame += (15.0 / 60.0);
-            _currentFrame = _currentFrame % 14;
-            var width = CurrentSheet.SpriteWidth;
-            var height = CurrentSheet.SpriteHeight;
-            SourceRectangle = new Rectangle((int)_currentFrame * width, (int)_drawDirection * height, width, height);
-            DestinationRectangle = new Rectangle((int)position.X, (int)position.Y, width, height);
+            SourceRectangle = new Rectangle((int) FrameSourcePos.X, (int) FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
+            DestinationRectangle = new Rectangle((int)(characterPosition.X - FrameAnchor.X), (int)(characterPosition.Y - FrameAnchor.Y), (int)FrameSize.X, (int)FrameSize.Y);
         }
-
     }
 }
 

@@ -8,7 +8,7 @@ namespace Objects
     {
         public SplashImage(SpriteSheet sheet)
         {
-            _sheet = sheet;
+            //_sheet = sheet;
         }
     }
 }

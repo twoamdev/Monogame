@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,19 +42,21 @@ namespace Engine.States.Base
 
         public abstract void HandleInput();
 
-        protected Texture2D LoadTexture(string textureName)
+        protected (bool IsErrorTexture, Texture2D LoadedTexture) LoadTexture(string textureName)
         {
             try
             {
                 var texture = _contentManager.Load<Texture2D>(textureName);
-                return texture;
+                return (false, texture);
             }
             catch(Exception)
             {
                 var errorTexture = _contentManager.Load<Texture2D>(missingTexture);
-                return errorTexture;
+                return (true, errorTexture);
             } 
         }
+
+       
 
         public event EventHandler<BaseGameState> OnStateSwitched;
 

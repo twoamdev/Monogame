@@ -18,8 +18,9 @@ namespace States
         public override void LoadContent()
         {
             // TODO: Add Content Loading
-            SpriteSheet sheet = new SpriteSheet(LoadTexture("assets/ui/backgrounds/testSplashBG"), 120, 60);
-            AddGameObject(new SplashImage(sheet));
+            var loadResult = LoadTexture("assets/ui/backgrounds/testSplashBG");
+            SpriteSheet sheet = new SpriteSheet(loadResult.IsErrorTexture, loadResult.LoadedTexture);
+            //AddGameObject(new SplashImage(sheet));
         }
 
         public override void HandleInput()

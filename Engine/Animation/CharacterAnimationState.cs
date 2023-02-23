@@ -5,10 +5,7 @@ namespace Engine.Animation
 {
 	public class CharacterAnimationState : BaseAnimationState
 	{
-		public CharacterAnimationState()
-		{
-			
-		}
+		
 	}
 }
 

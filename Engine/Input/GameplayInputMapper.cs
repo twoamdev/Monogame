@@ -48,7 +48,7 @@ namespace Engine.Input
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
             }
 
-            if (state.IsButtonUp(Buttons.A))
+            if (state.IsButtonUp(Buttons.A) && !state.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
             }

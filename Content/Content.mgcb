@@ -73,18 +73,6 @@
 /processorParam:TextureFormat=Color
 /build:assets/characters/genericMaleJake/maleJake_RUN_spriteSheet.png
 
-#begin assets/characters/genericMaleJake/maleJake_test2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/characters/genericMaleJake/maleJake_test2.png
-
 #begin assets/characters/genericMaleJake/maleJake_WALK_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,18 +84,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/characters/genericMaleJake/maleJake_WALK_spriteSheet.png
-
-#begin assets/characters/genericMaleJake/maleJake_WALK.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/characters/genericMaleJake/maleJake_WALK.png
 
 #begin assets/characters/genericTestMale/male_animation_walk_001.png
 /importer:TextureImporter

@@ -5,21 +5,31 @@ using Engine.Enum;
 
 namespace Engine.Animation.Base
 {
-	public abstract class BaseAnimationState
+	public class BaseAnimationState
 	{
-        private AnimationStates _state = AnimationStates.STATIC;
+        private AnimationStates _state;
+        private bool _isPlaying;
 
-        public AnimationStates AnimationState
+        public BaseAnimationState()
+        {
+            _state = AnimationStates.STATIC;
+            _isPlaying = false;
+        }
+
+        public AnimationStates State
         {
             get { return _state; }
             set { _state = value; }
         }
-        /*
-        protected void LoadAnimationFrames(Texture2D textureSheet)
-        {
 
+        public bool IsPlaying
+        {
+            get { return _isPlaying; }
+            set { _isPlaying = value; }
         }
-        */
+
+        
+       
     }
 }
 

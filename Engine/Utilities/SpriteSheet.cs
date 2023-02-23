@@ -2,33 +2,86 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Enum;
+using Engine.Animation.Base;
+using Engine.Utilities;
 
 namespace Engine.Utilities
 {
 	public class SpriteSheet
 	{
 		private Texture2D _texture;
-		private int _spriteWidth;
-		private int _spriteHeight;
-		private AnimationStates _animationState;
+		private SpriteSheetData _sheetMetaData;
+		private AnimationStates _stateId;
+		private bool _statePlaysOnChange;
 
-		public SpriteSheet(Texture2D texture, int spriteWidth, int spriteHeight, AnimationStates animationState = AnimationStates.STATIC)
+
+		public SpriteSheet(bool isErrorTexture, Texture2D texture,
+            SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
 		{
 			_texture = texture;
-			_spriteWidth = spriteWidth;
-			_spriteHeight = spriteHeight;
-			_animationState = animationState;
-		}
+			_sheetMetaData = metaData;
+            _stateId = stateId;
+            if (stateId == AnimationStates.ROLLING)
+            {
+                _statePlaysOnChange = true;
+            }
+            else
+            {
+                _statePlaysOnChange = false;
+            }
+
+        }
+
+        public SpriteSheet(bool isErrorTexture, Texture2D texture, AnimationStates stateId = AnimationStates.STATIC)
+        {
+            _texture = texture;
+            _sheetMetaData = new SpriteSheetData(_texture.Width, _texture.Height);
+            _stateId = stateId;
+            if (stateId == AnimationStates.ROLLING)
+            {
+                _statePlaysOnChange = true;
+            }
+            else
+            {
+                _statePlaysOnChange = false;
+            }
+
+        }
 
         public int TextureWidth { get { return _texture.Width; } }
         public int TextureHeight { get { return _texture.Height; } }
-        public int SpriteWidth { get { return _spriteWidth; } }
-        public int SpriteHeight { get { return _spriteHeight; } }
         public Texture2D Texture { get { return _texture; } }
-		public AnimationStates AnimationState { get { return _animationState; } }
 
+		public AnimationStates AnimationState { get { return _stateId; } }
+		public bool PlaysOnChange
+		{
+			get { return _statePlaysOnChange; }
+		}
 
+        public double FrameDuration
+        {
+            get { return (15.0 / 60.0); }
+        }
 
+        public int FrameCount(Directions direction)
+        {
+            return _sheetMetaData.FrameCount(direction); 
+        }
+
+        public Vector2 FrameSourcePosition(int currentFrame, Directions direction)
+        {
+            return _sheetMetaData.GetSourcePosition(currentFrame, direction);
+        }
+
+        public Vector2 FrameSize(int currentFrame, Directions direction)
+        {
+            return _sheetMetaData.GetCurrentFrameSize(currentFrame, direction);
+        }
+
+        public Vector2 FrameAnchor(int currentFrame, Directions direction)
+        {
+            return _sheetMetaData.GetAnchorPosition(currentFrame, direction);
+        }
     }
 }
 

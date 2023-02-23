@@ -10,25 +10,22 @@ using Engine.Utilities;
 
 namespace Engine.Objects
 {
-    public class CharacterSprite : BaseGameObject
+    public class CharacterObject : BaseGameObject
     {
         private const float CHARACTER_SPEED = 1.25f;
-        
-        private CharacterAnimationState _animationState = new CharacterAnimationState();
         private CharacterFrameManager _frameManager;
 
-        public CharacterSprite(List<SpriteSheet> spriteSheets)
+        public CharacterObject(CharacterFrameManager manager, Vector2 startPosition)
         {
-            _frameManager = new CharacterFrameManager(Position, spriteSheets);
+            _frameManager = manager;
+            Position = startPosition;
         }
 
         public void Move(Vector2 direction)
         {
             _frameManager.CalculateDirection(direction);
-            
             Position = new Vector2(Position.X + (CHARACTER_SPEED * direction.X),
                 Position.Y + (CHARACTER_SPEED * direction.Y));
-            _frameManager.UpdatePosition(Position);
         }
 
         public void ChangeState(AnimationStates state)
@@ -38,13 +35,15 @@ namespace Engine.Objects
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            
+            _frameManager.UpdateDrawPosition(Position);
+            _frameManager.UpdateCurrentFrame();
+
             if (_frameManager.DrawFlipped) {
-                spriteBatch.Draw(_frameManager.CurrentSheet.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+                spriteBatch.Draw(_frameManager.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
             }
             else
             {
-                spriteBatch.Draw(_frameManager.CurrentSheet.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White);
+                spriteBatch.Draw(_frameManager.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White);
 
             }
             

@@ -11,13 +11,16 @@ namespace Engine.Objects
 		private float SCROLL_SPEED = 0.0f;
 		public EnvironmentBackground(SpriteSheet sheet)
 		{
+            /*
 			_sheet = sheet;
 			_position = new Vector2(0, 0);
+            */
 		}
 
         
         public override void Render(SpriteBatch spriteBatch)
         {
+            /*
             var viewport = spriteBatch.GraphicsDevice.Viewport;
 
             
@@ -36,6 +39,7 @@ namespace Engine.Objects
             }
 
             _position.Y = (int)(_position.Y + SCROLL_SPEED) % Sheet.TextureHeight;
+            */
         }
         
     }

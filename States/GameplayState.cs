@@ -27,25 +27,36 @@ namespace States
         private const string walkData = "assets/characters/genericMaleJake/maleJake_WALK_metaData.json";
         private const string runTexture = "assets/characters/genericMaleJake/maleJake_RUN_spriteSheet";
         private const string runData = "assets/characters/genericMaleJake/maleJake_RUN_metaData.json";
+
+        private const string buildingATexture = "assets/buildings/test/buildingA_STATIC_spriteSheet";
+        private const string buildingAData = "assets/buildings/test/buildingA_STATIC_metaData.json";
+
         private CharacterObject _characterSprite;
-        private EnvironmentBackground _levelBackground;
+        private EnvironmentObject _buildingASprite;
 
 
         public override void LoadContent()
         {
-            var sheets = LoadSheets();
+            var sheets = LoadCharacterSheets();
             var frameManager = new CharacterFrameManager(sheets);
-            
             var startPos = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
             _characterSprite = new CharacterObject(frameManager, startPos);
-            
-            //AddGameObject(_levelBackground);
+
+            var buildingResult = LoadTexture(buildingATexture);
+            var buildingMetaData = new SpriteSheetData(metaDataRoot + buildingAData);
+
+            var buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
+                buildingResult.LoadedTexture, buildingMetaData);
+            var propFrameManager = new PropFrameManager(buildingSheet);
+            var buildingPos = new Vector2(_viewportWidth / 4, _viewportHeight / 4);
+            _buildingASprite = new EnvironmentObject(propFrameManager, buildingPos);
+            AddGameObject(_buildingASprite);
             AddGameObject(_characterSprite);
         }
 
         
 
-        private List<SpriteSheet> LoadSheets()
+        private List<SpriteSheet> LoadCharacterSheets()
         {
             var sheets = new List<SpriteSheet>();
             var walkResult = LoadTexture(walkTexture);

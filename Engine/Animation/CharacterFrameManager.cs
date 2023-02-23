@@ -81,12 +81,6 @@ namespace Engine.Animation
             }
             
         }
-
-        public void UpdateDrawPosition(Vector2 characterPosition)
-        {
-            SourceRectangle = new Rectangle((int) FrameSourcePos.X, (int) FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
-            DestinationRectangle = new Rectangle((int)(characterPosition.X - FrameAnchor.X), (int)(characterPosition.Y - FrameAnchor.Y), (int)FrameSize.X, (int)FrameSize.Y);
-        }
     }
 }
 

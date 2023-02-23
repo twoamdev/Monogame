@@ -35,7 +35,7 @@ namespace Engine.Objects
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            _frameManager.UpdateDrawPosition(Position);
+            _frameManager.UpdateObjectPosition(Position);
             _frameManager.UpdateCurrentFrame();
 
             if (_frameManager.DrawFlipped) {

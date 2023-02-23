@@ -49,6 +49,12 @@ namespace Engine.Animation.Base
             set { _spriteSheets = value; }
         }
 
+        public void UpdateObjectPosition(Vector2 position)
+        {
+            SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
+            DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y), (int)FrameSize.X, (int)FrameSize.Y);
+        }
+
         public bool UpdateCurrentSpriteSheet(AnimationStates state)
         {
             for (int i = 0; i < _spriteSheets.Count; i++)

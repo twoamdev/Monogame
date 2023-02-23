@@ -24,15 +24,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\SplashInputCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\SplashInputMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\CharacterObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\EnvironmentBackground.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\EnvironmentObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseAnimationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\Directions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\AnimationStates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterAnimationState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseFrameManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\CharacterFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheetData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterFrameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\PropFrameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

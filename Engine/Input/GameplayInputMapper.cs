@@ -35,7 +35,8 @@ namespace Engine.Input
 
         public override IEnumerable<BaseInputCommand> GetGamePadState(GamePadState state) {
             var commands = new List<GameplayInputCommand>();
-            
+
+            //Move Player
             if(state.IsButtonDown(Buttons.LeftThumbstickDown) || state.IsButtonDown(Buttons.LeftThumbstickUp) ||
                 state.IsButtonDown(Buttons.LeftThumbstickLeft) || state.IsButtonDown(Buttons.LeftThumbstickRight))
             {
@@ -43,16 +44,26 @@ namespace Engine.Input
                 commands.Add(new GameplayInputCommand.PlayerMove(direction));
             }
 
+            //Move Camera
+            if (state.IsButtonDown(Buttons.RightThumbstickLeft) || state.IsButtonDown(Buttons.RightThumbstickRight))
+            {
+                Vector2 direction = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
+                commands.Add(new GameplayInputCommand.CameraMove(direction));
+            }
+
+            //Run
             if (state.IsButtonDown(Buttons.A))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
             }
 
+            //Walk again
             if (state.IsButtonUp(Buttons.A) && !state.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
             }
 
+            //Roll
             if (state.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.ROLLING));

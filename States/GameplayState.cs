@@ -30,9 +30,17 @@ namespace States
 
         private const string buildingATexture = "assets/buildings/test/buildingA_STATIC_spriteSheet";
         private const string buildingAData = "assets/buildings/test/buildingA_STATIC_metaData.json";
+        private const string buildingBTexture = "assets/buildings/test/buildingB_STATIC_spriteSheet";
+        private const string buildingBData = "assets/buildings/test/buildingB_STATIC_metaData.json";
+        private const string buildingCTexture = "assets/buildings/test/buildingC_STATIC_spriteSheet";
+        private const string buildingCData = "assets/buildings/test/buildingC_STATIC_metaData.json";
 
         private CharacterObject _characterSprite;
         private EnvironmentObject _buildingASprite;
+        private EnvironmentObject _buildingBSprite;
+        private EnvironmentObject _buildingCSprite;
+        private Vector2 _viewportCenter;
+        private Vector2 _viewportCenterPrev;
 
 
         public override void LoadContent()
@@ -44,14 +52,36 @@ namespace States
 
             var buildingResult = LoadTexture(buildingATexture);
             var buildingMetaData = new SpriteSheetData(metaDataRoot + buildingAData);
-
             var buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
                 buildingResult.LoadedTexture, buildingMetaData);
             var propFrameManager = new PropFrameManager(buildingSheet);
             var buildingPos = new Vector2(_viewportWidth / 4, _viewportHeight / 4);
             _buildingASprite = new EnvironmentObject(propFrameManager, buildingPos);
+
+            buildingResult = LoadTexture(buildingBTexture);
+            buildingMetaData = new SpriteSheetData(metaDataRoot + buildingBData);
+            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
+                buildingResult.LoadedTexture, buildingMetaData);
+            propFrameManager = new PropFrameManager(buildingSheet);
+            buildingPos = new Vector2(_viewportWidth / 1.5f, _viewportHeight / 1.5f);
+            _buildingBSprite = new EnvironmentObject(propFrameManager, buildingPos);
+
+            buildingResult = LoadTexture(buildingCTexture);
+            buildingMetaData = new SpriteSheetData(metaDataRoot + buildingCData);
+            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
+                buildingResult.LoadedTexture, buildingMetaData);
+            propFrameManager = new PropFrameManager(buildingSheet);
+            buildingPos = new Vector2(_viewportWidth / 4.0f, _viewportHeight / 1.5f);
+            _buildingCSprite = new EnvironmentObject(propFrameManager, buildingPos);
+
+
             AddGameObject(_buildingASprite);
+            AddGameObject(_buildingBSprite);
+            AddGameObject(_buildingCSprite);
             AddGameObject(_characterSprite);
+
+            _viewportCenter = new Vector2(startPos.X, startPos.Y);
+            _viewportCenterPrev = new Vector2(startPos.X, startPos.Y);
         }
 
         
@@ -94,14 +124,29 @@ namespace States
                     if(cmd is GameplayInputCommand.PlayerMove)
                     { 
                         var playerMoveCmd = (GameplayInputCommand.PlayerMove) cmd;
-                        _characterSprite.Move(playerMoveCmd.GetDirection());
+                        
+                        var pos = _characterSprite.Move(playerMoveCmd.GetDirection());
+                        
+                        var offsetPos = Vector2.Subtract(_viewportCenter, pos);
+                        _buildingASprite.OffsetPosition(offsetPos);
+                        _buildingBSprite.OffsetPosition(offsetPos);
+                        _buildingCSprite.OffsetPosition(offsetPos);
+
                     }
                     if(cmd is GameplayInputCommand.ChangeAnimationState)
                     {
                         var changeStateCmd = (GameplayInputCommand.ChangeAnimationState)cmd;
                         _characterSprite.ChangeState(changeStateCmd.State);
                     }
-                    
+                    if (cmd is GameplayInputCommand.CameraMove)
+                    {
+                        var cameraMoveCmd = (GameplayInputCommand.CameraMove) cmd;
+                        var pivotPos = _viewportCenter;
+                        _buildingASprite.CameraMove(cameraMoveCmd.GetDirection(), pivotPos);
+                        _buildingBSprite.CameraMove(cameraMoveCmd.GetDirection(), pivotPos);
+                        _buildingCSprite.CameraMove(cameraMoveCmd.GetDirection(), pivotPos);
+                    }
+
                 }
             );
 

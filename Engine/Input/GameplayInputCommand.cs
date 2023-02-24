@@ -35,6 +35,19 @@ namespace Engine.Input
             }
         }
 
+        public class CameraMove : GameplayInputCommand
+        {
+            private Vector2 _direction;
 
+            public CameraMove(Vector2 direction)
+            {
+                _direction = direction;
+            }
+
+            public Vector2 GetDirection()
+            {
+                return _direction;
+            }
+        }
     }
 }

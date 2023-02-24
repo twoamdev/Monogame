@@ -60,7 +60,11 @@ namespace Engine.Utilities
 
         public double FrameDuration
         {
-            get { return (15.0 / 60.0); }
+            get {
+                if(AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
+                
+                return (15.0 / 60.0);
+            }
         }
 
         public int FrameCount(Directions direction)

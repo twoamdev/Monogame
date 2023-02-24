@@ -24,7 +24,7 @@ namespace Engine.Objects.Base
 
         public virtual void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_baseFrameManager.Texture, _baseFrameManager.DestinationRectangle, _baseFrameManager.SourceRectangle, Color.White);
+            //spriteBatch.Draw(_baseFrameManager.Texture, _baseFrameManager.DestinationRectangle, _baseFrameManager.SourceRectangle, Color.White);
         }
     }
 }

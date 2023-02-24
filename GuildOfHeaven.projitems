@@ -34,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheetData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\PropFrameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\MathUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

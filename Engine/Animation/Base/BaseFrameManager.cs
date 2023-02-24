@@ -49,7 +49,7 @@ namespace Engine.Animation.Base
             set { _spriteSheets = value; }
         }
 
-        public void UpdateObjectPosition(Vector2 position)
+        public void UpdateDrawRectangles(Vector2 position)
         {
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
             DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y), (int)FrameSize.X, (int)FrameSize.Y);
@@ -82,6 +82,11 @@ namespace Engine.Animation.Base
         public bool AnimationTriggered
         {
             get{ return CurrentSpriteSheet.PlaysOnChange; }
+        }
+
+        public AnimationStates CurrentAnimationState
+        {
+            get { return CurrentSpriteSheet.AnimationState; }
         }
 
         public Texture2D Texture

@@ -12,7 +12,7 @@ namespace Engine.Objects
 {
     public class CharacterObject : BaseGameObject
     {
-        private const float CHARACTER_SPEED = 1.25f;
+        private const float CHARACTER_SPEED = 0.8f;
         private CharacterFrameManager _frameManager;
 
         public CharacterObject(CharacterFrameManager manager, Vector2 startPosition)
@@ -21,11 +21,12 @@ namespace Engine.Objects
             Position = startPosition;
         }
 
-        public void Move(Vector2 direction)
+        public Vector2 Move(Vector2 direction)
         {
             _frameManager.CalculateDirection(direction);
-            Position = new Vector2(Position.X + (CHARACTER_SPEED * direction.X),
-                Position.Y + (CHARACTER_SPEED * direction.Y));
+            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.2f : CHARACTER_SPEED;
+
+            return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));
         }
 
         public void ChangeState(AnimationStates state)
@@ -35,7 +36,7 @@ namespace Engine.Objects
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            _frameManager.UpdateObjectPosition(Position);
+            _frameManager.UpdateDrawRectangles(Position);
             _frameManager.UpdateCurrentFrame();
 
             if (_frameManager.DrawFlipped) {

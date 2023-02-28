@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -48,39 +49,16 @@ namespace Engine.Animation
             }
         }
 
-        public void CalculateDirection(Vector2 direction)
+        public void CalculateDirection(Vector2 direction, Vector2 screenDownDirection)
         {
-            float dotResult = Vector2.Dot(new Vector2(0,1), direction);
+            
+            float dotResult = Vector2.Dot(screenDownDirection, direction);
             _characterMoved = true;
-
-            double upperBound = 1.0;
-            double lowerBound = 0;
-            bool settingsAdjusted = false;
-            for (int i = 0; i < 9; i++)
-            {
-
-                lowerBound = 1.0 - ((2.0 / 9.0) * (i + 1));
-                if (dotResult <= upperBound && dotResult >= lowerBound)
-                {
-                    DrawFlipped = direction.X < 0 && (i != 0) && (i != 9) ? true : false;
-                    FrameDirection = (Enum.Directions) i;
-                    settingsAdjusted = true;
-                }
-                upperBound = lowerBound;
-            }
-            if (!settingsAdjusted)
-            {
-                FrameDirection = Enum.Directions.DIR_0;
-                DrawFlipped = false;
-            }
-
-            //account for flipping up or down
-            bool upOrDown = FrameDirection == Enum.Directions.DIR_0 ||
-                FrameDirection == Enum.Directions.DIR_8 ? true : false;
-            if(upOrDown && DrawFlipped)
-            {
-                DrawFlipped = false;
-            }
+            dotResult += 1;
+            int dir = (int) MathUtils.Remap(dotResult, 0, 2, 0, 8);
+            dir = 8 - dir;
+            
+            FrameDirection = (Directions)dir;
             
         }
     }

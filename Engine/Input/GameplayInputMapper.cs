@@ -69,7 +69,7 @@ namespace Engine.Input
             if (state.IsButtonDown(Buttons.RightThumbstickRight) || state.IsButtonDown(Buttons.RightThumbstickLeft))
             {
                 _camMoveReleased++;
-                _camMoveReleased = MathUtils.Mod(_camMoveReleased, 10);
+                _camMoveReleased = MathUtils.Mod(_camMoveReleased, 5);
             }
             
             if (state.IsButtonUp(Buttons.RightThumbstickRight) && state.IsButtonUp(Buttons.RightThumbstickLeft))
@@ -78,13 +78,13 @@ namespace Engine.Input
             }
 
             //Run
-            if (state.IsButtonDown(Buttons.A))
+            if (state.IsButtonDown(Buttons.LeftStick))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
             }
 
             //Walk again
-            if (state.IsButtonUp(Buttons.A) && !state.IsButtonDown(Buttons.B))
+            if (state.IsButtonUp(Buttons.LeftStick) && !state.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
             }

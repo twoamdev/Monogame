@@ -12,7 +12,7 @@ namespace Engine.Objects
 {
     public class CharacterObject : BaseGameObject
     {
-        private const float CHARACTER_SPEED = 0.8f;
+        private const float CHARACTER_SPEED = 1.5f;
         private CharacterFrameManager _frameManager;
 
         public CharacterObject(CharacterFrameManager manager, Vector2 startPosition)
@@ -21,12 +21,25 @@ namespace Engine.Objects
             Position = startPosition;
         }
 
-        public Vector2 Move(Vector2 direction)
+        public void Move(Vector2 direction)
         {
-            _frameManager.CalculateDirection(direction);
-            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.2f : CHARACTER_SPEED;
+            var camDir = _frameManager.Camera.CameraDirection;
+            int camMult = (int) camDir;
+            ;
+            var degreeRotation = (float)((360.0 / (float)32.0) * (float)camMult);
+            var rotation = MathUtils.ToRadians(degreeRotation);
+            
+            var cosTheta = Math.Cos(rotation);
+            var sinTheta = Math.Sin(rotation);
+            double x = ((double)direction.X * cosTheta) - ((double)direction.Y * sinTheta);
+            double y = ((double)direction.Y * cosTheta) + ((double)direction.X * sinTheta);
 
-            return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));
+            direction = new Vector2((float)x, (float)y);
+
+
+            //_frameManager.CalculateDirection(direction);
+            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED + 1.2f : CHARACTER_SPEED;
+            Position = new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));
         }
 
         public void ChangeState(AnimationStates state)
@@ -36,7 +49,9 @@ namespace Engine.Objects
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            _frameManager.UpdateDrawRectangles(Position);
+           
+            _frameManager.UpdateDrawRectangles(Position, true);
+            zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
 
             if (_frameManager.DrawFlipped) {

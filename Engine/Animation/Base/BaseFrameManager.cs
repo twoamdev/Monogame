@@ -1,20 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Utilities;
 using Engine.Enum;
+using Engine.Objects;
 
 namespace Engine.Animation.Base
 {
 	public class BaseFrameManager
 	{
         protected List<SpriteSheet> _spriteSheets;
+        protected ViewportCamera _camera;
+        protected float _drawDepth;
 		protected Rectangle _destRectangle;
 		protected Rectangle _sourceRectangle;
         protected bool _drawFlipped = false;
         protected Directions _currentDirection = Directions.DIR_0;
         private double _currentFrame = 0.0;
+
+        public BaseFrameManager(ViewportCamera camera)
+        {
+            _camera = camera;
+        }
+
+        public ViewportCamera Camera
+        {
+            get { return _camera; }
+            set { _camera = value; }
+        }
 
         public double CurrentFrame
         {
@@ -44,15 +59,39 @@ namespace Engine.Animation.Base
             set { _currentDirection = value; }
         }
 
+        public float DrawDepth
+        {
+            get { return _drawDepth; }
+            set { _drawDepth = value; }
+        }
+
         public List<SpriteSheet> SpriteSheets
         {
             set { _spriteSheets = value; }
         }
 
-        public void UpdateDrawRectangles(Vector2 position)
+        public void UpdateDrawRectangles(Vector2 position, bool trackWithCamera = false)
         {
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
-            DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y), (int)FrameSize.X, (int)FrameSize.Y);
+            //transform 2D world position to the screen camera space
+            position = Camera.ToCameraSpace(position.X, position.Y);
+            DrawDepth = position.Y - FrameAnchor.Y;
+            DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y),
+                (int)FrameSize.X, (int)FrameSize.Y);
+       
+        }
+
+        public (Directions direction, bool isFlipped) Convert32AngleDirectionTo16AngleMirrorDirection(Directions direction)
+        {
+            int inValue = (int) direction;
+            var remappedDirection = MathUtils.Remap(inValue, 0, 31, 0, 15);
+            bool flip = false;
+            if(remappedDirection > 8)
+            {
+                remappedDirection -= MathUtils.Mod(remappedDirection, 8);
+                flip = true;
+            }
+            return (Directions.DIR_0, flip);
         }
 
         public bool UpdateCurrentSpriteSheet(AnimationStates state)

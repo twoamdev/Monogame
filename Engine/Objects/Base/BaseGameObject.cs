@@ -12,13 +12,17 @@ namespace Engine.Objects.Base
     {
         protected BaseFrameManager _baseFrameManager;
         protected Vector2 _position = Vector2.One;
-        public int zIndex;
+        public float zIndex;
 
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
         }
+
+
+        
+
 
         public virtual void OnNotify(Events eventType, object argument = null) { }
 

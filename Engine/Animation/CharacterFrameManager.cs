@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Engine.Animation.Base;
 using Engine.Utilities;
 using Engine.Enum;
+using Engine.Objects;
 
 namespace Engine.Animation
 {
@@ -13,9 +14,10 @@ namespace Engine.Animation
         private bool _isAnimationPlaying = false;
         private bool _characterMoved = false;
 
-        public CharacterFrameManager(List<SpriteSheet> sheets)
+        public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
 		{
             SpriteSheets = sheets;
+           
         }
 
         public void UpdateCurrentFrame()

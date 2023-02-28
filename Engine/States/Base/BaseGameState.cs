@@ -82,6 +82,11 @@ namespace Engine.States.Base
             _gameObjects.Add(gameObject);
         }
 
+        protected List<BaseGameObject> GameObjects
+        {
+            get { return _gameObjects; }
+        }
+
         public void Render(SpriteBatch spriteBatch)
         {
             foreach (var gameObject in _gameObjects.OrderBy(a => a.zIndex))

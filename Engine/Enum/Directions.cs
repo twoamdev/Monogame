@@ -18,7 +18,23 @@ namespace Engine.Enum
         DIR_12,
         DIR_13,
         DIR_14,
-        DIR_15
+        DIR_15,
+        DIR_16,
+        DIR_17,
+        DIR_18,
+        DIR_19,
+        DIR_20,
+        DIR_21,
+        DIR_22,
+        DIR_23,
+        DIR_24,
+        DIR_25,
+        DIR_26,
+        DIR_27,
+        DIR_28,
+        DIR_29,
+        DIR_30,
+        DIR_31
     }
 	
 }

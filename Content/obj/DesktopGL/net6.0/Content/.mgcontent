@@ -4,6 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingA_ALT_STATIC_spriteSheet.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingA_ALT_TRY2_STATIC_spriteSheet.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingA_ALT_TRY3_STATIC_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingA_STATIC_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingB_STATIC_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/buildings/test/buildingC_STATIC_spriteSheet.png</File>
@@ -70,6 +73,9 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/vehicles/genericCarTest/car_animation_001/up/car_animation_go_001_up.5.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Engine.Objects.Base;
 using Engine.Utilities;
 using Engine.Animation;
+using Engine.Enum;
 
 namespace Engine.Objects
 {
@@ -18,27 +19,18 @@ namespace Engine.Objects
             _frameManager.UpdateDrawRectangles(Position);
         }
 
-        public void CameraMove(Vector2 direction, Vector2 pivotPosition)
+        public void ShiftDrawAngle(int shiftAmt)
         {
-            _frameManager.CalculateDirection(direction);
-            Position = _frameManager.RotatePosition(pivotPosition, Position);
-            //_frameManager.UpdateDrawRectangles(Position);
-
+            var currFrameDir = (int)_frameManager.FrameDirection + shiftAmt;
+            currFrameDir = MathUtils.Mod(currFrameDir, 32);
+            _frameManager.FrameDirection = (Directions)currFrameDir;
         }
-
-        public void OffsetPosition(Vector2 offsetPos)
-        {
-            Position = Vector2.Add(Position, offsetPos);
-            
-        }
-
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            //_frameManager.UpdateDrawPosition(Position);
-            //_frameManager.UpdateCurrentFrame();
+         
             _frameManager.UpdateDrawRectangles(Position);
-
+            zIndex = _frameManager.DrawDepth;
 
             spriteBatch.Draw(
                 _frameManager.Texture,
@@ -46,10 +38,6 @@ namespace Engine.Objects
                 _frameManager.SourceRectangle,
                 Color.White);
         }
-
-
-
-
     }
 }
 

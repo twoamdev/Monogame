@@ -1,5 +1,6 @@
 ﻿using Engine.Input.Base;
 using Engine.Enum;
+using Engine.Utilities;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,6 +10,9 @@ namespace Engine.Input
 {
     public class GameplayInputMapper : BaseInputMapper
     {
+        private int _camMoveReleased = 0;
+
+
         public override IEnumerable<BaseInputCommand> GetKeyboardState(KeyboardState state)
         {
             var commands = new List<GameplayInputCommand>();
@@ -35,6 +39,8 @@ namespace Engine.Input
 
         public override IEnumerable<BaseInputCommand> GetGamePadState(GamePadState state) {
             var commands = new List<GameplayInputCommand>();
+            
+            
 
             //Move Player
             if(state.IsButtonDown(Buttons.LeftThumbstickDown) || state.IsButtonDown(Buttons.LeftThumbstickUp) ||
@@ -44,11 +50,31 @@ namespace Engine.Input
                 commands.Add(new GameplayInputCommand.PlayerMove(direction));
             }
 
-            //Move Camera
-            if (state.IsButtonDown(Buttons.RightThumbstickLeft) || state.IsButtonDown(Buttons.RightThumbstickRight))
+            //Move Camera Right
+            if (state.IsButtonDown(Buttons.RightThumbstickLeft) && (_camMoveReleased == 0))
+            {   
+                commands.Add(new GameplayInputCommand.CameraRotateRight());
+                
+            }
+
+            //Move Camera Left
+            if (state.IsButtonDown(Buttons.RightThumbstickRight) && (_camMoveReleased == 0))
             {
-                Vector2 direction = new Vector2(state.ThumbSticks.Right.X, state.ThumbSticks.Right.Y);
-                commands.Add(new GameplayInputCommand.CameraMove(direction));
+                commands.Add(new GameplayInputCommand.CameraRotateLeft());
+                
+                
+
+            }
+
+            if (state.IsButtonDown(Buttons.RightThumbstickRight) || state.IsButtonDown(Buttons.RightThumbstickLeft))
+            {
+                _camMoveReleased++;
+                _camMoveReleased = MathUtils.Mod(_camMoveReleased, 10);
+            }
+            
+            if (state.IsButtonUp(Buttons.RightThumbstickRight) && state.IsButtonUp(Buttons.RightThumbstickLeft))
+            {
+                _camMoveReleased = 0;
             }
 
             //Run

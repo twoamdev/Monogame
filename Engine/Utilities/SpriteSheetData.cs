@@ -136,6 +136,22 @@ namespace Engine.Utilities
         public List<JSONCell> dir_13 { get; set; }
         public List<JSONCell> dir_14 { get; set; }
         public List<JSONCell> dir_15 { get; set; }
+        public List<JSONCell> dir_16 { get; set; }
+        public List<JSONCell> dir_17 { get; set; }
+        public List<JSONCell> dir_18 { get; set; }
+        public List<JSONCell> dir_19 { get; set; }
+        public List<JSONCell> dir_20 { get; set; }
+        public List<JSONCell> dir_21 { get; set; }
+        public List<JSONCell> dir_22 { get; set; }
+        public List<JSONCell> dir_23 { get; set; }
+        public List<JSONCell> dir_24 { get; set; }
+        public List<JSONCell> dir_25 { get; set; }
+        public List<JSONCell> dir_26 { get; set; }
+        public List<JSONCell> dir_27 { get; set; }
+        public List<JSONCell> dir_28 { get; set; }
+        public List<JSONCell> dir_29 { get; set; }
+        public List<JSONCell> dir_30 { get; set; }
+        public List<JSONCell> dir_31 { get; set; }
 
         public Dictionary<Directions, List<SpriteSheetCell>> GetConvertedData()
         {
@@ -156,6 +172,22 @@ namespace Engine.Utilities
             if (dir_13 != null) { data[Directions.DIR_13] = ConvertCells(dir_13); }
             if (dir_14 != null) { data[Directions.DIR_14] = ConvertCells(dir_14); }
             if (dir_15 != null) { data[Directions.DIR_15] = ConvertCells(dir_15); }
+            if (dir_16 != null) { data[Directions.DIR_16] = ConvertCells(dir_16); }
+            if (dir_17 != null) { data[Directions.DIR_17] = ConvertCells(dir_17); }
+            if (dir_18 != null) { data[Directions.DIR_18] = ConvertCells(dir_18); }
+            if (dir_19 != null) { data[Directions.DIR_19] = ConvertCells(dir_19); }
+            if (dir_20 != null) { data[Directions.DIR_20] = ConvertCells(dir_20); }
+            if (dir_21 != null) { data[Directions.DIR_21] = ConvertCells(dir_21); }
+            if (dir_22 != null) { data[Directions.DIR_22] = ConvertCells(dir_22); }
+            if (dir_23 != null) { data[Directions.DIR_23] = ConvertCells(dir_23); }
+            if (dir_24 != null) { data[Directions.DIR_24] = ConvertCells(dir_24); }
+            if (dir_25  != null) { data[Directions.DIR_25] = ConvertCells(dir_25); }
+            if (dir_26 != null) { data[Directions.DIR_26] = ConvertCells(dir_26); }
+            if (dir_27 != null) { data[Directions.DIR_27] = ConvertCells(dir_27); }
+            if (dir_28 != null) { data[Directions.DIR_28] = ConvertCells(dir_28); }
+            if (dir_29 != null) { data[Directions.DIR_29] = ConvertCells(dir_29); }
+            if (dir_30 != null) { data[Directions.DIR_30] = ConvertCells(dir_30); }
+            if (dir_31 != null) { data[Directions.DIR_31] = ConvertCells(dir_31); }
             return data;
         }
 

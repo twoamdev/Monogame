@@ -35,6 +35,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\PropFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\MathUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\Base\BaseCameraObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\ViewportCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

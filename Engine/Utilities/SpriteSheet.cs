@@ -62,7 +62,9 @@ namespace Engine.Utilities
         {
             get {
                 if(AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
-                
+                if (AnimationState == AnimationStates.WALKING) { return (20.0 / 60.0); }
+                if (AnimationState == AnimationStates.RUNNING) { return (25.0 / 60.0); }
+
                 return (15.0 / 60.0);
             }
         }

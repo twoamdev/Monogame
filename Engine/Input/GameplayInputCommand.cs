@@ -35,19 +35,8 @@ namespace Engine.Input
             }
         }
 
-        public class CameraMove : GameplayInputCommand
-        {
-            private Vector2 _direction;
+        public class CameraRotateLeft : GameplayInputCommand { }
+        public class CameraRotateRight : GameplayInputCommand { }
 
-            public CameraMove(Vector2 direction)
-            {
-                _direction = direction;
-            }
-
-            public Vector2 GetDirection()
-            {
-                return _direction;
-            }
-        }
     }
 }

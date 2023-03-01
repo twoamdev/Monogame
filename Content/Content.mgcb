@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:assets/buildings/test/buildingC_STATIC_spriteSheet.png
 
+#begin assets/buildings/test/guildHQ_STATIC_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/buildings/test/guildHQ_STATIC_spriteSheet.png
+
 #begin assets/characters/genericMaleJake/maleJake_ROLL_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -144,6 +156,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/dev/testDungeonSheet/dungeon_sheet.png
+
+#begin assets/tiles/ground/groundTile_STATIC_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/tiles/ground/groundTile_STATIC_spriteSheet.png
 
 #begin assets/ui/backgrounds/testSplashBG.png
 /importer:TextureImporter

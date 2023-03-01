@@ -11,12 +11,14 @@ namespace Engine.Objects
 	public class EnvironmentObject : BaseGameObject
 	{
         private PropFrameManager _frameManager;
+        private bool _isGroundObject;
 
-        public EnvironmentObject(PropFrameManager manager, Vector2 startPos)
+        public EnvironmentObject(PropFrameManager manager, Vector2 startPos, bool isGround = false)
 		{
             _frameManager = manager;
             Position = startPos;
             _frameManager.UpdateDrawRectangles(Position);
+            _isGroundObject = isGround;
         }
 
         public void ShiftDrawAngle(int shiftAmt)
@@ -30,7 +32,8 @@ namespace Engine.Objects
         {
          
             _frameManager.UpdateDrawRectangles(Position);
-            zIndex = _frameManager.DrawDepth;
+            zIndex = _isGroundObject ? _frameManager.DrawDepth - 10000f : _frameManager.DrawDepth;
+            
 
             spriteBatch.Draw(
                 _frameManager.Texture,

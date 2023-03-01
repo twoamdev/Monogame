@@ -38,8 +38,8 @@ namespace GuildOfHeaven
         {
             // TODO: Add your initialization logic here
 
-            graphics.PreferredBackBufferWidth = DESIGNED_RESOLUTION_WIDTH;// 1024;
-            graphics.PreferredBackBufferHeight = DESIGNED_RESOLUTION_HEIGHT;// 768;
+            graphics.PreferredBackBufferWidth = (int) (DESIGNED_RESOLUTION_WIDTH * 1.25f);// 1024;
+            graphics.PreferredBackBufferHeight = (int) (DESIGNED_RESOLUTION_HEIGHT * 1.25f);// 768;
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
@@ -57,7 +57,7 @@ namespace GuildOfHeaven
 
         private Rectangle GetScaleRectangle()
         {
-            var variance = 0.5;
+            var variance = 0.0;
             var actualAspectRatio = Window.ClientBounds.Width / (float)Window.ClientBounds.Height;
 
             Rectangle scaleRectangle;

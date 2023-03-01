@@ -36,6 +36,11 @@ namespace States
         private const string buildingBData = "assets/buildings/test/buildingB_STATIC_metaData.json";
         private const string buildingCTexture = "assets/buildings/test/buildingC_STATIC_spriteSheet";
         private const string buildingCData = "assets/buildings/test/buildingC_STATIC_metaData.json";
+        private const string hqTexture = "assets/buildings/test/guildHQ_STATIC_spriteSheet";
+        private const string hqBuildingData = "assets/buildings/test/guildHQ_STATIC_metaData.json";
+
+        private const string groundTexture = "assets/tiles/ground/groundTile_STATIC_spriteSheet";
+        private const string groundData = "assets/tiles/ground/groundTile_STATIC_metaData.json";
 
         private CharacterObject _characterSprite;
         private EnvironmentObject _b1;
@@ -46,6 +51,8 @@ namespace States
         private EnvironmentObject _b6;
         private EnvironmentObject _b7;
         private EnvironmentObject _b8;
+        private EnvironmentObject _hq;
+        //private EnvironmentObject _groundTile;
         private ViewportCamera _camera;
 
 
@@ -58,6 +65,13 @@ namespace States
             var frameManager = new CharacterFrameManager(sheets, _camera);
             _characterSprite = new CharacterObject(frameManager, startPos);
 
+            var hqResult = LoadTexture(hqTexture);
+            var hqData = new SpriteSheetData(metaDataRoot + hqBuildingData);
+            var hqSheet = new SpriteSheet(hqResult.IsErrorTexture,
+                hqResult.LoadedTexture, hqData);
+            var hqM = new PropFrameManager(hqSheet, _camera);
+            var hqPos = new Vector2(0, 0);
+            _hq = new EnvironmentObject(hqM, hqPos);
 
             float offset = 100f;
             
@@ -127,7 +141,7 @@ namespace States
 
 
 
-
+            AddGameObject(_hq);
             AddGameObject(_b1);
             AddGameObject(_b2);
             AddGameObject(_b3);
@@ -137,6 +151,23 @@ namespace States
             AddGameObject(_b7);
             AddGameObject(_b8);
             AddGameObject(_characterSprite);
+
+            for (int i = 0; i < 100; i++)
+            {
+                for (int j = 0; j < 100; j++)
+                {
+                    float tileOffset = 38;
+                    var tileResult = LoadTexture(groundTexture);
+                    var tileData = new SpriteSheetData(metaDataRoot + groundData);
+                    var tileSheet = new SpriteSheet(tileResult.IsErrorTexture,
+                        tileResult.LoadedTexture, tileData);
+                    var tileManager = new PropFrameManager(tileSheet, _camera);
+                    var tilePos = new Vector2(i * tileOffset, j * tileOffset);
+                    bool isGround = true;
+                    var tilePiece = new EnvironmentObject(tileManager, tilePos, isGround);
+                    AddGameObject(tilePiece);
+                }
+            }
         }
 
         

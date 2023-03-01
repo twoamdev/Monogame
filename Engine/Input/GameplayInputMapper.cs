@@ -69,7 +69,7 @@ namespace Engine.Input
             if (state.IsButtonDown(Buttons.RightThumbstickRight) || state.IsButtonDown(Buttons.RightThumbstickLeft))
             {
                 _camMoveReleased++;
-                _camMoveReleased = MathUtils.Mod(_camMoveReleased, 5);
+                _camMoveReleased = MathUtils.Mod(_camMoveReleased, 8);
             }
             
             if (state.IsButtonUp(Buttons.RightThumbstickRight) && state.IsButtonUp(Buttons.RightThumbstickLeft))

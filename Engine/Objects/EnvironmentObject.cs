@@ -35,11 +35,15 @@ namespace Engine.Objects
             zIndex = _isGroundObject ? _frameManager.DrawDepth - 10000f : _frameManager.DrawDepth;
             
 
+            /*
             spriteBatch.Draw(
                 _frameManager.Texture,
                 _frameManager.DestinationRectangle,
                 _frameManager.SourceRectangle,
                 Color.White);
+            */
+            spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
+
         }
     }
 }

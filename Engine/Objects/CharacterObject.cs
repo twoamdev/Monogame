@@ -60,15 +60,11 @@ namespace Engine.Objects
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
 
-            if (_frameManager.DrawFlipped) {
-                spriteBatch.Draw(_frameManager.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
-            }
-            else
-            {
-                spriteBatch.Draw(_frameManager.Texture, _frameManager.DestinationRectangle, _frameManager.SourceRectangle, Color.White);
 
-            }
-            
+            spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
+                _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor,
+                new Vector2(1, 1), _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+
         }
 
         

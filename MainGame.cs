@@ -57,7 +57,7 @@ namespace GuildOfHeaven
 
         private Rectangle GetScaleRectangle()
         {
-            var variance = 0.0;
+            var variance = 0.5;
             var actualAspectRatio = Window.ClientBounds.Width / (float)Window.ClientBounds.Height;
 
             Rectangle scaleRectangle;

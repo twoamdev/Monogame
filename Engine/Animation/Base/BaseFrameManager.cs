@@ -19,6 +19,7 @@ namespace Engine.Animation.Base
         protected bool _drawFlipped = false;
         protected Directions _currentDirection = Directions.DIR_0;
         private double _currentFrame = 0.0;
+        protected Vector2 _screenPosition;
 
         public BaseFrameManager(ViewportCamera camera)
         {
@@ -45,6 +46,12 @@ namespace Engine.Animation.Base
         public Rectangle SourceRectangle {
             get { return _sourceRectangle; }
             set { _sourceRectangle = value; }
+        }
+
+        public Vector2 ScreenPosition
+        {
+            get { return _screenPosition; }
+            set { _screenPosition = value; }
         }
 
         public bool DrawFlipped
@@ -76,6 +83,7 @@ namespace Engine.Animation.Base
             //transform 2D world position to the screen camera space
             position = Camera.ToCameraSpace(position.X, position.Y);
             DrawDepth = position.Y - FrameAnchor.Y;
+            ScreenPosition = position;
             DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y),
                 (int)FrameSize.X, (int)FrameSize.Y);
        

@@ -57,8 +57,14 @@ namespace Engine.Animation
             dotResult += 1;
             int dir = (int) MathUtils.Remap(dotResult, 0, 2, 0, 8);
             dir = 8 - dir;
-            
+
+            if(MathUtils.Mod(dir, 2) != 0)
+            {
+                dir -= 1;
+            }
+
             FrameDirection = (Directions)dir;
+
             
         }
     }

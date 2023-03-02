@@ -16,11 +16,15 @@ namespace Engine.Animation
         private bool _negateDirection = false;
         private bool _directionRangeChanged = false;
         private const int CAMERA_DIRECTIONS = 32;
+        
 
         public PropFrameManager(SpriteSheet sheet, ViewportCamera camera) : base(camera)
 		{
 			SpriteSheets = new List<SpriteSheet> {sheet};
         }
+
+        
+
     }
 }
 

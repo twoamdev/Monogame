@@ -78,13 +78,13 @@ namespace Engine.Input
             }
 
             //Run
-            if (state.IsButtonDown(Buttons.LeftStick))
+            if (state.IsButtonDown(Buttons.RightTrigger))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
             }
 
             //Walk again
-            if (state.IsButtonUp(Buttons.LeftStick) && !state.IsButtonDown(Buttons.B))
+            if (state.IsButtonUp(Buttons.RightTrigger) && !state.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
             }

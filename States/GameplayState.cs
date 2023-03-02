@@ -36,8 +36,8 @@ namespace States
         private const string buildingBData = "assets/buildings/test/buildingB_STATIC_metaData.json";
         private const string buildingCTexture = "assets/buildings/test/buildingC_STATIC_spriteSheet";
         private const string buildingCData = "assets/buildings/test/buildingC_STATIC_metaData.json";
-        private const string hqTexture = "assets/buildings/test/guildHQ_STATIC_spriteSheet";
-        private const string hqBuildingData = "assets/buildings/test/guildHQ_STATIC_metaData.json";
+        private const string hqTexturePrefix = "assets/buildings/test/testSequence/guildHQ_STATIC_spriteSheet.";
+        private const string hqBuildingData = "assets/buildings/test/testSequence/guildHQ_STATIC_metaData.json";
 
         private const string groundTexture = "assets/tiles/ground/groundTile_STATIC_spriteSheet";
         private const string groundData = "assets/tiles/ground/groundTile_STATIC_metaData.json";
@@ -52,7 +52,7 @@ namespace States
         private EnvironmentObject _b7;
         private EnvironmentObject _b8;
         private EnvironmentObject _hq;
-        //private EnvironmentObject _groundTile;
+        
         private ViewportCamera _camera;
 
 
@@ -65,12 +65,12 @@ namespace States
             var frameManager = new CharacterFrameManager(sheets, _camera);
             _characterSprite = new CharacterObject(frameManager, startPos);
 
-            var hqResult = LoadTexture(hqTexture);
+            var hqResult = LoadTextureSequence(hqTexturePrefix, 0, 31);
             var hqData = new SpriteSheetData(metaDataRoot + hqBuildingData);
-            var hqSheet = new SpriteSheet(hqResult.IsErrorTexture,
-                hqResult.LoadedTexture, hqData);
+            var hqSheet = new SpriteSheet(hqResult.HasErrorTexture,
+                hqResult.Textures, hqData);
             var hqM = new PropFrameManager(hqSheet, _camera);
-            var hqPos = new Vector2(0, 0);
+            var hqPos = new Vector2(-100, -100);
             _hq = new EnvironmentObject(hqM, hqPos);
 
             float offset = 100f;
@@ -165,7 +165,7 @@ namespace States
                     var tilePos = new Vector2(i * tileOffset, j * tileOffset);
                     bool isGround = true;
                     var tilePiece = new EnvironmentObject(tileManager, tilePos, isGround);
-                    AddGameObject(tilePiece);
+                   // AddGameObject(tilePiece);
                 }
             }
         }

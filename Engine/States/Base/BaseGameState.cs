@@ -56,6 +56,31 @@ namespace Engine.States.Base
             } 
         }
 
+        protected (bool HasErrorTexture, List<Texture2D> Textures) LoadTextureSequence(string textureNamePrefix, int frameStart, int frameEnd)
+        {
+            var textures = new List<Texture2D>();
+            bool didError = false;
+            for(int i = frameStart; i < frameEnd +1; i++)
+            {
+                string textureName = textureNamePrefix + i.ToString();
+                try
+                {
+                    var texture = _contentManager.Load<Texture2D>(textureName);
+                    textures.Add(texture);
+                }
+                catch (Exception)
+                {
+                    var errorTexture = _contentManager.Load<Texture2D>(missingTexture);
+                    textures.Add(errorTexture);
+                    didError = true;
+                }
+
+            }
+            return (didError, textures);
+
+        }
+        
+
        
 
         public event EventHandler<BaseGameState> OnStateSwitched;

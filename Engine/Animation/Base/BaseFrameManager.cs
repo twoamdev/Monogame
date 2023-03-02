@@ -138,7 +138,13 @@ namespace Engine.Animation.Base
 
         public Texture2D Texture
         {
-            get { return CurrentSpriteSheet.Texture; }
+            get {
+                if (CurrentSpriteSheet.IsSequence)
+                {
+                    //update
+                    CurrentSpriteSheet.UpdateSequenceTexture(_currentDirection);
+                }
+                return CurrentSpriteSheet.Texture; }
         }
 
         public double FrameDuration

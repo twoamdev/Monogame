@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Enum;
@@ -10,25 +11,31 @@ namespace Engine.Utilities
 	public class SpriteSheet
 	{
 		private Texture2D _texture;
+        private List<Texture2D> _sequenceTextures;
+        private bool _isSequence = false;
 		private SpriteSheetData _sheetMetaData;
 		private AnimationStates _stateId;
 		private bool _statePlaysOnChange;
 
+        public SpriteSheet(bool hasErrorTexture, List<Texture2D> textures,
+            SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
+        {
+            _texture = textures[0];
+            _isSequence = true;
+            _sequenceTextures = textures;
+            _sheetMetaData = metaData;
+            _stateId = stateId;
+            InitializeVariables();
 
-		public SpriteSheet(bool isErrorTexture, Texture2D texture,
+        }
+
+        public SpriteSheet(bool isErrorTexture, Texture2D texture,
             SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
 		{
 			_texture = texture;
 			_sheetMetaData = metaData;
             _stateId = stateId;
-            if (stateId == AnimationStates.ROLLING)
-            {
-                _statePlaysOnChange = true;
-            }
-            else
-            {
-                _statePlaysOnChange = false;
-            }
+            InitializeVariables();
 
         }
 
@@ -37,7 +44,13 @@ namespace Engine.Utilities
             _texture = texture;
             _sheetMetaData = new SpriteSheetData(_texture.Width, _texture.Height);
             _stateId = stateId;
-            if (stateId == AnimationStates.ROLLING)
+            InitializeVariables();
+
+        }
+
+        private void InitializeVariables()
+        {
+            if (_stateId == AnimationStates.ROLLING)
             {
                 _statePlaysOnChange = true;
             }
@@ -45,15 +58,23 @@ namespace Engine.Utilities
             {
                 _statePlaysOnChange = false;
             }
-
         }
 
         public int TextureWidth { get { return _texture.Width; } }
         public int TextureHeight { get { return _texture.Height; } }
         public Texture2D Texture { get { return _texture; } }
 
-		public AnimationStates AnimationState { get { return _stateId; } }
-		public bool PlaysOnChange
+        public bool IsSequence { get { return _isSequence; } }
+
+        public AnimationStates AnimationState { get { return _stateId; } }
+
+        public void UpdateSequenceTexture(Directions direction)
+        {
+            int frame = (int) direction;
+            _texture = _sequenceTextures[frame];
+        }
+
+        public bool PlaysOnChange
 		{
 			get { return _statePlaysOnChange; }
 		}

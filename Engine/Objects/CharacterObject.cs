@@ -60,12 +60,19 @@ namespace Engine.Objects
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
 
+            var t = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            t.SetData(new Color[] { Color.Red });
+            spriteBatch.Draw(t, _frameManager.ScreenPosition,
+                _frameManager.SourceRectangle, Color.Gray, 0, _frameManager.FrameAnchor,
+                new Vector2(1, 1),
+                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
                 _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor,
-                new Vector2(1, 1), _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                new Vector2(1, 1),
+                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 
-        }
+           }
 
         
 

@@ -42,6 +42,8 @@ namespace Engine.States.Base
 
         public abstract void HandleInput();
 
+        
+
         protected (bool IsErrorTexture, Texture2D LoadedTexture) LoadTexture(string textureName)
         {
             try

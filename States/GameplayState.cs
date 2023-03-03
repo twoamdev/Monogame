@@ -139,7 +139,7 @@ namespace States
             buildingPos = new Vector2((_viewportWidth / 2), (_viewportHeight / 2) - (offset*2));
             _b8 = new EnvironmentObject(propFrameManager, buildingPos);
 
-
+           
 
             AddGameObject(_hq);
             AddGameObject(_b1);

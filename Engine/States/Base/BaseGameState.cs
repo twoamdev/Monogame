@@ -64,7 +64,7 @@ namespace Engine.States.Base
             bool didError = false;
             for(int i = frameStart; i < frameEnd +1; i++)
             {
-                string textureName = textureNamePrefix + i.ToString();
+                string textureName = textureNamePrefix + "." + i.ToString();
                 try
                 {
                     var texture = _contentManager.Load<Texture2D>(textureName);

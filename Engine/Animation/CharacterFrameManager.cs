@@ -33,6 +33,8 @@ namespace Engine.Animation
                 CurrentFrame %= FrameCount;
                 _characterMoved = false;
             }
+
+            
         }
 
         public void ChangeState(AnimationStates state)
@@ -49,23 +51,42 @@ namespace Engine.Animation
             }
         }
 
-        public void CalculateDirection(Vector2 direction, Vector2 screenDownDirection)
+        public void UpdateDrawFrameDirection(Vector2 moveDirection, Vector2 screenDownDirection, int camDir)
         {
-            
-            float dotResult = Vector2.Dot(screenDownDirection, direction);
             _characterMoved = true;
-            dotResult += 1;
-            int dir = (int) MathUtils.Remap(dotResult, 0, 2, 0, 8);
-            dir = 8 - dir;
 
-            if(MathUtils.Mod(dir, 2) != 0)
+           
+            float NUM_OF_DIRECTIONS = 8;
+            float SQRT_OF_3_OVER_2 = 0.86602540378f;
+            Vector2 normalizedMoveDirection = Vector2.Normalize(moveDirection);
+            float dotProduct = Vector2.Dot(screenDownDirection, normalizedMoveDirection);
+            float cirleSlice = 1.0f / (NUM_OF_DIRECTIONS/2.0f);
+            float halfOfCircleSlice = (cirleSlice / 2.0f);
+            var crossProduct = Vector3.Cross(new Vector3(screenDownDirection.X, screenDownDirection.Y, 0),
+                new Vector3(normalizedMoveDirection.X, normalizedMoveDirection.Y, 0));
+            bool flipDirection = crossProduct.Z < 0 ? true : false;
+
+            if (dotProduct >= SQRT_OF_3_OVER_2)
             {
-                dir -= 1;
+                FrameDirection = Directions.DIR_0;
+            }
+            if (dotProduct < SQRT_OF_3_OVER_2 && dotProduct > (SQRT_OF_3_OVER_2 - cirleSlice))
+            {
+                FrameDirection = flipDirection ? Directions.DIR_1 : Directions.DIR_7;
+            }
+            if (dotProduct < (cirleSlice / 2.0f) && dotProduct > (cirleSlice / -2.0f))
+            {
+                FrameDirection = flipDirection ? Directions.DIR_2 : Directions.DIR_6;
+            }
+            if (dotProduct > -SQRT_OF_3_OVER_2 && dotProduct < (-SQRT_OF_3_OVER_2 + cirleSlice))
+            {
+                FrameDirection = flipDirection ? Directions.DIR_3 : Directions.DIR_5;
+            }
+            if (dotProduct <= -SQRT_OF_3_OVER_2)
+            {
+                FrameDirection = Directions.DIR_4;
             }
 
-            FrameDirection = (Directions)dir;
-
-            
         }
     }
 }

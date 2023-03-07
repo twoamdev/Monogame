@@ -19,181 +19,58 @@ namespace States
 {
     public class GameplayState : BaseGameState
     {
-        private const string metaDataRoot = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/";
-        private const string bgImage = "assets/dev/testDungeonSheet/dungeon_sheet";
-        private const string rollTexture = "assets/characters/genericMaleJake/maleJake_ROLL_spriteSheet";
-        private const string rollData = "assets/characters/genericMaleJake/maleJake_ROLL_metaData.json";
-        private const string walkTexture = "assets/characters/genericMaleJake/maleJake_WALK_spriteSheet";
-        private const string walkData = "assets/characters/genericMaleJake/maleJake_WALK_metaData.json";
-        private const string runTexture = "assets/characters/genericMaleJake/maleJake_RUN_spriteSheet";
-        private const string runData = "assets/characters/genericMaleJake/maleJake_RUN_metaData.json";
-
-        private const string buildingATexture = "assets/buildings/test/buildingA_STATIC_spriteSheet";
-        private const string buildingAData = "assets/buildings/test/buildingA_STATIC_metaData.json";
-        private const string building_ALT_Texture = "assets/buildings/test/buildingA_ALT_STATIC_spriteSheet";
-        private const string building_ALT_Data = "assets/buildings/test/buildingA_ALT_STATIC_metaData.json";
-        private const string buildingBTexture = "assets/buildings/test/buildingB_STATIC_spriteSheet";
-        private const string buildingBData = "assets/buildings/test/buildingB_STATIC_metaData.json";
-        private const string buildingCTexture = "assets/buildings/test/buildingC_STATIC_spriteSheet";
-        private const string buildingCData = "assets/buildings/test/buildingC_STATIC_metaData.json";
-        private const string hqTexturePrefix = "assets/buildings/test/testSequence/guildHQ_STATIC_spriteSheet.";
-        private const string hqBuildingData = "assets/buildings/test/testSequence/guildHQ_STATIC_metaData.json";
-
-        private const string groundTexture = "assets/tiles/ground/groundTile_STATIC_spriteSheet";
-        private const string groundData = "assets/tiles/ground/groundTile_STATIC_metaData.json";
-
-        private CharacterObject _characterSprite;
-        private EnvironmentObject _b1;
-        private EnvironmentObject _b2;
-        private EnvironmentObject _b3;
-        private EnvironmentObject _b4;
-        private EnvironmentObject _b5;
-        private EnvironmentObject _b6;
-        private EnvironmentObject _b7;
-        private EnvironmentObject _b8;
-        private EnvironmentObject _hq;
         
+        private CharacterObject _mainCharacter;
         private ViewportCamera _camera;
 
 
         public override void LoadContent()
         {
-            var sheets = LoadCharacterSheets();
             var startPos = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
-            var startCamPos = new Vector2(startPos.X , startPos.Y);
+            var startCamPos = new Vector2(startPos.X, startPos.Y);
             _camera = new ViewportCamera(startCamPos, _viewportWidth, _viewportHeight);
-            var frameManager = new CharacterFrameManager(sheets, _camera);
-            _characterSprite = new CharacterObject(frameManager, startPos);
 
-            var hqResult = LoadTextureSequence(hqTexturePrefix, 0, 31);
-            var hqData = new SpriteSheetData(metaDataRoot + hqBuildingData);
-            var hqSheet = new SpriteSheet(hqResult.HasErrorTexture,
-                hqResult.Textures, hqData);
-            var hqM = new PropFrameManager(hqSheet, _camera);
-            var hqPos = new Vector2(-100, -100);
-            _hq = new EnvironmentObject(hqM, hqPos);
+            var mainPlayerSheets = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths());
+            var mainPlayerFrameManager = new CharacterFrameManager(mainPlayerSheets, _camera);
+            _mainCharacter = new CharacterObject(mainPlayerFrameManager, startPos);
+            AddGameObject(_mainCharacter);
 
-            float offset = 100f;
-            
-            var buildingResult = LoadTexture(building_ALT_Texture);
-            var buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            var buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            var propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            var buildingPos = new Vector2((_viewportWidth / 2) + offset, _viewportHeight / 2);
-            _b1 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2) - offset, _viewportHeight / 2);
-            _b2 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2), (_viewportHeight / 2) + offset);
-            _b3 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2), (_viewportHeight / 2) - offset);
-            _b4 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2) + (offset*2), _viewportHeight / 2);
-            _b5 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2) - (offset*2), _viewportHeight / 2);
-            _b6 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2), (_viewportHeight / 2) + (offset*2));
-            _b7 = new EnvironmentObject(propFrameManager, buildingPos);
-
-            buildingResult = LoadTexture(building_ALT_Texture);
-            buildingMetaData = new SpriteSheetData(metaDataRoot + building_ALT_Data);
-            buildingSheet = new SpriteSheet(buildingResult.IsErrorTexture,
-                buildingResult.LoadedTexture, buildingMetaData);
-            propFrameManager = new PropFrameManager(buildingSheet, _camera);
-            buildingPos = new Vector2((_viewportWidth / 2), (_viewportHeight / 2) - (offset*2));
-            _b8 = new EnvironmentObject(propFrameManager, buildingPos);
-
-           
-
-            AddGameObject(_hq);
-            AddGameObject(_b1);
-            AddGameObject(_b2);
-            AddGameObject(_b3);
-            AddGameObject(_b4);
-            AddGameObject(_b5);
-            AddGameObject(_b6);
-            AddGameObject(_b7);
-            AddGameObject(_b8);
-            AddGameObject(_characterSprite);
-
-            for (int i = 0; i < 100; i++)
+            var buildingSheets = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(), true);
+            var yOffset = 0;
+            foreach(var sheet in buildingSheets)
             {
-                for (int j = 0; j < 100; j++)
-                {
-                    float tileOffset = 38;
-                    var tileResult = LoadTexture(groundTexture);
-                    var tileData = new SpriteSheetData(metaDataRoot + groundData);
-                    var tileSheet = new SpriteSheet(tileResult.IsErrorTexture,
-                        tileResult.LoadedTexture, tileData);
-                    var tileManager = new PropFrameManager(tileSheet, _camera);
-                    var tilePos = new Vector2(i * tileOffset, j * tileOffset);
-                    bool isGround = true;
-                    var tilePiece = new EnvironmentObject(tileManager, tilePos, isGround);
-                   // AddGameObject(tilePiece);
-                }
+                var frameManager = new PropFrameManager(sheet, _camera);
+                
+                var position = new Vector2(_viewportWidth / 2, (_viewportHeight / 2) + yOffset);
+                var envObj = new EnvironmentObject(frameManager, position);
+                AddGameObject(envObj);
+                yOffset += (int) frameManager.FrameSize.Y * 2;
             }
         }
 
-        
-
-        private List<SpriteSheet> LoadCharacterSheets()
+        private List<SpriteSheet> LoadSheets(List<SpriteSheetPacket> paths, bool hasFrames=false)
         {
+            
             var sheets = new List<SpriteSheet>();
-            var walkResult = LoadTexture(walkTexture);
-            var walkMetaData = new SpriteSheetData(metaDataRoot + walkData);
-            var runResult = LoadTexture(runTexture);
-            var runMetaData = new SpriteSheetData(metaDataRoot + runData);
-            var rollResult = LoadTexture(rollTexture);
-            var rollMetaData = new SpriteSheetData(metaDataRoot + rollData);
-
-
-            var walkingSheet = new SpriteSheet(walkResult.IsErrorTexture,
-                walkResult.LoadedTexture, walkMetaData, AnimationStates.WALKING);
-            var runningSheet = new SpriteSheet(runResult.IsErrorTexture,
-                runResult.LoadedTexture, runMetaData, AnimationStates.RUNNING);
-            var rollingSheet = new SpriteSheet(rollResult.IsErrorTexture,
-                rollResult.LoadedTexture, rollMetaData, AnimationStates.ROLLING);
-
-            sheets.Add(walkingSheet);
-            sheets.Add(runningSheet);
-            sheets.Add(rollingSheet);
-
+            foreach (var path in paths)
+            {
+                if (hasFrames)
+                {
+                    var loadResult = LoadTextureSequence(path.TexturePath, 0, 31);
+                    var metaData = new SpriteSheetData(path.MetaDataPath);
+                    var sheet = new SpriteSheet(loadResult.HasErrorTexture,
+                    loadResult.Textures, metaData, path.AnimationState);
+                    sheets.Add(sheet);
+                }
+                else
+                {
+                    var loadResult = LoadTexture(path.TexturePath);
+                    var metaData = new SpriteSheetData(path.MetaDataPath);
+                    var sheet = new SpriteSheet(loadResult.IsErrorTexture,
+                    loadResult.LoadedTexture, metaData, path.AnimationState);
+                    sheets.Add(sheet);
+                }
+            }
             return sheets;
         }
 
@@ -210,15 +87,15 @@ namespace States
                     if(cmd is GameplayInputCommand.PlayerMove)
                     { 
                         var playerMoveCmd = (GameplayInputCommand.PlayerMove) cmd;
-                        _characterSprite.Move(playerMoveCmd.GetDirection());
-                        _camera.CameraPosition = new Vector2(_characterSprite.Position.X, _characterSprite.Position.Y);
+                        _mainCharacter.Move(playerMoveCmd.GetDirection());
+                        _camera.CameraPosition = new Vector2(_mainCharacter.Position.X, _mainCharacter.Position.Y);
 
 
                     }
                     if(cmd is GameplayInputCommand.ChangeAnimationState)
                     {
                         var changeStateCmd = (GameplayInputCommand.ChangeAnimationState)cmd;
-                        _characterSprite.ChangeState(changeStateCmd.State);
+                        _mainCharacter.ChangeState(changeStateCmd.State);
                     }
                     if (cmd is GameplayInputCommand.CameraRotateLeft)
                     {
@@ -229,6 +106,13 @@ namespace States
                                 var envObject = (EnvironmentObject)gameObject;
                                 envObject.ShiftDrawAngle(1);
                             }
+                            if (gameObject is CharacterObject)
+                            {
+                                var charObject = (CharacterObject)gameObject;
+                                charObject.ShiftDrawDirection(1);
+                            }
+
+
                         }
                         _camera.RotateCameraLeft();
                     }
@@ -241,6 +125,12 @@ namespace States
                                 var envObject = (EnvironmentObject)gameObject;
                                 envObject.ShiftDrawAngle(-1);
                             }
+                            if (gameObject is CharacterObject)
+                            {
+                                var charObject = (CharacterObject)gameObject;
+                                charObject.ShiftDrawDirection(-1);
+                            }
+
                         }
                         _camera.RotateCameraRight();
                     }
@@ -256,4 +146,6 @@ namespace States
             InputManager = new InputManager(new GameplayInputMapper());
         }
     }
+
+    
 }

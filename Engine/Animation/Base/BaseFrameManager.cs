@@ -89,18 +89,21 @@ namespace Engine.Animation.Base
        
         }
 
+        /*
         public (Directions direction, bool isFlipped) Convert32AngleDirectionTo16AngleMirrorDirection(Directions direction)
         {
             int inValue = (int) direction;
-            var remappedDirection = MathUtils.Remap(inValue, 0, 31, 0, 15);
+            var remappedDirection = MathUtils.Remap(inValue, 0, 31, 0, 7);
             bool flip = false;
-            if(remappedDirection > 8)
+            if(remappedDirection > 4)
             {
-                remappedDirection -= MathUtils.Mod(remappedDirection, 8);
+                remappedDirection -= MathUtils.Mod(remappedDirection, 4);
                 flip = true;
             }
             return (Directions.DIR_0, flip);
         }
+        */
+        
 
         public bool UpdateCurrentSpriteSheet(AnimationStates state)
         {
@@ -170,6 +173,11 @@ namespace Engine.Animation.Base
         public Vector2 FrameAnchor
         {
             get { return CurrentSpriteSheet.FrameAnchor((int)CurrentFrame, FrameDirection); }
+        }
+
+        public List<BoundingBox> FrameBoundingBoxes
+        {
+            get { return CurrentSpriteSheet.FrameBoundingBoxes((int)CurrentFrame, FrameDirection); }
         }
     }
 }

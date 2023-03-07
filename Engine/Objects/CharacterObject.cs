@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Engine.Objects.Base;
 using Engine.Animation;
 using Engine.Enum;
@@ -14,6 +15,7 @@ namespace Engine.Objects
     {
         private const float CHARACTER_SPEED = 1.5f;
         private CharacterFrameManager _frameManager;
+        private int _shiftDrawAccumulator = 0;
 
         public CharacterObject(CharacterFrameManager manager, Vector2 startPosition)
         {
@@ -29,9 +31,6 @@ namespace Engine.Objects
             var degreeRotation = (float)((360.0 / (float)32.0) * (float)camMult);
             var rotation = MathUtils.ToRadians(degreeRotation);
 
-            //check input direction before cam rotation to see if sprite should draw flipped.
-            _frameManager.DrawFlipped = direction.X < 0 ? true : false;
-            
             var cosTheta = Math.Cos(rotation);
             var sinTheta = Math.Sin(rotation);
             double x = ((double)direction.X * cosTheta) - ((double)direction.Y * sinTheta);
@@ -39,18 +38,39 @@ namespace Engine.Objects
             direction = new Vector2((float)x, (float)y);
 
             var compareDirection = new Vector2(0, 1);
+            cosTheta = Math.Cos(rotation);
+            sinTheta = Math.Sin(rotation);
             x = ((double)compareDirection.X * cosTheta) - ((double)compareDirection.Y * sinTheta);
             y = ((double)compareDirection.Y * cosTheta) + ((double)compareDirection.X * sinTheta);
             compareDirection = new Vector2((float)x, (float)y);
 
-            _frameManager.CalculateDirection(direction, compareDirection);
-            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED + 1.2f : CHARACTER_SPEED;
+            _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
+            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.5f : CHARACTER_SPEED;
+           // Debug.WriteLine(string.Format("Current State: {0}", _frameManager.CurrentAnimationState));
             Position = new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));
+            _shiftDrawAccumulator = 0;
         }
 
         public void ChangeState(AnimationStates state)
         {
+           // Debug.WriteLine(string.Format("change state incoming: {0}", state));
             _frameManager.ChangeState(state);
+        }
+
+        public void ShiftDrawDirection(int shiftAmount)
+        {
+            int NUM_OF_PLAYER_DIRECTIONS = 8;
+            int NUM_OF_CAMERA_DIRECTIONS = 32;
+            int padding = NUM_OF_CAMERA_DIRECTIONS / NUM_OF_PLAYER_DIRECTIONS;
+            _shiftDrawAccumulator += shiftAmount;
+            if (Math.Abs(_shiftDrawAccumulator) >= padding)
+            {
+                int currDir = (int)_frameManager.FrameDirection;
+                currDir += shiftAmount;
+                currDir = MathUtils.Mod(currDir, NUM_OF_PLAYER_DIRECTIONS);
+                _frameManager.FrameDirection = (Directions)currDir;
+                _shiftDrawAccumulator = 0;
+            }
         }
 
         public override void Render(SpriteBatch spriteBatch)
@@ -60,19 +80,60 @@ namespace Engine.Objects
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
 
-            var t = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-            t.SetData(new Color[] { Color.Red });
-            spriteBatch.Draw(t, _frameManager.ScreenPosition,
-                _frameManager.SourceRectangle, Color.Gray, 0, _frameManager.FrameAnchor,
-                new Vector2(1, 1),
-                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-
+            
+            drawBbox(spriteBatch);
+            
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
                 _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor,
                 new Vector2(1, 1),
-                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                SpriteEffects.None, 0);
 
-           }
+        }
+
+        private void drawBbox(SpriteBatch spriteBatch)
+        {
+            float size = 20f;
+            var topL = new Vector2(Position.X + (size/-2f), Position.Y + (size / -2f));
+            var topR = new Vector2(Position.X + (size / 2f), Position.Y + (size / -2f));
+            var botL = new Vector2(Position.X + (size / -2f), Position.Y + (size / 2f));
+            var botR = new Vector2(Position.X + (size / 2f), Position.Y + (size / 2f));
+            var sourceRect = new Rectangle(0, 0, 4,4);
+
+            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y);
+            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y);
+            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y);
+            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y);
+
+            var color = Color.Red;
+            color.A = 50;
+            var t = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            var bboxAnchor = new Vector2(0,0);
+            t.SetData(new Color[] { color });
+            spriteBatch.Draw(t, topL,
+                                sourceRect,
+                                Color.Gray, 0,
+                                bboxAnchor,
+                                new Vector2(1, 1),
+                                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(t, topR,
+                                sourceRect,
+                                Color.Gray, 0,
+                                bboxAnchor,
+                                new Vector2(1, 1),
+                                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(t, botL,
+                                sourceRect,
+                                Color.Gray, 0,
+                                bboxAnchor,
+                                new Vector2(1, 1),
+                                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(t, botR,
+                                sourceRect,
+                                Color.Gray, 0,
+                                bboxAnchor,
+                                new Vector2(1, 1),
+                                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+        }
 
         
 

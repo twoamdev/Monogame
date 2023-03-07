@@ -11,12 +11,10 @@ namespace Engine.Objects.Base
 	public class BaseCameraObject
 	{
 		protected Vector2 _cameraPosition;
-		
         protected Directions _currentCameraDirection;
         private bool _rotatePositive = false;
 		protected int _viewWidth;
 		protected int _viewHeight;
-
         private bool _rotateCalled = false;
 
 		public Vector2 CameraPosition
@@ -25,12 +23,15 @@ namespace Engine.Objects.Base
 			set { _cameraPosition = value; }
 		}
 
-        
-
         public Directions CameraDirection
         {
             get { return _currentCameraDirection; }
             set { _currentCameraDirection = value; }
+        }
+
+        public bool RotateWasCalled
+        {
+            get { return _rotateCalled; }
         }
 
         public int ViewWidth

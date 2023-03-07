@@ -53,6 +53,11 @@ namespace Engine.Utilities
             return GetCellVariable(frame, direction, "frameSize");
         }
 
+        public List<BoundingBox> GetBoundingBoxes(int frame, Directions direction)
+        {
+            return GetCellBoundingBoxes(frame, direction);
+        }
+
         private Vector2 GetCellVariable(int frame, Directions direction, string variable)
         {
             if (!_data.ContainsKey(direction)) { return new Vector2(0, 0); }
@@ -72,8 +77,17 @@ namespace Engine.Utilities
             return new Vector2(0, 0);
         }
 
+        private List<BoundingBox> GetCellBoundingBoxes(int frame, Directions direction)
+        {
+            if (!_data.ContainsKey(direction)) { return new List<BoundingBox>(); }
+            var cells = _data[direction];
+            return cells[frame].BoundingBoxes;
+        }
 
-        
+
+
+
+
     }
 
     internal class SpriteSheetCell
@@ -81,12 +95,14 @@ namespace Engine.Utilities
         private List<int> _anchor;
         private List<int> _sourcePosition;
         private List<int> _frameSize;
+        private List<BoundingBox> _boundingBoxes;
 
-        public SpriteSheetCell(List<int> anchor, List<int> sourcePosition, List<int> frameSize)
+        public SpriteSheetCell(List<int> anchor, List<int> sourcePosition, List<int> frameSize, List<BoundingBox> bboxes)
         {
             _anchor = anchor;
             _sourcePosition = sourcePosition;
             _frameSize = frameSize;
+            _boundingBoxes = bboxes;
         }
 
         public SpriteSheetCell(int frameSizeX, int frameSizeY)
@@ -100,6 +116,7 @@ namespace Engine.Utilities
             _frameSize = new List<int>();
             _frameSize.Add(frameSizeX);
             _frameSize.Add(frameSizeY);
+            _boundingBoxes = new List<BoundingBox>();
         }
 
         public Vector2 SourcePosition
@@ -115,6 +132,11 @@ namespace Engine.Utilities
         public Vector2 Anchor
         {
             get { return new Vector2(_anchor[0], _anchor[1]); }
+        }
+
+        public List<BoundingBox> BoundingBoxes
+        {
+            get { return _boundingBoxes; }
         }
     }
 
@@ -196,7 +218,8 @@ namespace Engine.Utilities
             var cells = new List<SpriteSheetCell>();
             foreach(JSONCell jsonCell in JSONCells)
             {
-                var cell = new SpriteSheetCell(jsonCell.anchor, jsonCell.sourcePos, jsonCell.frameSize);
+                var cell = new SpriteSheetCell(jsonCell.anchor, jsonCell.sourcePos,
+                    jsonCell.frameSize, jsonCell.BoundingBoxes);
                 cells.Add(cell);
             }
             return cells;
@@ -208,9 +231,31 @@ namespace Engine.Utilities
         public List<int> anchor { get; set; }
         public List<int> sourcePos { get; set; }
 		public List<int> frameSize { get; set; }
-    }
+        public List<List<int>> bboxes { get; set; }
 
+        public List<BoundingBox> BoundingBoxes
+        {
+            get
+            {
+                var boundingBoxes = new List<BoundingBox>();
+                foreach(List<int> bbox in bboxes)
+                {
+                    if(bbox.Count == 4)
+                    {
+                        var minX = bbox[0];
+                        var minY = bbox[1];
+                        var maxX = bbox[2];
+                        var maxY = bbox[3];
+                        var boundingBox = new BoundingBox(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0));
+                        boundingBoxes.Add(boundingBox);
+                    }
+                    
 
-	
+                }
+                return boundingBoxes;
+            }
+        }
+
+    }	
 }
 

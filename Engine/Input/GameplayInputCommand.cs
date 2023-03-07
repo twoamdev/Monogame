@@ -37,6 +37,6 @@ namespace Engine.Input
 
         public class CameraRotateLeft : GameplayInputCommand { }
         public class CameraRotateRight : GameplayInputCommand { }
-
+        
     }
 }

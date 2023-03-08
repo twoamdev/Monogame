@@ -13,7 +13,7 @@ namespace Engine.Objects
 {
     public class CharacterObject : BaseGameObject
     {
-        private const float CHARACTER_SPEED = 1.5f;
+        private const float CHARACTER_SPEED = 1.0f;
         private CharacterFrameManager _frameManager;
         private int _shiftDrawAccumulator = 0;
 
@@ -45,7 +45,7 @@ namespace Engine.Objects
             compareDirection = new Vector2((float)x, (float)y);
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
-            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.5f : CHARACTER_SPEED;
+            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 1.75f : CHARACTER_SPEED;
             _shiftDrawAccumulator = 0;
             return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));  
         }
@@ -58,7 +58,7 @@ namespace Engine.Objects
         public bool CompareColliders(Vector2 intendedPosition, List<BoundingBox> bboxes)
         {
             //TEMP, later change to imported bounding boxes
-            float size = 10f;
+            float size = 15f;
             var topL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / -2f));
             var topR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / -2f));
             var botL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / 2f));
@@ -112,7 +112,7 @@ namespace Engine.Objects
 
         private void drawBbox(SpriteBatch spriteBatch)
         {
-            float size = 10f;
+            float size = 15f;
             var topL = new Vector2(Position.X + (size/-2f), Position.Y + (size / -2f));
             var topR = new Vector2(Position.X + (size / 2f), Position.Y + (size / -2f));
             var botL = new Vector2(Position.X + (size / -2f), Position.Y + (size / 2f));

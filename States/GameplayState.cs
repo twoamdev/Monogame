@@ -22,11 +22,12 @@ namespace States
         
         private CharacterObject _mainCharacter;
         private ViewportCamera _camera;
+        private bool playerCollided = false;
 
 
         public override void LoadContent()
         {
-            var startPos = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
+            var startPos = new Vector2(_viewportWidth / 2, (_viewportHeight / 2) + 70);
             var startCamPos = new Vector2(startPos.X, startPos.Y);
             _camera = new ViewportCamera(startCamPos, _viewportWidth, _viewportHeight);
 
@@ -87,10 +88,26 @@ namespace States
                     if(cmd is GameplayInputCommand.PlayerMove)
                     { 
                         var playerMoveCmd = (GameplayInputCommand.PlayerMove) cmd;
-                        _mainCharacter.Move(playerMoveCmd.GetDirection());
-                        _camera.CameraPosition = new Vector2(_mainCharacter.Position.X, _mainCharacter.Position.Y);
+                        Vector2 goalPosition = _mainCharacter.Move(playerMoveCmd.GetDirection());
 
-
+                        //Check Collisions, and if valid, then move
+                        foreach (var gameObject in GameObjects)
+                        {
+                            if (gameObject is EnvironmentObject)
+                            {
+                                var envObject = (EnvironmentObject)gameObject;
+                                playerCollided = _mainCharacter.CompareColliders(goalPosition, envObject.GetColliders());
+                                if (playerCollided)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        if (!playerCollided)
+                        {
+                            _mainCharacter.Position = goalPosition;
+                            _camera.CameraPosition = new Vector2(_mainCharacter.Position.X, _mainCharacter.Position.Y);
+                        } 
                     }
                     if(cmd is GameplayInputCommand.ChangeAnimationState)
                     {

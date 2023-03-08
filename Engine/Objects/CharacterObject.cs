@@ -23,7 +23,7 @@ namespace Engine.Objects
             Position = startPosition;
         }
 
-        public void Move(Vector2 direction)
+        public Vector2 Move(Vector2 direction)
         {
             var camDir = _frameManager.Camera.CameraDirection;
             int camMult = (int) camDir;
@@ -46,15 +46,35 @@ namespace Engine.Objects
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
             var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.5f : CHARACTER_SPEED;
-           // Debug.WriteLine(string.Format("Current State: {0}", _frameManager.CurrentAnimationState));
-            Position = new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));
             _shiftDrawAccumulator = 0;
+            return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));  
         }
 
         public void ChangeState(AnimationStates state)
         {
-           // Debug.WriteLine(string.Format("change state incoming: {0}", state));
             _frameManager.ChangeState(state);
+        }
+
+        public bool CompareColliders(Vector2 intendedPosition, List<BoundingBox> bboxes)
+        {
+            //TEMP, later change to imported bounding boxes
+            float size = 10f;
+            var topL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / -2f));
+            var topR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / -2f));
+            var botL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / 2f));
+            var botR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / 2f));
+            Vector3 min = new Vector3(topL.X, topL.Y, -1);
+            Vector3 max = new Vector3(botR.X, botR.Y, 1);
+            BoundingBox charBbox = new BoundingBox(min, max);
+
+            foreach (var bbox in bboxes)
+            {  
+                if (charBbox.Intersects(bbox))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void ShiftDrawDirection(int shiftAmount)
@@ -92,7 +112,7 @@ namespace Engine.Objects
 
         private void drawBbox(SpriteBatch spriteBatch)
         {
-            float size = 20f;
+            float size = 10f;
             var topL = new Vector2(Position.X + (size/-2f), Position.Y + (size / -2f));
             var topR = new Vector2(Position.X + (size / 2f), Position.Y + (size / -2f));
             var botL = new Vector2(Position.X + (size / -2f), Position.Y + (size / 2f));

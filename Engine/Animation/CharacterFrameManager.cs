@@ -33,8 +33,6 @@ namespace Engine.Animation
                 CurrentFrame %= FrameCount;
                 _characterMoved = false;
             }
-
-            
         }
 
         public void ChangeState(AnimationStates state)

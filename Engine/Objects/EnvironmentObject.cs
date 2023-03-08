@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Objects.Base;
@@ -26,6 +27,20 @@ namespace Engine.Objects
             var currFrameDir = (int)_frameManager.FrameDirection + shiftAmt;
             currFrameDir = MathUtils.Mod(currFrameDir, 32);
             _frameManager.FrameDirection = (Directions)currFrameDir;
+        }
+
+        public List<BoundingBox> GetColliders()
+        {
+            float size = 70f;
+            var topL = new Vector2(Position.X + (size / -2f), Position.Y + (size / -2f));
+            var topR = new Vector2(Position.X + (size / 2f), Position.Y + (size / -2f));
+            var botL = new Vector2(Position.X + (size / -2f), Position.Y + (size / 2f));
+            var botR = new Vector2(Position.X + (size / 2f), Position.Y + (size / 2f));
+            Vector3 min = new Vector3(topL.X, topL.Y, -1);
+            Vector3 max = new Vector3(botR.X, botR.Y, 1);
+            BoundingBox envBbox = new BoundingBox(min, max);
+
+            return new List<BoundingBox>(){envBbox};
         }
 
         public override void Render(SpriteBatch spriteBatch)

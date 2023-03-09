@@ -13,7 +13,7 @@ namespace Engine.Objects
 {
     public class CharacterObject : BaseGameObject
     {
-        private const float CHARACTER_SPEED = 1.0f;
+        private const float CHARACTER_SPEED = 0.8f;
         private CharacterFrameManager _frameManager;
         private int _shiftDrawAccumulator = 0;
 
@@ -45,7 +45,7 @@ namespace Engine.Objects
             compareDirection = new Vector2((float)x, (float)y);
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
-            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 1.75f : CHARACTER_SPEED;
+            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
             _shiftDrawAccumulator = 0;
             return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));  
         }

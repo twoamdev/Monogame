@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System;
 
 namespace Engine.Input
 {
@@ -111,21 +112,25 @@ namespace Engine.Input
 
         private (bool isKeyDown, Vector2 direction) MoveDirectionFromStates()
         {
+            if (_gamePadState.IsButtonDown((Buttons.LeftThumbstickUp)) ||
+                _gamePadState.IsButtonDown((Buttons.LeftThumbstickDown)) ||
+                _gamePadState.IsButtonDown((Buttons.LeftThumbstickLeft)) ||
+                _gamePadState.IsButtonDown((Buttons.LeftThumbstickRight)) )
+            {
+                return MoveDirectionFromThumbstick();
+            }
+
             float SQRT_OF_2 = 1.41421356237f;
             bool keyIsDown = false;
             Vector2 direction = new Vector2(0, 0);
 
             bool isUp = _keyboardState.IsKeyDown(Keys.W)
-                || _gamePadState.IsButtonDown(Buttons.LeftThumbstickUp)
                 || _gamePadState.IsButtonDown(Buttons.DPadUp);
             bool isLeft = _keyboardState.IsKeyDown(Keys.A)
-                || _gamePadState.IsButtonDown(Buttons.LeftThumbstickLeft)
                 || _gamePadState.IsButtonDown(Buttons.DPadLeft);
             bool isDown = _keyboardState.IsKeyDown(Keys.S)
-                || _gamePadState.IsButtonDown(Buttons.LeftThumbstickDown)
                 || _gamePadState.IsButtonDown(Buttons.DPadDown);
             bool isRight = _keyboardState.IsKeyDown(Keys.D)
-                || _gamePadState.IsButtonDown(Buttons.LeftThumbstickRight)
                 || _gamePadState.IsButtonDown(Buttons.DPadRight);
 
 
@@ -187,6 +192,19 @@ namespace Engine.Input
                 direction.Y = 0;
             }
             return (keyIsDown, direction);
+        }
+
+        private (bool isKeyDown, Vector2 direction) MoveDirectionFromThumbstick()
+        {
+            var x = _gamePadState.ThumbSticks.Left.X;
+            var y = -1 * _gamePadState.ThumbSticks.Left.Y;
+            var scale = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+
+            var direction = new Vector2(x, y);
+            direction = Vector2.Normalize(direction);
+            direction = Vector2.Multiply(direction, (float) scale);
+
+            return (true, direction);
         }
 
     }

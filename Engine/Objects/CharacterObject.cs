@@ -99,15 +99,40 @@ namespace Engine.Objects
             _frameManager.UpdateDrawRectangles(Position, true);
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
+            zIndex = UpdateDrawDepth();
 
             
-            drawBbox(spriteBatch);
+            //drawBbox(spriteBatch);
             
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
                 _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor,
                 new Vector2(1, 1),
                 SpriteEffects.None, 0);
 
+        }
+
+        private float UpdateDrawDepth()
+        {
+            
+            float bestDepth = -100000f;
+            
+            float size = 15f;
+            var intendedPosition = Position;
+            var topL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / -2f));
+            var topR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / -2f));
+            var botL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / 2f));
+            var botR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / 2f));
+                
+
+            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y);
+            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y);
+            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y);
+            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y);
+
+            float newDepth = Math.Max(botR.Y, Math.Max(botL.Y, Math.Max(topL.Y, topR.Y)));
+            bestDepth = newDepth > bestDepth ? newDepth : bestDepth;
+            
+            return bestDepth;
         }
 
         private void drawBbox(SpriteBatch spriteBatch)

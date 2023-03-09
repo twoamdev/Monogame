@@ -110,7 +110,7 @@ namespace Engine.Utilities
             return _sheetMetaData.GetAnchorPosition(currentFrame, direction);
         }
 
-        public List<BoundingBox> FrameBoundingBoxes(int currentFrame, Directions direction)
+        public List<BoundingBox> BoundingBoxes(int currentFrame, Directions direction)
         {
             return _sheetMetaData.GetBoundingBoxes(currentFrame, direction);
         }

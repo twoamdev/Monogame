@@ -83,11 +83,6 @@ namespace Engine.Utilities
             var cells = _data[direction];
             return cells[frame].BoundingBoxes;
         }
-
-
-
-
-
     }
 
     internal class SpriteSheetCell
@@ -246,10 +241,26 @@ namespace Engine.Utilities
                         var minY = bbox[1];
                         var maxX = bbox[2];
                         var maxY = bbox[3];
+
                         var boundingBox = new BoundingBox(new Vector3(minX, minY, 0), new Vector3(maxX, maxY, 0));
                         boundingBoxes.Add(boundingBox);
+                        continue;
                     }
-                    
+                    if(bbox.Count == 6)
+                    {
+                        //In houdini, y is pointing up, but in this engine, z is up
+                        var minX = bbox[0];
+                        var minY = bbox[2];
+                        var minZ = bbox[1];
+                        var maxX = bbox[3];
+                        var maxY = bbox[5];
+                        var maxZ = bbox[4];
+
+                        var boundingBox = new BoundingBox(new Vector3(minX, minY, minZ), new Vector3(maxX, maxY, maxZ));
+                        boundingBoxes.Add(boundingBox);
+                    }
+
+
 
                 }
                 return boundingBoxes;

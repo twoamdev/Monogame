@@ -21,7 +21,8 @@ namespace Engine.Utilities
         private static string _buildingsDirExtension = "assets/building/test/";
         private static List<string> _buildingLabels = new List<string>()
         {
-            "buildingA", "buildingB", "buildingC", "guildHQ"
+            "buildingA", "buildingB", "buildingC"
+            
         };
 
 

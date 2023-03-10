@@ -7,7 +7,10 @@ namespace Engine.Enum
         IDLE,
         WALKING,
         RUNNING,
-        ROLLING
+        ROLLING,
+        JUMPING,
+        LANDING,
+        FALLING
 
     }
 

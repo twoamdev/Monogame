@@ -51,8 +51,11 @@ namespace Engine.Utilities
 
         private void InitializeVariables()
         {
-            _statePlaysOnChange = _stateId == AnimationStates.ROLLING ? true : false;
-            _stateAnimationLoops = _stateId == AnimationStates.IDLE ? true : false;
+            _statePlaysOnChange = _stateId == AnimationStates.ROLLING ||
+                _stateId == AnimationStates.JUMPING ||
+                _stateId == AnimationStates.LANDING ? true : false;
+            _stateAnimationLoops = _stateId == AnimationStates.IDLE ||
+               _stateId == AnimationStates.FALLING ? true : false;
 
         }
 
@@ -83,8 +86,8 @@ namespace Engine.Utilities
         public double FrameDuration
         {
             get {
-                if(AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
-                if (AnimationState == AnimationStates.WALKING) { return (20.0 / 60.0); }
+                if (AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
+                if (AnimationState == AnimationStates.WALKING) { return (17.0 / 60.0); }
                 if (AnimationState == AnimationStates.RUNNING) { return (25.0 / 60.0); }
                 if (AnimationState == AnimationStates.IDLE) { return (10.0 / 60.0); }
                 return (15.0 / 60.0);

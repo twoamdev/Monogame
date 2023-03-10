@@ -77,13 +77,13 @@ namespace Engine.Animation.Base
             set { _spriteSheets = value; }
         }
 
-        public void UpdateDrawRectangles(Vector2 position, bool trackWithCamera = false)
+        public void UpdateDrawRectangles(Vector3 position, bool trackWithCamera = false)
         {
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
             //transform 2D world position to the screen camera space
-            position = Camera.ToCameraSpace(position.X, position.Y);
+            position = Camera.ToCameraSpace(position.X, position.Y, position.Z);
             DrawDepth = position.Y - FrameAnchor.Y;
-            ScreenPosition = position;
+            ScreenPosition = new Vector2(position.X,position.Y);
             DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y),
                 (int)FrameSize.X, (int)FrameSize.Y);
        

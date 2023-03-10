@@ -17,13 +17,13 @@ namespace Engine.Objects
         private CharacterFrameManager _frameManager;
         private int _shiftDrawAccumulator = 0;
 
-        public CharacterObject(CharacterFrameManager manager, Vector2 startPosition)
+        public CharacterObject(CharacterFrameManager manager, Vector3 startPosition)
         {
             _frameManager = manager;
             Position = startPosition;
         }
 
-        public Vector2 Move(Vector2 direction)
+        public Vector3 Move(Vector2 direction)
         {
             var camDir = _frameManager.Camera.CameraDirection;
             int camMult = (int) camDir;
@@ -47,7 +47,7 @@ namespace Engine.Objects
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
             var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
             _shiftDrawAccumulator = 0;
-            return new Vector2(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y));  
+            return new Vector3(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y), Position.Z * 0);  
         }
 
         public void ChangeState(AnimationStates state)
@@ -55,7 +55,7 @@ namespace Engine.Objects
             _frameManager.ChangeState(state);
         }
 
-        public bool CompareColliders(Vector2 intendedPosition, List<BoundingBox> bboxes)
+        public bool CompareColliders(Vector3 intendedPosition, List<BoundingBox> bboxes)
         {
             //TEMP, later change to imported bounding boxes
             float size = 15f;
@@ -118,16 +118,16 @@ namespace Engine.Objects
             
             float size = 15f;
             var intendedPosition = Position;
-            var topL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / -2f));
-            var topR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / -2f));
-            var botL = new Vector2(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / 2f));
-            var botR = new Vector2(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / 2f));
+            var topL = new Vector3(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / -2f), 0);
+            var topR = new Vector3(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / -2f), 0);
+            var botL = new Vector3(intendedPosition.X + (size / -2f), intendedPosition.Y + (size / 2f), 0);
+            var botR = new Vector3(intendedPosition.X + (size / 2f), intendedPosition.Y + (size / 2f), 0);
                 
 
-            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y);
-            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y);
-            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y);
-            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y);
+            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y, 0);
+            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y, 0);
+            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y, 0);
+            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y, 0);
 
             float newDepth = Math.Max(botR.Y, Math.Max(botL.Y, Math.Max(topL.Y, topR.Y)));
             bestDepth = newDepth > bestDepth ? newDepth : bestDepth;
@@ -138,41 +138,41 @@ namespace Engine.Objects
         private void drawBbox(SpriteBatch spriteBatch)
         {
             float size = 15f;
-            var topL = new Vector2(Position.X + (size/-2f), Position.Y + (size / -2f));
-            var topR = new Vector2(Position.X + (size / 2f), Position.Y + (size / -2f));
-            var botL = new Vector2(Position.X + (size / -2f), Position.Y + (size / 2f));
-            var botR = new Vector2(Position.X + (size / 2f), Position.Y + (size / 2f));
+            var topL = new Vector3(Position.X + (size/-2f), Position.Y + (size / -2f),0);
+            var topR = new Vector3(Position.X + (size / 2f), Position.Y + (size / -2f),0);
+            var botL = new Vector3(Position.X + (size / -2f), Position.Y + (size / 2f),0);
+            var botR = new Vector3(Position.X + (size / 2f), Position.Y + (size / 2f),0);
             var sourceRect = new Rectangle(0, 0, 4,4);
 
-            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y);
-            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y);
-            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y);
-            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y);
+            topL = _frameManager.Camera.ToCameraSpace(topL.X, topL.Y, 0);
+            topR = _frameManager.Camera.ToCameraSpace(topR.X, topR.Y, 0);
+            botL = _frameManager.Camera.ToCameraSpace(botL.X, botL.Y, 0);
+            botR = _frameManager.Camera.ToCameraSpace(botR.X, botR.Y, 0);
 
             var color = Color.Red;
             color.A = 50;
             var t = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
             var bboxAnchor = new Vector2(0,0);
             t.SetData(new Color[] { color });
-            spriteBatch.Draw(t, topL,
+            spriteBatch.Draw(t, new Vector2(topL.X, topL.Y),
+                                    sourceRect,
+                                    Color.Gray, 0,
+                                    bboxAnchor,
+                                    new Vector2(1, 1),
+                                    _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            spriteBatch.Draw(t, new Vector2(topR.X, topR.Y),
                                 sourceRect,
                                 Color.Gray, 0,
                                 bboxAnchor,
                                 new Vector2(1, 1),
                                 _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            spriteBatch.Draw(t, topR,
+            spriteBatch.Draw(t, new Vector2(botL.X, botL.Y),
                                 sourceRect,
                                 Color.Gray, 0,
                                 bboxAnchor,
                                 new Vector2(1, 1),
                                 _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            spriteBatch.Draw(t, botL,
-                                sourceRect,
-                                Color.Gray, 0,
-                                bboxAnchor,
-                                new Vector2(1, 1),
-                                _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-            spriteBatch.Draw(t, botR,
+            spriteBatch.Draw(t, new Vector2(botR.X, botR.Y),
                                 sourceRect,
                                 Color.Gray, 0,
                                 bboxAnchor,
@@ -180,7 +180,7 @@ namespace Engine.Objects
                                 _frameManager.DrawFlipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
         }
 
-        
+
 
     }
 }

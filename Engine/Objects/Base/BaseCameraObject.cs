@@ -10,14 +10,14 @@ namespace Engine.Objects.Base
 {
 	public class BaseCameraObject
 	{
-		protected Vector2 _cameraPosition;
+		protected Vector3 _cameraPosition;
         protected Directions _currentCameraDirection;
         private bool _rotatePositive = false;
 		protected int _viewWidth;
 		protected int _viewHeight;
         private bool _rotateCalled = false;
 
-		public Vector2 CameraPosition
+		public Vector3 CameraPosition
 		{
 			get { return _cameraPosition; }
 			set { _cameraPosition = value; }
@@ -67,12 +67,12 @@ namespace Engine.Objects.Base
            
         }
 
-        private Vector2 RotateCameraByDegrees(Vector2 position)
+        private Vector3 RotateCameraByDegrees(Vector3 position)
         {
 
-            var camOrigin = new Vector2(ViewWidth / 2, ViewHeight / 2);
-            var diff = Vector2.Subtract(CameraPosition, camOrigin);
-            position = Vector2.Subtract(position, diff);
+            var camOrigin = new Vector3(ViewWidth / 2, ViewHeight / 2, 0);
+            var diff = Vector3.Subtract(CameraPosition, camOrigin);
+            position = Vector3.Subtract(position, diff);
 
             int camMult = (int) CameraDirection;
             var degreeRotation = (float)((360.0 / (float)32.0) * (float) -camMult);
@@ -81,26 +81,26 @@ namespace Engine.Objects.Base
 
 
             //Rotate camera
-            var offset = new Vector2(ViewWidth / 2, ViewHeight / 2);
-            position = Vector2.Subtract(position, offset);
+            var offset = new Vector3(ViewWidth / 2, ViewHeight / 2, 0);
+            position = Vector3.Subtract(position, offset);
             var cosTheta = Math.Cos(rotation);
             var sinTheta = Math.Sin(rotation);
             double x = ((double)position.X * cosTheta) - ((double)position.Y * sinTheta);
             double y = ((double)position.Y * cosTheta) + ((double)position.X * sinTheta);
-            position = new Vector2((float)x, (float)y);
-            position = Vector2.Add(position, offset);
+            position = new Vector3((float)x, (float)y, 0);
+            position = Vector3.Add(position, offset);
 
             //Rotate to isometric space
-            offset = new Vector2(0, ViewHeight / 2);
-            var isoPosition = new Vector2(0, position.Y);
-            isoPosition = Vector2.Subtract(isoPosition, offset);
+            offset = new Vector3(0, ViewHeight / 2, 0);
+            var isoPosition = new Vector3(0, position.Y,0);
+            isoPosition = Vector3.Subtract(isoPosition, offset);
             rotation = MathUtils.ToRadians(45.0f);
             cosTheta = Math.Cos(rotation);
             sinTheta = Math.Sin(rotation);
             double z = ((double)0 * cosTheta) - ((double)isoPosition.Y * sinTheta);
             y = ((double)isoPosition.Y * cosTheta) + ((double)0 * sinTheta);
-            isoPosition = new Vector2(0, (float)y);
-            isoPosition = Vector2.Add(isoPosition, offset);
+            isoPosition = new Vector3(0, (float)y,0);
+            isoPosition = Vector3.Add(isoPosition, offset);
             position.Y = isoPosition.Y;
 
 
@@ -108,9 +108,9 @@ namespace Engine.Objects.Base
             return position;
         }
 
-        public Vector2 ToCameraSpace(float positionX, float positionY)
+        public Vector3 ToCameraSpace(float positionX, float positionY, float positionZ)
         {
-            return RotateCameraByDegrees(new Vector2(positionX, positionY));
+            return RotateCameraByDegrees(new Vector3(positionX, positionY, positionZ));
         }
     }
 }

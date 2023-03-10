@@ -1549,6 +1549,18 @@
 /processorParam:TextureFormat=Color
 /build:assets/building/test/guildHQ/guildHQ_STATIC_spriteSheet.9.png
 
+#begin assets/character/test/joe/FALLING/joe_FALLING_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/FALLING/joe_FALLING_spriteSheet.png
+
 #begin assets/character/test/joe/IDLE/joe_IDLE_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1560,6 +1572,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/character/test/joe/IDLE/joe_IDLE_spriteSheet.png
+
+#begin assets/character/test/joe/JUMPING/joe_JUMPING_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/JUMPING/joe_JUMPING_spriteSheet.png
+
+#begin assets/character/test/joe/LANDING/joe_LANDING_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/LANDING/joe_LANDING_spriteSheet.png
 
 #begin assets/character/test/joe/ROLLING/joe_ROLLING_spriteSheet.png
 /importer:TextureImporter

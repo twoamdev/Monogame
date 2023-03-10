@@ -19,11 +19,7 @@ namespace Engine.Animation
         public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
 		{
             SpriteSheets = sheets;
-            if(CurrentAnimationState == AnimationStates.IDLE)
-            {
-                _isAnimationLooping = true;
-            }
-           
+            _isAnimationLooping = CurrentAnimationState == AnimationStates.IDLE ? true : false;
         }
 
         public void UpdateCurrentFrame()

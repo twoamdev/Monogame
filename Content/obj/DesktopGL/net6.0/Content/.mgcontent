@@ -132,7 +132,10 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/building/test/guildHQ/guildHQ_STATIC_spriteSheet.7.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/building/test/guildHQ/guildHQ_STATIC_spriteSheet.8.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/building/test/guildHQ/guildHQ_STATIC_spriteSheet.9.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/FALLING/joe_FALLING_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/IDLE/joe_IDLE_spriteSheet.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/JUMPING/joe_JUMPING_spriteSheet.png</File>
+    <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/LANDING/joe_LANDING_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/ROLLING/joe_ROLLING_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/RUNNING/joe_RUNNING_spriteSheet.png</File>
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/character/test/joe/WALKING/joe_WALKING_spriteSheet.png</File>
@@ -144,6 +147,9 @@
     <File>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/ui/icons/errorTexture.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

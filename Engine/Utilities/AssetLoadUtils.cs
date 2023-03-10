@@ -15,7 +15,9 @@ namespace Engine.Utilities
         private static string _mainPlayerAssetLabel = "joe";
         private static List<AnimationStates> _mainPlayerAnimationStates = new List<AnimationStates>()
         {
-            AnimationStates.IDLE, AnimationStates.WALKING, AnimationStates.RUNNING, AnimationStates.ROLLING
+            AnimationStates.IDLE, AnimationStates.WALKING, AnimationStates.RUNNING,
+            AnimationStates.ROLLING, AnimationStates.JUMPING, AnimationStates.FALLING,
+            AnimationStates.LANDING
         };
 
         private static string _buildingsDirExtension = "assets/building/test/";

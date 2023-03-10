@@ -55,16 +55,22 @@ namespace Engine.Input
                 commands.Add(new GameplayInputCommand.PlayerMove(move.direction));
             }
 
-            //IDLE again
+            //Idle
             if (!move.isKeyDown)
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.IDLE));
             }
 
             //Roll
-            if (_keyboardState.IsKeyDown(Keys.Space) || _gamePadState.IsButtonDown(Buttons.B))
+            if (_keyboardState.IsKeyDown(Keys.R) || _gamePadState.IsButtonDown(Buttons.B))
             {
                 commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.ROLLING));
+            }
+
+            //Jump
+            if (_keyboardState.IsKeyDown(Keys.Space) || _gamePadState.IsButtonDown(Buttons.A))
+            {
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.JUMPING));
             }
 
             //Move Camera Right
@@ -87,7 +93,7 @@ namespace Engine.Input
 
             }
 
-            //if holding down
+            //if holding down camera
             if (_keyboardState.IsKeyDown(Keys.Right)
                 || _keyboardState.IsKeyDown(Keys.Left)
                 || _gamePadState.IsButtonDown(Buttons.RightThumbstickRight)

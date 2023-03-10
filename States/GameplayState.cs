@@ -27,8 +27,8 @@ namespace States
 
         public override void LoadContent()
         {
-            var startPos = new Vector2(_viewportWidth / 2, (_viewportHeight / 2) + 70);
-            var startCamPos = new Vector2(startPos.X, startPos.Y);
+            var startPos = new Vector3(_viewportWidth / 2, (_viewportHeight / 2) + 70, 0);
+            var startCamPos = new Vector3(startPos.X, startPos.Y, 0);
             _camera = new ViewportCamera(startCamPos, _viewportWidth, _viewportHeight);
 
             var mainPlayerSheets = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths());
@@ -42,7 +42,7 @@ namespace States
             {
                 var frameManager = new PropFrameManager(sheet, _camera);
                 
-                var position = new Vector2(_viewportWidth / 2, (_viewportHeight / 2) + yOffset);
+                var position = new Vector3(_viewportWidth / 2, (_viewportHeight / 2) + yOffset, 0);
                 var envObj = new EnvironmentObject(frameManager, position);
                 AddGameObject(envObj);
                 yOffset += (int) frameManager.FrameSize.Y * 2;
@@ -88,7 +88,7 @@ namespace States
                     if(cmd is GameplayInputCommand.PlayerMove)
                     { 
                         var playerMoveCmd = (GameplayInputCommand.PlayerMove) cmd;
-                        Vector2 goalPosition = _mainCharacter.Move(playerMoveCmd.GetDirection());
+                        Vector3 goalPosition = _mainCharacter.Move(playerMoveCmd.GetDirection());
 
                         //Check Collisions, and if valid, then move
                         foreach (var gameObject in GameObjects)
@@ -106,7 +106,7 @@ namespace States
                         if (!playerCollided)
                         {
                             _mainCharacter.Position = goalPosition;
-                            _camera.CameraPosition = new Vector2(_mainCharacter.Position.X, _mainCharacter.Position.Y);
+                            _camera.CameraPosition = new Vector3(_mainCharacter.Position.X, _mainCharacter.Position.Y, _mainCharacter.Position.Z);
                         } 
                     }
                     if(cmd is GameplayInputCommand.ChangeAnimationState)

@@ -11,12 +11,12 @@ namespace Engine.Objects.Base
     public class BaseGameObject
     {
         protected BaseFrameManager _baseFrameManager;
-        protected Vector2 _position = Vector2.One;
+        protected Vector3 _position = Vector3.One;
         public float zIndex;
         //aBoundingBox
         
 
-        public Vector2 Position
+        public Vector3 Position
         {
             get { return _position; }
             set { _position = value; }

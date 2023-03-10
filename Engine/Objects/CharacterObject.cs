@@ -101,7 +101,7 @@ namespace Engine.Objects
             _frameManager.UpdateCurrentFrame();
             zIndex = UpdateDrawDepth();
 
-            
+            Debug.WriteLine(string.Format("Character State: {0}", _frameManager.CurrentAnimationState));
             //drawBbox(spriteBatch);
             
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,

@@ -198,7 +198,7 @@ namespace Engine.Utilities
             if (dir_22 != null) { data[Directions.DIR_22] = ConvertCells(dir_22); }
             if (dir_23 != null) { data[Directions.DIR_23] = ConvertCells(dir_23); }
             if (dir_24 != null) { data[Directions.DIR_24] = ConvertCells(dir_24); }
-            if (dir_25  != null) { data[Directions.DIR_25] = ConvertCells(dir_25); }
+            if (dir_25 != null) { data[Directions.DIR_25] = ConvertCells(dir_25); }
             if (dir_26 != null) { data[Directions.DIR_26] = ConvertCells(dir_26); }
             if (dir_27 != null) { data[Directions.DIR_27] = ConvertCells(dir_27); }
             if (dir_28 != null) { data[Directions.DIR_28] = ConvertCells(dir_28); }

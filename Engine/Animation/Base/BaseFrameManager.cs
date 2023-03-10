@@ -114,9 +114,14 @@ namespace Engine.Animation.Base
             get { return _spriteSheets[0]; }
         }
 
-        public bool AnimationTriggered
+        public bool AnimationPlaysOnce
         {
             get{ return CurrentSpriteSheet.PlaysOnChange; }
+        }
+
+        public bool AnimationLoops
+        {
+            get { return CurrentSpriteSheet.StateLoopsTheAnimation; }
         }
 
         public AnimationStates CurrentAnimationState

@@ -16,6 +16,7 @@ namespace Engine.Utilities
 		private SpriteSheetData _sheetMetaData;
 		private AnimationStates _stateId;
 		private bool _statePlaysOnChange;
+        private bool _stateAnimationLoops;
 
         public SpriteSheet(bool hasErrorTexture, List<Texture2D> textures,
             SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
@@ -50,14 +51,9 @@ namespace Engine.Utilities
 
         private void InitializeVariables()
         {
-            if (_stateId == AnimationStates.ROLLING)
-            {
-                _statePlaysOnChange = true;
-            }
-            else
-            {
-                _statePlaysOnChange = false;
-            }
+            _statePlaysOnChange = _stateId == AnimationStates.ROLLING ? true : false;
+            _stateAnimationLoops = _stateId == AnimationStates.IDLE ? true : false;
+
         }
 
         public int TextureWidth { get { return _texture.Width; } }
@@ -79,13 +75,18 @@ namespace Engine.Utilities
 			get { return _statePlaysOnChange; }
 		}
 
+        public bool StateLoopsTheAnimation
+        {
+            get { return _stateAnimationLoops; }
+        }
+
         public double FrameDuration
         {
             get {
                 if(AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
                 if (AnimationState == AnimationStates.WALKING) { return (20.0 / 60.0); }
                 if (AnimationState == AnimationStates.RUNNING) { return (25.0 / 60.0); }
-
+                if (AnimationState == AnimationStates.IDLE) { return (10.0 / 60.0); }
                 return (15.0 / 60.0);
             }
         }

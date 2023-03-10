@@ -18,6 +18,11 @@ namespace Engine.Utilities
             return (x % m + m) % m;
         }
 
+        public static double Mod(double x, double m)
+        {
+            return (x % m + m) % m;
+        }
+
         public static float ToRadians(float degrees)
         {
             return degrees * (float) (Math.PI / 180.0);

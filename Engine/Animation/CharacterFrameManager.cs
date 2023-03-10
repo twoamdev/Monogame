@@ -13,38 +13,59 @@ namespace Engine.Animation
 	public class CharacterFrameManager : BaseFrameManager
 	{
         private bool _isAnimationPlaying = false;
+        private bool _isAnimationLooping = false;
         private bool _characterMoved = false;
 
         public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
 		{
             SpriteSheets = sheets;
+            if(CurrentAnimationState == AnimationStates.IDLE)
+            {
+                _isAnimationLooping = true;
+            }
            
         }
 
         public void UpdateCurrentFrame()
         {
-            if (_characterMoved || _isAnimationPlaying)
+            if (_characterMoved || _isAnimationPlaying || _isAnimationLooping)
             {
                 CurrentFrame += FrameDuration;
+      
                 if (CurrentFrame >= FrameCount)
                 {
                     _isAnimationPlaying = false;
                 }
-                CurrentFrame %= FrameCount;
+               
+                CurrentFrame = MathUtils.Mod(CurrentFrame, (double) FrameCount);
+                CurrentFrame = CurrentFrame >= (double) FrameCount ? 0.0 : CurrentFrame;
                 _characterMoved = false;
+                
             }
         }
 
         public void ChangeState(AnimationStates state)
         {
-            if (_isAnimationPlaying) {
+            if (_isAnimationPlaying || state == CurrentAnimationState) {
                 return;
             }
 
+            if(CurrentAnimationState == AnimationStates.IDLE)
+            {
+                _isAnimationLooping = false;
+                CurrentFrame = 0.0;
+            }
+
             bool wasUpdated = UpdateCurrentSpriteSheet(state);
-            if (wasUpdated && AnimationTriggered)
+            if (wasUpdated && AnimationPlaysOnce)
             {
                 _isAnimationPlaying = true;
+                CurrentFrame = 0.0;
+            }
+
+            if (wasUpdated && AnimationLoops)
+            {
+                _isAnimationLooping = true;
                 CurrentFrame = 0.0;
             }
         }

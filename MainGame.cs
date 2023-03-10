@@ -21,8 +21,8 @@ namespace GuildOfHeaven
         private SpriteBatch _spriteBatch;
         private RenderTarget2D _renderTarget;
         private Rectangle _renderScaleRectangle;
-        private const int DESIGNED_RESOLUTION_WIDTH = 1920/2;
-        private const int DESIGNED_RESOLUTION_HEIGHT = 1080/2;
+        private const int DESIGNED_RESOLUTION_WIDTH = (int) (1920/3f);
+        private const int DESIGNED_RESOLUTION_HEIGHT = (int) (1080/3f);
 
         private const float DESIGNED_RESOLUTION_ASPECT_RATIO = DESIGNED_RESOLUTION_WIDTH / (float)DESIGNED_RESOLUTION_HEIGHT;
 
@@ -38,8 +38,8 @@ namespace GuildOfHeaven
         {
             // TODO: Add your initialization logic here
 
-            graphics.PreferredBackBufferWidth = (int) (DESIGNED_RESOLUTION_WIDTH * 1.25f);// 1024;
-            graphics.PreferredBackBufferHeight = (int) (DESIGNED_RESOLUTION_HEIGHT * 1.25f);// 768;
+            graphics.PreferredBackBufferWidth = (int) (DESIGNED_RESOLUTION_WIDTH * 1.6f);// 1024;
+            graphics.PreferredBackBufferHeight = (int) (DESIGNED_RESOLUTION_HEIGHT * 1.6f);// 768;
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 

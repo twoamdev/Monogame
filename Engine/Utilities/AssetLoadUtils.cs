@@ -13,11 +13,11 @@ namespace Engine.Utilities
 
         private static string _mainPlayerDirExtension = "assets/character/test/";
         private static string _mainPlayerAssetLabel = "joe";
-        private static List<AnimationStates> _mainPlayerAnimationStates = new List<AnimationStates>()
+        private static List<AnimationState> _mainPlayerAnimationStates = new List<AnimationState>()
         {
-            AnimationStates.IDLE, AnimationStates.WALKING, AnimationStates.RUNNING,
-            AnimationStates.ROLLING, AnimationStates.JUMPING, AnimationStates.FALLING,
-            AnimationStates.LANDING
+            AnimationState.IDLE, AnimationState.WALKING, AnimationState.RUNNING,
+            AnimationState.ROLLING, AnimationState.JUMPING, AnimationState.FALLING,
+            AnimationState.LANDING
         };
 
         private static string _buildingsDirExtension = "assets/building/test/";
@@ -31,9 +31,9 @@ namespace Engine.Utilities
         public static List<SpriteSheetPacket> PlayerTextureAndDataPaths()
         {
             List<SpriteSheetPacket> packets = new List<SpriteSheetPacket>();
-            foreach(AnimationStates state in _mainPlayerAnimationStates)
+            foreach(AnimationState state in _mainPlayerAnimationStates)
             {
-                string stateLiteralName = AnimationStates.GetName(typeof(AnimationStates), state);
+                string stateLiteralName = AnimationState.GetName(typeof(AnimationState), state);
                 string texturePath =  _mainPlayerDirExtension + _mainPlayerAssetLabel + "/" + stateLiteralName + "/" + _mainPlayerAssetLabel + "_" + stateLiteralName + "_" + "spriteSheet";
                 string metaDataPath = _jsonRootDir + _mainPlayerDirExtension + _mainPlayerAssetLabel + "/" + stateLiteralName + "/" + _mainPlayerAssetLabel + "_" + stateLiteralName + "_" + "metaData.json";
                 var packet = new SpriteSheetPacket(texturePath, metaDataPath, state);
@@ -46,11 +46,11 @@ namespace Engine.Utilities
         {
             List<SpriteSheetPacket> packets = new List<SpriteSheetPacket>();
 
-            string stateLiteralName = AnimationStates.GetName(typeof(AnimationStates), AnimationStates.STATIC);
+            string stateLiteralName = AnimationState.GetName(typeof(AnimationState), AnimationState.STATIC);
             foreach (string label in _buildingLabels) { 
                 string texturePath = _buildingsDirExtension + label + "/" + label + "_" + stateLiteralName + "_" + "spriteSheet";
                 string metaDataPath = _jsonRootDir + _buildingsDirExtension + label + "/"  + label + "_" + stateLiteralName + "_" + "metaData.json";
-                var packet = new SpriteSheetPacket(texturePath, metaDataPath, AnimationStates.STATIC);
+                var packet = new SpriteSheetPacket(texturePath, metaDataPath, AnimationState.STATIC);
                 packets.Add(packet);
             }
             return packets;

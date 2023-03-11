@@ -33,7 +33,7 @@ namespace States
 
             var mainPlayerSheets = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths());
             var mainPlayerFrameManager = new CharacterFrameManager(mainPlayerSheets, _camera);
-            _mainCharacter = new CharacterObject(mainPlayerFrameManager, startPos);
+            _mainCharacter = new CharacterObject(startPos, mainPlayerFrameManager);
             AddGameObject(_mainCharacter);
 
             var buildingSheets = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(), true);
@@ -43,7 +43,7 @@ namespace States
                 var frameManager = new PropFrameManager(sheet, _camera);
                 
                 var position = new Vector3(_viewportWidth / 2, (_viewportHeight / 2) + yOffset, 0);
-                var envObj = new EnvironmentObject(frameManager, position);
+                var envObj = new EnvironmentObject(position, frameManager);
                 AddGameObject(envObj);
                 yOffset += (int) frameManager.FrameSize.Y * 2;
             }
@@ -59,16 +59,14 @@ namespace States
                 {
                     var loadResult = LoadTextureSequence(path.TexturePath, 0, 31);
                     var metaData = new SpriteSheetData(path.MetaDataPath);
-                    var sheet = new SpriteSheet(loadResult.HasErrorTexture,
-                    loadResult.Textures, metaData, path.AnimationState);
+                    var sheet = new SpriteSheet(loadResult.Textures, metaData, path.AnimationState);
                     sheets.Add(sheet);
                 }
                 else
                 {
                     var loadResult = LoadTexture(path.TexturePath);
                     var metaData = new SpriteSheetData(path.MetaDataPath);
-                    var sheet = new SpriteSheet(loadResult.IsErrorTexture,
-                    loadResult.LoadedTexture, metaData, path.AnimationState);
+                    var sheet = new SpriteSheet(loadResult.LoadedTexture, metaData, path.AnimationState);
                     sheets.Add(sheet);
                 }
             }
@@ -106,7 +104,7 @@ namespace States
                         if (!playerCollided)
                         {
                             _mainCharacter.Position = goalPosition;
-                            _camera.CameraPosition = new Vector3(_mainCharacter.Position.X, _mainCharacter.Position.Y, _mainCharacter.Position.Z);
+                            _camera.CameraPosition = new Vector3(_mainCharacter.Position.X, _mainCharacter.Position.Y, 0);
                         } 
                     }
                     if(cmd is GameplayInputCommand.ChangeAnimationState)

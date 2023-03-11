@@ -25,10 +25,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Input\SplashInputMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\CharacterObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\EnvironmentObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseAnimationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseAnimationStateManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\Directions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\AnimationStates.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterAnimationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\AnimationState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\CharacterAnimationStateManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Animation\Base\BaseFrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheetData.cs" />

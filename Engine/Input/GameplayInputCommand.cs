@@ -24,12 +24,12 @@ namespace Engine.Input
         }
         public class ChangeAnimationState : GameplayInputCommand
         {
-            private AnimationStates _state;
-            public ChangeAnimationState(AnimationStates state)
+            private AnimationState _state;
+            public ChangeAnimationState(AnimationState state)
             {
                 _state = state;
             }
-            public AnimationStates State
+            public AnimationState State
             {
                 get { return _state; }
             }

@@ -6,9 +6,9 @@ namespace Engine.Utilities
 	{
 		private string _texturePath;
 		private string _metaDataPath;
-		private AnimationStates _state;
+		private AnimationState _state;
 
-		public SpriteSheetPacket(string texturePath, string metaDataPath, AnimationStates state)
+		public SpriteSheetPacket(string texturePath, string metaDataPath, AnimationState state)
 		{
 			_texturePath = texturePath;
 			_metaDataPath = metaDataPath;
@@ -25,7 +25,7 @@ namespace Engine.Utilities
             get { return _metaDataPath; }
         }
 
-        public AnimationStates AnimationState
+        public AnimationState AnimationState
         {
             get { return _state; }
         }

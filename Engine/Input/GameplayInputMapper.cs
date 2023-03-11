@@ -45,11 +45,11 @@ namespace Engine.Input
             {
                 if (_keyboardState.IsKeyDown(Keys.LeftShift) || _gamePadState.IsButtonDown(Buttons.RightTrigger))
                 {
-                    commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.RUNNING));
+                    commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationState.RUNNING));
                 }
                 else
                 {
-                    commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.WALKING));
+                    commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationState.WALKING));
                 }
 
                 commands.Add(new GameplayInputCommand.PlayerMove(move.direction));
@@ -58,19 +58,19 @@ namespace Engine.Input
             //Idle
             if (!move.isKeyDown)
             {
-                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.IDLE));
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationState.IDLE));
             }
 
             //Roll
             if (_keyboardState.IsKeyDown(Keys.R) || _gamePadState.IsButtonDown(Buttons.B))
             {
-                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.ROLLING));
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationState.ROLLING));
             }
 
             //Jump
             if (_keyboardState.IsKeyDown(Keys.Space) || _gamePadState.IsButtonDown(Buttons.A))
             {
-                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationStates.JUMPING));
+                commands.Add(new GameplayInputCommand.ChangeAnimationState(AnimationState.JUMPING));
             }
 
             //Move Camera Right

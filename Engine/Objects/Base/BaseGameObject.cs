@@ -10,11 +10,8 @@ namespace Engine.Objects.Base
 {
     public class BaseGameObject
     {
-        protected BaseFrameManager _baseFrameManager;
         protected Vector3 _position = Vector3.One;
-        public float zIndex;
-        //aBoundingBox
-        
+        public float zIndex = 0;
 
         public Vector3 Position
         {
@@ -26,7 +23,7 @@ namespace Engine.Objects.Base
 
         public virtual void Render(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(_baseFrameManager.Texture, _baseFrameManager.DestinationRectangle, _baseFrameManager.SourceRectangle, Color.White);
+
         }
     }
 }

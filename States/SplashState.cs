@@ -19,7 +19,7 @@ namespace States
         {
             // TODO: Add Content Loading
             var loadResult = LoadTexture("assets/ui/backgrounds/testSplashBG");
-            SpriteSheet sheet = new SpriteSheet(loadResult.IsErrorTexture, loadResult.LoadedTexture);
+            SpriteSheet sheet = new SpriteSheet(loadResult.LoadedTexture);
             //AddGameObject(new SplashImage(sheet));
         }
 

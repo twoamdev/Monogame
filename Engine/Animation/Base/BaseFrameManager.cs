@@ -79,18 +79,20 @@ namespace Engine.Animation.Base
 
         public void UpdateDrawRectangles(Vector3 position, bool trackWithCamera = false)
         {
+            float height = position.Z;
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
             //transform 2D world position to the screen camera space
             position = Camera.ToCameraSpace(position.X, position.Y, position.Z);
             DrawDepth = position.Y - FrameAnchor.Y;
-            ScreenPosition = new Vector2(position.X,position.Y);
+            var screenYPosition = Camera.ScreenYPositionFromZComponent(position.Y, height);
+            ScreenPosition = new Vector2(position.X,screenYPosition);
             DestinationRectangle = new Rectangle((int)(position.X - FrameAnchor.X), (int)(position.Y - FrameAnchor.Y),
                 (int)FrameSize.X, (int)FrameSize.Y);
        
         }
 
 
-        public bool UpdateCurrentSpriteSheet(AnimationStates state)
+        public bool UpdateCurrentSpriteSheet(AnimationState state)
         {
             for (int i = 0; i < _spriteSheets.Count; i++)
             {
@@ -114,17 +116,8 @@ namespace Engine.Animation.Base
             get { return _spriteSheets[0]; }
         }
 
-        public bool AnimationPlaysOnce
-        {
-            get{ return CurrentSpriteSheet.PlaysOnChange; }
-        }
 
-        public bool AnimationLoops
-        {
-            get { return CurrentSpriteSheet.StateLoopsTheAnimation; }
-        }
-
-        public AnimationStates CurrentAnimationState
+        public AnimationState SpriteSheetAnimationState
         {
             get { return CurrentSpriteSheet.AnimationState; }
         }
@@ -138,11 +131,6 @@ namespace Engine.Animation.Base
                     CurrentSpriteSheet.UpdateSequenceTexture(_currentDirection);
                 }
                 return CurrentSpriteSheet.Texture; }
-        }
-
-        public double FrameDuration
-        {
-            get { return CurrentSpriteSheet.FrameDuration; }
         }
 
         public int FrameCount

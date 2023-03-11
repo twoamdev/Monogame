@@ -12,25 +12,24 @@ namespace Engine.Animation
 {
 	public class CharacterFrameManager : BaseFrameManager
 	{
-        private bool _isAnimationPlaying = false;
-        private bool _isAnimationLooping = false;
         private bool _characterMoved = false;
+        private CharacterAnimationStateManager _animationState;
 
         public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
 		{
             SpriteSheets = sheets;
-            _isAnimationLooping = CurrentAnimationState == AnimationStates.IDLE ? true : false;
+            _animationState = new CharacterAnimationStateManager(SpriteSheetAnimationState);
         }
 
         public void UpdateCurrentFrame()
         {
-            if (_characterMoved || _isAnimationPlaying || _isAnimationLooping)
+            if (_characterMoved || _animationState.IsPlaying || _animationState.IsLooping)
             {
-                CurrentFrame += FrameDuration;
+                CurrentFrame += _animationState.FrameDuration();
       
                 if (CurrentFrame >= FrameCount)
                 {
-                    _isAnimationPlaying = false;
+                    _animationState.StoppedPlaying();
                 }
                
                 CurrentFrame = MathUtils.Mod(CurrentFrame, (double) FrameCount);
@@ -40,29 +39,23 @@ namespace Engine.Animation
             }
         }
 
-        public void ChangeState(AnimationStates state)
+        public void ChangeState(AnimationState state)
         {
-            if (_isAnimationPlaying || state == CurrentAnimationState) {
+            if (_animationState.IsPlaying || state == SpriteSheetAnimationState) {
                 return;
             }
 
-            if(CurrentAnimationState == AnimationStates.IDLE)
-            {
-                _isAnimationLooping = false;
-                CurrentFrame = 0.0;
-            }
-
             bool wasUpdated = UpdateCurrentSpriteSheet(state);
-            if (wasUpdated && AnimationPlaysOnce)
-            {
-                _isAnimationPlaying = true;
-                CurrentFrame = 0.0;
-            }
 
-            if (wasUpdated && AnimationLoops)
+            if (wasUpdated)
             {
-                _isAnimationLooping = true;
-                CurrentFrame = 0.0;
+                _animationState.UpdateAnimationState(state);
+                if(_animationState.PreviousState == AnimationState.IDLE
+                    || _animationState.PlaysOnceOnChange
+                    || _animationState.PlaysOnLoop)
+                {
+                    CurrentFrame = 0.0;
+                }
             }
         }
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Objects.Base;
+using Engine.Animation.Base;
 using Engine.Utilities;
 using Engine.Animation;
 using Engine.Enum;
@@ -15,7 +16,7 @@ namespace Engine.Objects
         private PropFrameManager _frameManager;
         private bool _isGroundObject;
 
-        public EnvironmentObject(PropFrameManager manager, Vector3 startPos, bool isGround = false)
+        public EnvironmentObject(Vector3 startPos, PropFrameManager manager, bool isGround = false)
 		{
             _frameManager = manager;
             Position = startPos;

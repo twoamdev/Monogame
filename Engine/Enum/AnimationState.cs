@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Engine.Enum
 {
-    public enum AnimationStates
+    public enum AnimationState
     {
         STATIC,
         IDLE,

@@ -8,20 +8,20 @@ using System.Diagnostics;
 
 namespace Engine.Objects.Base
 {
-	public class BaseCameraObject
-	{
-		protected Vector3 _cameraPosition;
+    public class BaseCameraObject
+    {
+        protected Vector3 _cameraPosition;
         protected Directions _currentCameraDirection;
         private bool _rotatePositive = false;
-		protected int _viewWidth;
-		protected int _viewHeight;
+        protected int _viewWidth;
+        protected int _viewHeight;
         private bool _rotateCalled = false;
 
-		public Vector3 CameraPosition
-		{
-			get { return _cameraPosition; }
-			set { _cameraPosition = value; }
-		}
+        public Vector3 CameraPosition
+        {
+            get { return _cameraPosition; }
+            set { _cameraPosition = value; }
+        }
 
         public Directions CameraDirection
         {
@@ -35,7 +35,7 @@ namespace Engine.Objects.Base
         }
 
         public int ViewWidth
-		{
+        {
             get { return _viewWidth; }
             set { _viewWidth = value; }
         }
@@ -59,12 +59,12 @@ namespace Engine.Objects.Base
         private void ShiftDirection(bool shiftPositive)
         {
             int currDir = (int)CameraDirection;
-            int newDir = shiftPositive ? currDir + 1 : currDir -1;
+            int newDir = shiftPositive ? currDir + 1 : currDir - 1;
             newDir = MathUtils.Mod(newDir, 32);
             CameraDirection = (Directions)newDir;
             _rotatePositive = shiftPositive;
             _rotateCalled = true;
-           
+
         }
 
         private Vector3 RotateCameraByDegrees(Vector3 position)
@@ -74,13 +74,13 @@ namespace Engine.Objects.Base
             var diff = Vector3.Subtract(CameraPosition, camOrigin);
             position = Vector3.Subtract(position, diff);
 
-            int camMult = (int) CameraDirection;
-            var degreeRotation = (float)((360.0 / (float)32.0) * (float) -camMult);
+            int camMult = (int)CameraDirection;
+            var degreeRotation = (float)((360.0 / (float)32.0) * (float)-camMult);
             var rotation = MathUtils.ToRadians(degreeRotation);
 
 
 
-            //Rotate camera
+            //Rotate camera top down, looking at XY plane
             var offset = new Vector3(ViewWidth / 2, ViewHeight / 2, 0);
             position = Vector3.Subtract(position, offset);
             var cosTheta = Math.Cos(rotation);
@@ -90,18 +90,19 @@ namespace Engine.Objects.Base
             position = new Vector3((float)x, (float)y, 0);
             position = Vector3.Add(position, offset);
 
-            //Rotate to isometric space
+            //Rotate to isometric space, rotating about the world "X" axis
             offset = new Vector3(0, ViewHeight / 2, 0);
-            var isoPosition = new Vector3(0, position.Y,0);
+            var isoPosition = new Vector3(0, position.Y, position.Z);
             isoPosition = Vector3.Subtract(isoPosition, offset);
             rotation = MathUtils.ToRadians(45.0f);
             cosTheta = Math.Cos(rotation);
             sinTheta = Math.Sin(rotation);
-            double z = ((double)0 * cosTheta) - ((double)isoPosition.Y * sinTheta);
-            y = ((double)isoPosition.Y * cosTheta) + ((double)0 * sinTheta);
-            isoPosition = new Vector3(0, (float)y,0);
+            double z = ((double)isoPosition.Z * cosTheta) - ((double)isoPosition.Y * sinTheta);
+            y = ((double)isoPosition.Y * cosTheta) + ((double)isoPosition.Z * sinTheta);
+            isoPosition = new Vector3(0, (float)y, (float)z);
             isoPosition = Vector3.Add(isoPosition, offset);
             position.Y = isoPosition.Y;
+            position.Z = isoPosition.Z;
 
 
             _rotateCalled = false;
@@ -111,6 +112,13 @@ namespace Engine.Objects.Base
         public Vector3 ToCameraSpace(float positionX, float positionY, float positionZ)
         {
             return RotateCameraByDegrees(new Vector3(positionX, positionY, positionZ));
+        }
+
+        public float ScreenYPositionFromZComponent(float cameraSpaceY, float height)
+        {
+            double yOffset = Math.Sqrt((2.0 * Math.Pow(height, 2)) / 2.0);
+            float result = cameraSpaceY - (float) yOffset;
+            return result;
         }
     }
 }

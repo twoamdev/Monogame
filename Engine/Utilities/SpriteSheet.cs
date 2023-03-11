@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Engine.Enum;
 using Engine.Animation.Base;
+using Engine.Animation;
 using Engine.Utilities;
 
 namespace Engine.Utilities
@@ -12,52 +13,41 @@ namespace Engine.Utilities
 	{
 		private Texture2D _texture;
         private List<Texture2D> _sequenceTextures;
-        private bool _isSequence = false;
 		private SpriteSheetData _sheetMetaData;
-		private AnimationStates _stateId;
-		private bool _statePlaysOnChange;
-        private bool _stateAnimationLoops;
+        private AnimationState _animationState;
+        private bool _isSequence = false;
+      
 
-        public SpriteSheet(bool hasErrorTexture, List<Texture2D> textures,
-            SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
+        public SpriteSheet(
+            List<Texture2D> textures,
+            SpriteSheetData metaData,
+            AnimationState animationState = AnimationState.STATIC)
         {
             _texture = textures[0];
             _isSequence = true;
             _sequenceTextures = textures;
             _sheetMetaData = metaData;
-            _stateId = stateId;
-            InitializeVariables();
-
+            _animationState = animationState;
         }
 
-        public SpriteSheet(bool isErrorTexture, Texture2D texture,
-            SpriteSheetData metaData, AnimationStates stateId = AnimationStates.STATIC)
+        public SpriteSheet(
+            Texture2D texture,
+            SpriteSheetData metaData,
+            AnimationState animationState = AnimationState.STATIC)
 		{
 			_texture = texture;
 			_sheetMetaData = metaData;
-            _stateId = stateId;
-            InitializeVariables();
-
+            _animationState = animationState;
         }
 
-        public SpriteSheet(bool isErrorTexture, Texture2D texture, AnimationStates stateId = AnimationStates.STATIC)
+        public SpriteSheet(Texture2D texture, AnimationState animationState = AnimationState.STATIC)
         {
             _texture = texture;
             _sheetMetaData = new SpriteSheetData(_texture.Width, _texture.Height);
-            _stateId = stateId;
-            InitializeVariables();
-
+            _animationState = animationState;
         }
 
-        private void InitializeVariables()
-        {
-            _statePlaysOnChange = _stateId == AnimationStates.ROLLING ||
-                _stateId == AnimationStates.JUMPING ||
-                _stateId == AnimationStates.LANDING ? true : false;
-            _stateAnimationLoops = _stateId == AnimationStates.IDLE ||
-               _stateId == AnimationStates.FALLING ? true : false;
-
-        }
+        
 
         public int TextureWidth { get { return _texture.Width; } }
         public int TextureHeight { get { return _texture.Height; } }
@@ -65,33 +55,12 @@ namespace Engine.Utilities
 
         public bool IsSequence { get { return _isSequence; } }
 
-        public AnimationStates AnimationState { get { return _stateId; } }
+        public AnimationState AnimationState { get { return _animationState; } }
 
         public void UpdateSequenceTexture(Directions direction)
         {
             int frame = (int) direction;
             _texture = _sequenceTextures[frame];
-        }
-
-        public bool PlaysOnChange
-		{
-			get { return _statePlaysOnChange; }
-		}
-
-        public bool StateLoopsTheAnimation
-        {
-            get { return _stateAnimationLoops; }
-        }
-
-        public double FrameDuration
-        {
-            get {
-                if (AnimationState == AnimationStates.ROLLING) { return (18.0/ 60.0); }
-                if (AnimationState == AnimationStates.WALKING) { return (17.0 / 60.0); }
-                if (AnimationState == AnimationStates.RUNNING) { return (25.0 / 60.0); }
-                if (AnimationState == AnimationStates.IDLE) { return (10.0 / 60.0); }
-                return (15.0 / 60.0);
-            }
         }
 
         public int FrameCount(Directions direction)

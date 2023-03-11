@@ -17,10 +17,12 @@ namespace Engine.Objects
         private CharacterFrameManager _frameManager;
         private int _shiftDrawAccumulator = 0;
 
-        public CharacterObject(CharacterFrameManager manager, Vector3 startPosition)
+        public CharacterObject(Vector3 startPosition,
+            CharacterFrameManager frameManager)
         {
-            _frameManager = manager;
+            _frameManager = frameManager;
             Position = startPosition;
+            
         }
 
         public Vector3 Move(Vector2 direction)
@@ -45,12 +47,12 @@ namespace Engine.Objects
             compareDirection = new Vector2((float)x, (float)y);
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
-            var speed = _frameManager.CurrentAnimationState == AnimationStates.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
+            var speed = _frameManager.SpriteSheetAnimationState == AnimationState.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
             _shiftDrawAccumulator = 0;
-            return new Vector3(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y), Position.Z * 0);  
+            return new Vector3(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y), Position.Z);  
         }
 
-        public void ChangeState(AnimationStates state)
+        public void ChangeState(AnimationState state)
         {
             _frameManager.ChangeState(state);
         }
@@ -101,7 +103,7 @@ namespace Engine.Objects
             _frameManager.UpdateCurrentFrame();
             zIndex = UpdateDrawDepth();
 
-            Debug.WriteLine(string.Format("Character State: {0}", _frameManager.CurrentAnimationState));
+            Debug.WriteLine(string.Format("Character State: {0}", _frameManager.SpriteSheetAnimationState));
             //drawBbox(spriteBatch);
             
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
@@ -109,6 +111,8 @@ namespace Engine.Objects
                 new Vector2(1, 1),
                 SpriteEffects.None, 0);
 
+            Position = new Vector3(Position.X, Position.Y, Position.Z + 0.06f);
+            
         }
 
         private float UpdateDrawDepth()

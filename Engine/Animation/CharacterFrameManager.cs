@@ -41,18 +41,13 @@ namespace Engine.Animation
 
         public void ChangeState(AnimationState state)
         {
-            if (_animationState.IsPlaying || state == SpriteSheetAnimationState) {
+            if (_animationState.IsPlaying || state == _animationState.AnimationState) {
                 return;
             }
 
-            if (_animationState.NeedsToTransition)
-            {
-                state = _animationState.TransitionToState(state);
-            }
+            (var canUpdate, state) = _animationState.ValidateStateChange(state);
 
-            bool wasUpdated = UpdateCurrentSpriteSheet(state);
-
-            if (wasUpdated)
+            if (canUpdate && UpdateCurrentSpriteSheet(state))
             {
                 _animationState.UpdateAnimationState(state);
                 if (_animationState.PreviousState == AnimationState.IDLE
@@ -67,6 +62,11 @@ namespace Engine.Animation
         public AnimationState AnimationState
         {
             get { return _animationState.AnimationState; }
+        }
+
+        public AnimationState PreviousAnimationState
+        {
+            get { return _animationState.PreviousState; }
         }
 
 

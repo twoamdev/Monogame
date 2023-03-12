@@ -14,11 +14,34 @@ namespace Engine.Animation
         private AnimationState _previousState = AnimationState.STATIC;
         private Dictionary<AnimationState, List<AnimationState>> _validNextStates = new Dictionary<AnimationState, List<AnimationState>>()
         {
+
+            { AnimationState.IDLE , new List<AnimationState>(){ AnimationState.WALKING,
+                                                                AnimationState.ROLLING,
+                                                                AnimationState.RUNNING,
+                                                                AnimationState.JUMPING
+            }},
+            { AnimationState.WALKING , new List<AnimationState>(){ AnimationState.IDLE,
+                                                                   AnimationState.ROLLING,
+                                                                   AnimationState.RUNNING,
+                                                                   AnimationState.JUMPING
+            }},
+            { AnimationState.RUNNING , new List<AnimationState>(){ AnimationState.IDLE,
+                                                                   AnimationState.ROLLING,
+                                                                   AnimationState.WALKING,
+                                                                   AnimationState.JUMPING
+            }},
+            { AnimationState.ROLLING , new List<AnimationState>(){ AnimationState.IDLE,
+                                                                   AnimationState.WALKING,
+                                                                   AnimationState.RUNNING,
+                                                                   AnimationState.JUMPING
+            }},
             { AnimationState.JUMPING , new List<AnimationState>(){ AnimationState.FALLING }},
             { AnimationState.FALLING , new List<AnimationState>(){ AnimationState.LANDING }},
             { AnimationState.LANDING , new List<AnimationState>(){ AnimationState.IDLE,
                                                                    AnimationState.WALKING,
-                                                                   AnimationState.RUNNING,}}
+                                                                   AnimationState.RUNNING,
+                                                                   AnimationState.ROLLING,
+            }}
         };
 
         public CharacterAnimationStateManager(AnimationState animationState) : base(animationState)
@@ -45,44 +68,25 @@ namespace Engine.Animation
             InitializeAnimationStateSettings();
         }
 
-        public bool NeedsToTransition
+        public (bool update, AnimationState state) ValidateStateChange(AnimationState desiredState)
         {
-            get {
-                if(AnimationState ==  AnimationState.JUMPING && !_stateAnimationIsPlayingOnce)
-                {
-                    return true;
-                }
-                return false;
-
-            }
-        }
-
-        public AnimationState TransitionToState(AnimationState desiredState)
-        {
-            if (_validNextStates.ContainsKey(AnimationState))
+            var currentState = AnimationState;
+            if (_validNextStates.ContainsKey(currentState))
             {
-                var validStates = _validNextStates[AnimationState];
-                //Return for specific state
-                foreach( var state in validStates)
+                foreach(var possibleNextState in _validNextStates[currentState])
                 {
-                    if(desiredState == state)
+                    if(desiredState == possibleNextState)
                     {
-                        return desiredState;
+                        return (true, desiredState);
                     }
                 }
 
-                //return if it can only go to the next available state
-                if(validStates.Count > 0)
+                if(_validNextStates[currentState].Count > 0)
                 {
-                    return validStates[0];
+                    return (true, _validNextStates[currentState][0]);
                 }
-
-                
-
             }
-            //if all else fails just return the state it wanted
-            return desiredState;
-
+            return (false, desiredState);
         }
 
         public AnimationState PreviousState
@@ -126,8 +130,8 @@ namespace Engine.Animation
             if (AnimationState == AnimationState.WALKING) { return (17.0 / 60.0); }
             if (AnimationState == AnimationState.RUNNING) { return (25.0 / 60.0); }
             if (AnimationState == AnimationState.IDLE) { return (10.0 / 60.0); }
-            if (AnimationState == AnimationState.JUMPING) { return (18.0 / 60.0); }
-            if (AnimationState == AnimationState.LANDING) { return (5.0 / 60.0); }
+            if (AnimationState == AnimationState.JUMPING) { return (30.0 / 60.0); }
+            if (AnimationState == AnimationState.LANDING) { return (15.0 / 60.0); }
             return (15.0 / 60.0);
         }
     }

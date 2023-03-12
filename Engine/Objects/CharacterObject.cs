@@ -48,20 +48,30 @@ namespace Engine.Objects
             compareDirection = new Vector2((float)x, (float)y);
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
-            var speed = _frameManager.AnimationState == AnimationState.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
+
+            var speed = CHARACTER_SPEED;
+            bool previousWasRun = _frameManager.PreviousAnimationState == AnimationState.RUNNING;
+            if (_frameManager.AnimationState == AnimationState.RUNNING ||
+                (_frameManager.AnimationState == AnimationState.ROLLING && previousWasRun) ||
+                (_frameManager.AnimationState == AnimationState.JUMPING && previousWasRun))
+            {
+                speed = CHARACTER_SPEED * 2.0f;
+            }
+           
             _shiftDrawAccumulator = 0;
             return new Vector3(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y), Position.Z);  
         }
 
         public void UpdateCharacter()
         {
+
             Jump();
         }
 
         private void Jump()
         {
             float FPS = 1.0f;
-            if (_frameManager.AnimationState == AnimationState.JUMPING && Position.Z < 40)
+            if (_frameManager.AnimationState == AnimationState.JUMPING && Position.Z < 20)
             {
                 HeightAdjust(CHARACTER_JUMP_SPEED * (1.0f / FPS));
             }
@@ -74,6 +84,7 @@ namespace Engine.Objects
         public void ChangeState(AnimationState state)
         {
             if(_frameManager.AnimationState == AnimationState.FALLING && Position.Z > 0) { return; }
+            
 
             _frameManager.ChangeState(state);
         }

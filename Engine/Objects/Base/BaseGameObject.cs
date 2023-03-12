@@ -19,6 +19,11 @@ namespace Engine.Objects.Base
             set { _position = value; }
         }
 
+        protected void HeightAdjust(float adjustValue)
+        {
+            _position.Z += adjustValue;
+        }
+
         public virtual void OnNotify(Events eventType, object argument = null) { }
 
         public virtual void Render(SpriteBatch spriteBatch)

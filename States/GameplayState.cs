@@ -107,7 +107,8 @@ namespace States
                             _camera.CameraPosition = new Vector3(_mainCharacter.Position.X, _mainCharacter.Position.Y, 0);
                         } 
                     }
-                    if(cmd is GameplayInputCommand.ChangeAnimationState)
+                    
+                    if (cmd is GameplayInputCommand.ChangeAnimationState)
                     {
                         var changeStateCmd = (GameplayInputCommand.ChangeAnimationState)cmd;
                         _mainCharacter.ChangeState(changeStateCmd.State);
@@ -152,8 +153,11 @@ namespace States
 
                 }
             );
+        }
 
-            
+        public override void Update(GameTime gameTime)
+        {
+            _mainCharacter.UpdateCharacter();
         }
 
         protected override void SetInputManager()

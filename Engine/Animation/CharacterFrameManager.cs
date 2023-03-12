@@ -10,13 +10,13 @@ using Engine.Objects;
 
 namespace Engine.Animation
 {
-	public class CharacterFrameManager : BaseFrameManager
-	{
+    public class CharacterFrameManager : BaseFrameManager
+    {
         private bool _characterMoved = false;
         private CharacterAnimationStateManager _animationState;
 
         public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
-		{
+        {
             SpriteSheets = sheets;
             _animationState = new CharacterAnimationStateManager(SpriteSheetAnimationState);
         }
@@ -26,16 +26,16 @@ namespace Engine.Animation
             if (_characterMoved || _animationState.IsPlaying || _animationState.IsLooping)
             {
                 CurrentFrame += _animationState.FrameDuration();
-      
+
                 if (CurrentFrame >= FrameCount)
                 {
                     _animationState.StoppedPlaying();
                 }
-               
-                CurrentFrame = MathUtils.Mod(CurrentFrame, (double) FrameCount);
-                CurrentFrame = CurrentFrame >= (double) FrameCount ? 0.0 : CurrentFrame;
+
+                CurrentFrame = MathUtils.Mod(CurrentFrame, (double)FrameCount);
+                CurrentFrame = CurrentFrame >= (double)FrameCount ? 0.0 : CurrentFrame;
                 _characterMoved = false;
-                
+
             }
         }
 
@@ -45,12 +45,17 @@ namespace Engine.Animation
                 return;
             }
 
+            if (_animationState.NeedsToTransition)
+            {
+                state = _animationState.TransitionToState(state);
+            }
+
             bool wasUpdated = UpdateCurrentSpriteSheet(state);
 
             if (wasUpdated)
             {
                 _animationState.UpdateAnimationState(state);
-                if(_animationState.PreviousState == AnimationState.IDLE
+                if (_animationState.PreviousState == AnimationState.IDLE
                     || _animationState.PlaysOnceOnChange
                     || _animationState.PlaysOnLoop)
                 {
@@ -58,6 +63,14 @@ namespace Engine.Animation
                 }
             }
         }
+
+        public AnimationState AnimationState
+        {
+            get { return _animationState.AnimationState; }
+        }
+
+
+
 
         public void UpdateDrawFrameDirection(Vector2 moveDirection, Vector2 screenDownDirection, int camDir)
         {

@@ -9,7 +9,7 @@ using Engine.Input.Base;
 
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-
+using Microsoft.Xna.Framework;
 
 namespace Engine.States.Base
 {
@@ -113,6 +113,8 @@ namespace Engine.States.Base
         {
             get { return _gameObjects; }
         }
+
+        public abstract void Update(GameTime gameTime);
 
         public void Render(SpriteBatch spriteBatch)
         {

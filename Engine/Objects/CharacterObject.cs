@@ -14,6 +14,7 @@ namespace Engine.Objects
     public class CharacterObject : BaseGameObject
     {
         private const float CHARACTER_SPEED = 0.8f;
+        private const float CHARACTER_JUMP_SPEED = 2.5f;
         private CharacterFrameManager _frameManager;
         private int _shiftDrawAccumulator = 0;
 
@@ -47,13 +48,33 @@ namespace Engine.Objects
             compareDirection = new Vector2((float)x, (float)y);
 
             _frameManager.UpdateDrawFrameDirection(direction, compareDirection, (int) camDir);
-            var speed = _frameManager.SpriteSheetAnimationState == AnimationState.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
+            var speed = _frameManager.AnimationState == AnimationState.RUNNING ? CHARACTER_SPEED * 2.0f : CHARACTER_SPEED;
             _shiftDrawAccumulator = 0;
             return new Vector3(Position.X + (speed * direction.X), Position.Y + (speed * direction.Y), Position.Z);  
         }
 
+        public void UpdateCharacter()
+        {
+            Jump();
+        }
+
+        private void Jump()
+        {
+            float FPS = 1.0f;
+            if (_frameManager.AnimationState == AnimationState.JUMPING && Position.Z < 40)
+            {
+                HeightAdjust(CHARACTER_JUMP_SPEED * (1.0f / FPS));
+            }
+            if (_frameManager.AnimationState == AnimationState.FALLING)
+            {
+                HeightAdjust((CHARACTER_JUMP_SPEED * (1.0f / FPS))* -1);
+            }
+        }
+
         public void ChangeState(AnimationState state)
         {
+            if(_frameManager.AnimationState == AnimationState.FALLING && Position.Z > 0) { return; }
+
             _frameManager.ChangeState(state);
         }
 
@@ -102,16 +123,12 @@ namespace Engine.Objects
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();
             zIndex = UpdateDrawDepth();
-
-            Debug.WriteLine(string.Format("Character State: {0}", _frameManager.SpriteSheetAnimationState));
             //drawBbox(spriteBatch);
             
             spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition,
                 _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor,
                 new Vector2(1, 1),
                 SpriteEffects.None, 0);
-
-            Position = new Vector3(Position.X, Position.Y, Position.Z + 0.06f);
             
         }
 

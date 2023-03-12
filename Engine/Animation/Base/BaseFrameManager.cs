@@ -117,7 +117,7 @@ namespace Engine.Animation.Base
         }
 
 
-        public AnimationState SpriteSheetAnimationState
+        protected AnimationState SpriteSheetAnimationState
         {
             get { return CurrentSpriteSheet.AnimationState; }
         }

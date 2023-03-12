@@ -31,13 +31,10 @@ namespace GuildOfHeaven
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            //test
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             graphics.PreferredBackBufferWidth = (int) (DESIGNED_RESOLUTION_WIDTH * 1.6f);// 1024;
             graphics.PreferredBackBufferHeight = (int) (DESIGNED_RESOLUTION_HEIGHT * 1.6f);// 768;
             //graphics.IsFullScreen = true;
@@ -50,8 +47,6 @@ namespace GuildOfHeaven
                 RenderTargetUsage.DiscardContents);
 
             _renderScaleRectangle = GetScaleRectangle();
-            
-
             base.Initialize();
         }
 
@@ -121,6 +116,7 @@ namespace GuildOfHeaven
         protected override void Update(GameTime gameTime)
         {
             _currentGameState.HandleInput();
+            _currentGameState.Update(gameTime);
             base.Update(gameTime);
         }
 

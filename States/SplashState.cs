@@ -36,6 +36,11 @@ namespace States
 
         }
 
+        public override void Update(GameTime gameTime)
+        {
+
+        }
+
         protected override void SetInputManager()
         {
             InputManager = new InputManager(new SplashInputMapper());

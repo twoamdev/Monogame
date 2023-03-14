@@ -77,34 +77,49 @@ namespace Engine.Input
             if ((_keyboardState.IsKeyDown(Keys.Left) || _gamePadState.IsButtonDown(Buttons.RightThumbstickLeft))
                 && (_cameraRelease == 0))
             {
-              
                 commands.Add(new GameplayInputCommand.CameraRotateRight());
-
-
             }
 
             //Move Camera Left
             if ((_keyboardState.IsKeyDown(Keys.Right) || _gamePadState.IsButtonDown(Buttons.RightThumbstickRight))
                 && (_cameraRelease == 0))
             {
-                
                 commands.Add(new GameplayInputCommand.CameraRotateLeft());
+            }
 
+            //Move Camera up
+            if ((_keyboardState.IsKeyDown(Keys.Up) || _gamePadState.IsButtonDown(Buttons.RightThumbstickUp))
+                && (_cameraRelease == 0))
+            {
+                commands.Add(new GameplayInputCommand.CameraRotateDown());
+            }
 
+            //Move Camera down 
+            if ((_keyboardState.IsKeyDown(Keys.Down) || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
+                && (_cameraRelease == 0))
+            {
+                commands.Add(new GameplayInputCommand.CameraRotateUp());
             }
 
             //if holding down camera
             if (_keyboardState.IsKeyDown(Keys.Right)
                 || _keyboardState.IsKeyDown(Keys.Left)
+                || _keyboardState.IsKeyDown(Keys.Up)
+                || _keyboardState.IsKeyDown(Keys.Down)
                 || _gamePadState.IsButtonDown(Buttons.RightThumbstickRight)
-                || _gamePadState.IsButtonDown(Buttons.RightThumbstickLeft))
+                || _gamePadState.IsButtonDown(Buttons.RightThumbstickLeft)
+                || _gamePadState.IsButtonDown(Buttons.RightThumbstickUp)
+                || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
             {
                 _cameraRelease++;
-                _cameraRelease = MathUtils.Mod(_cameraRelease, 8);
+                _cameraRelease = MathUtils.Mod(_cameraRelease, 16);
             }
 
             if ( (_keyboardState.IsKeyUp(Keys.Right) && _keyboardState.IsKeyUp(Keys.Left)) &&
-                (_gamePadState.IsButtonUp(Buttons.RightThumbstickRight) && _gamePadState.IsButtonUp(Buttons.RightThumbstickLeft)))
+                (_keyboardState.IsKeyUp(Keys.Down) && _keyboardState.IsKeyUp(Keys.Up)) &&
+                (_gamePadState.IsButtonUp(Buttons.RightThumbstickRight) && _gamePadState.IsButtonUp(Buttons.RightThumbstickLeft) &&
+                 _gamePadState.IsButtonUp(Buttons.RightThumbstickUp) && _gamePadState.IsButtonUp(Buttons.RightThumbstickDown)
+                ))
             {
                 _cameraRelease = 0;
             }

@@ -150,6 +150,15 @@ namespace States
                         }
                         _camera.RotateCameraRight();
                     }
+                    if (cmd is GameplayInputCommand.CameraRotateUp)
+                    {
+                        _camera.RotateCameraUp();
+                    }
+                    if (cmd is GameplayInputCommand.CameraRotateDown)
+                    {
+                        _camera.RotateCameraDown();
+                    }
+
 
                 }
             );

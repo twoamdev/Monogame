@@ -12,6 +12,11 @@ namespace Engine.Animation.Base
 	public class BaseFrameManager
 	{
         protected List<SpriteSheet> _spriteSheets;
+        public List<SpriteSheet> _spriteSheetsNormalCam;
+        public List<SpriteSheet> _spriteSheetsMidCam;
+        public List<SpriteSheet> _spriteSheetsLowCam;
+        public List<SpriteSheet> _spriteSheetsGroundCam;
+
         protected ViewportCamera _camera;
         protected float _drawDepth;
 		protected Rectangle _destRectangle;
@@ -21,9 +26,13 @@ namespace Engine.Animation.Base
         private double _currentFrame = 0.0;
         protected Vector2 _screenPosition;
 
-        public BaseFrameManager(ViewportCamera camera)
+        public BaseFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> midSheets, List<SpriteSheet> lowSheets, List<SpriteSheet> groundSheets)
         {
             _camera = camera;
+            _spriteSheetsMidCam = midSheets;
+            _spriteSheetsLowCam = lowSheets;
+            _spriteSheetsGroundCam = groundSheets;
+            _spriteSheetsNormalCam = sheets;
         }
 
         public ViewportCamera Camera
@@ -79,6 +88,34 @@ namespace Engine.Animation.Base
 
         public void UpdateDrawRectangles(Vector3 position, bool trackWithCamera = false)
         {
+            //check cam angle
+            //-45
+            //-56.25
+            //-67.5
+            //-78.75
+            float angle = Camera.CameraTopAngle;
+            if(angle == -45)
+            {
+                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
+                _spriteSheets = _spriteSheetsNormalCam;
+
+            }
+            if (angle == -56.25)
+            {
+                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
+                _spriteSheets = _spriteSheetsMidCam;
+            }
+            if (angle == -67.5)
+            {
+                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
+                _spriteSheets = _spriteSheetsLowCam;
+            }
+            if (angle == -78.75)
+            {
+                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
+                _spriteSheets = _spriteSheetsGroundCam;
+            }
+
             float height = position.Z;
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
             //transform 2D world position to the screen camera space

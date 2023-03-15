@@ -66,8 +66,10 @@ namespace Engine.Objects
         {
 
             Jump();
+
         }
 
+        
         private void Jump()
         {
             float FPS = 1.0f;

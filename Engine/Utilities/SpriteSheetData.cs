@@ -62,6 +62,12 @@ namespace Engine.Utilities
         {
             if (!_data.ContainsKey(direction)) { return new Vector2(0, 0); }
             var cells = _data[direction];
+
+            if (frame >= cells.Count)
+            {
+                frame = cells.Count - 1;
+            }
+
             if (variable == "anchor")
             {
                 return cells[frame].Anchor;

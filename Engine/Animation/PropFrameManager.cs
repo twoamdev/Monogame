@@ -18,9 +18,12 @@ namespace Engine.Animation
         private const int CAMERA_DIRECTIONS = 32;
         
 
-        public PropFrameManager(SpriteSheet sheet, ViewportCamera camera) : base(camera)
+        public PropFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> midSheets, List<SpriteSheet> lowSheets, List<SpriteSheet> groundSheets) : base(sheets, camera ,midSheets, lowSheets, groundSheets)
 		{
-			SpriteSheets = new List<SpriteSheet> {sheet};
+            SpriteSheets = sheets;
+            _spriteSheetsMidCam = midSheets;
+            _spriteSheetsLowCam = lowSheets;
+            _spriteSheetsGroundCam = groundSheets;
         }
 
         

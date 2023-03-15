@@ -12,6 +12,7 @@ namespace Engine.Input
     public class GameplayInputMapper : BaseInputMapper
     {
         private int _cameraRelease = 0;
+        private int _cameraTopAngleRelease = 0;
         private KeyboardState _keyboardState;
         private GamePadState _gamePadState;
        
@@ -89,14 +90,14 @@ namespace Engine.Input
 
             //Move Camera up
             if ((_keyboardState.IsKeyDown(Keys.Up) || _gamePadState.IsButtonDown(Buttons.RightThumbstickUp))
-                && (_cameraRelease == 0))
+                && (_cameraTopAngleRelease == 0))
             {
                 commands.Add(new GameplayInputCommand.CameraRotateDown());
             }
 
             //Move Camera down 
             if ((_keyboardState.IsKeyDown(Keys.Down) || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
-                && (_cameraRelease == 0))
+                && (_cameraTopAngleRelease == 0))
             {
                 commands.Add(new GameplayInputCommand.CameraRotateUp());
             }
@@ -112,7 +113,9 @@ namespace Engine.Input
                 || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
             {
                 _cameraRelease++;
+                _cameraTopAngleRelease++;
                 _cameraRelease = MathUtils.Mod(_cameraRelease, 16);
+                _cameraTopAngleRelease = MathUtils.Mod(_cameraTopAngleRelease, 32);
             }
 
             if ( (_keyboardState.IsKeyUp(Keys.Right) && _keyboardState.IsKeyUp(Keys.Left)) &&
@@ -122,6 +125,7 @@ namespace Engine.Input
                 ))
             {
                 _cameraRelease = 0;
+                _cameraTopAngleRelease = 0;
             }
 
 

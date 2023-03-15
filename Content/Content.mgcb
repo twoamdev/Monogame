@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.0.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.0.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.0.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.0.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.1.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.1.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.1.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.10.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.10.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.10.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.10.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.11.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.11.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.11.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.11.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.12.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.12.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -71,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.12.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.12.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.13.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.13.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.13.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.13.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.14.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.14.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -95,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.14.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.14.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.15.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.15.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -107,9 +107,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.15.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.15.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.16.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.16.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -119,9 +119,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.16.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.16.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.17.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.17.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -131,9 +131,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.17.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.17.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.18.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.18.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -143,9 +143,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.18.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.18.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.19.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.19.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -155,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.19.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.19.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.2.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -167,9 +167,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.2.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.2.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.20.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.20.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -179,9 +179,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.20.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.20.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.21.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.21.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -191,9 +191,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.21.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.21.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.22.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.22.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -203,9 +203,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.22.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.22.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.23.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.23.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,9 +215,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.23.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.23.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.24.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.24.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -227,9 +227,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.24.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.24.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.25.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.25.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -239,9 +239,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.25.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.25.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.26.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.26.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -251,9 +251,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.26.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.26.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.27.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.27.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -263,9 +263,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.27.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.27.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.28.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.28.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -275,9 +275,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.28.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.28.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.29.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.29.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -287,9 +287,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.29.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.29.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.3.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -299,9 +299,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.3.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.3.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.30.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.30.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -311,9 +311,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.30.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.30.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.31.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.31.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -323,9 +323,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.31.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.31.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.4.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -335,9 +335,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.4.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.4.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.5.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -347,9 +347,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.5.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.5.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.6.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -359,9 +359,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.6.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.6.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.7.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -371,9 +371,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.7.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.7.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.8.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -383,9 +383,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.8.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.8.png
 
-#begin assets/building/test/buildingA/buildingA_STATIC_spriteSheet.9.png
+#begin assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.9.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -395,7 +395,1159 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/building/test/buildingA/buildingA_STATIC_spriteSheet.9.png
+/build:assets/building/test/buildingA/STATIC-GROUND/buildingA_STATIC-GROUND_spriteSheet.9.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.0.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.1.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.10.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.10.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.11.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.11.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.12.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.12.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.13.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.13.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.14.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.14.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.15.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.15.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.16.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.16.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.17.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.17.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.18.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.18.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.19.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.19.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.2.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.20.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.20.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.21.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.21.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.22.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.22.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.23.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.23.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.24.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.24.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.25.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.25.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.26.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.27.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.27.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.28.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.28.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.29.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.29.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.3.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.30.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.30.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.31.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.31.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.4.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.5.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.6.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.7.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.8.png
+
+#begin assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.9.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.0.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.1.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.10.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.10.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.11.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.11.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.12.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.12.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.13.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.13.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.14.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.14.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.15.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.15.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.16.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.16.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.17.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.17.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.18.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.18.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.19.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.19.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.2.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.20.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.20.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.21.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.21.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.22.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.22.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.23.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.23.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.24.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.24.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.25.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.25.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.26.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.27.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.27.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.28.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.28.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.29.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.29.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.3.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.30.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.30.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.31.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.31.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.4.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.5.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.6.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.7.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.8.png
+
+#begin assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-MID/buildingA_STATIC-MID_spriteSheet.9.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.0.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.1.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.10.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.10.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.11.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.11.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.12.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.12.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.13.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.13.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.14.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.14.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.15.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.15.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.16.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.16.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.17.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.17.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.18.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.18.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.19.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.19.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.2.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.20.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.20.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.21.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.21.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.22.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.22.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.23.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.23.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.24.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.24.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.25.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.25.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.26.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.27.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.27.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.28.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.28.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.29.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.29.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.3.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.30.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.30.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.31.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.31.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.4.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.5.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.6.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.7.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.8.png
+
+#begin assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/building/test/buildingA/STATIC-NORMAL/buildingA_STATIC-NORMAL_spriteSheet.9.png
 
 #begin assets/building/test/buildingB/buildingB_STATIC_spriteSheet.0.png
 /importer:TextureImporter
@@ -1549,7 +2701,7 @@
 /processorParam:TextureFormat=Color
 /build:assets/building/test/guildHQ/guildHQ_STATIC_spriteSheet.9.png
 
-#begin assets/character/test/joe/FALLING/joe_FALLING_spriteSheet.png
+#begin assets/character/test/joe/FALLING-GROUND/joe_FALLING-GROUND_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1559,9 +2711,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/FALLING/joe_FALLING_spriteSheet.png
+/build:assets/character/test/joe/FALLING-GROUND/joe_FALLING-GROUND_spriteSheet.png
 
-#begin assets/character/test/joe/IDLE/joe_IDLE_spriteSheet.png
+#begin assets/character/test/joe/FALLING-LOW/joe_FALLING-LOW_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1571,9 +2723,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/IDLE/joe_IDLE_spriteSheet.png
+/build:assets/character/test/joe/FALLING-LOW/joe_FALLING-LOW_spriteSheet.png
 
-#begin assets/character/test/joe/JUMPING/joe_JUMPING_spriteSheet.png
+#begin assets/character/test/joe/FALLING-MID/joe_FALLING-MID_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1583,9 +2735,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/JUMPING/joe_JUMPING_spriteSheet.png
+/build:assets/character/test/joe/FALLING-MID/joe_FALLING-MID_spriteSheet.png
 
-#begin assets/character/test/joe/LANDING/joe_LANDING_spriteSheet.png
+#begin assets/character/test/joe/FALLING-NORMAL/joe_FALLING-NORMAL_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1595,9 +2747,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/LANDING/joe_LANDING_spriteSheet.png
+/build:assets/character/test/joe/FALLING-NORMAL/joe_FALLING-NORMAL_spriteSheet.png
 
-#begin assets/character/test/joe/ROLLING/joe_ROLLING_spriteSheet.png
+#begin assets/character/test/joe/IDLE-GROUND/joe_IDLE-GROUND_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1607,9 +2759,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/ROLLING/joe_ROLLING_spriteSheet.png
+/build:assets/character/test/joe/IDLE-GROUND/joe_IDLE-GROUND_spriteSheet.png
 
-#begin assets/character/test/joe/RUNNING/joe_RUNNING_spriteSheet.png
+#begin assets/character/test/joe/IDLE-LOW/joe_IDLE-LOW_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1619,9 +2771,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/RUNNING/joe_RUNNING_spriteSheet.png
+/build:assets/character/test/joe/IDLE-LOW/joe_IDLE-LOW_spriteSheet.png
 
-#begin assets/character/test/joe/WALKING/joe_WALKING_spriteSheet.png
+#begin assets/character/test/joe/IDLE-MID/joe_IDLE-MID_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1631,9 +2783,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/joe/WALKING/joe_WALKING_spriteSheet.png
+/build:assets/character/test/joe/IDLE-MID/joe_IDLE-MID_spriteSheet.png
 
-#begin assets/character/test/maleJake/IDLE/maleJake_IDLE_spriteSheet.png
+#begin assets/character/test/joe/IDLE-NORMAL/joe_IDLE-NORMAL_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1643,9 +2795,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/maleJake/IDLE/maleJake_IDLE_spriteSheet.png
+/build:assets/character/test/joe/IDLE-NORMAL/joe_IDLE-NORMAL_spriteSheet.png
 
-#begin assets/character/test/maleJake/ROLLING/maleJake_ROLLING_spriteSheet.png
+#begin assets/character/test/joe/JUMPING-GROUND/joe_JUMPING-GROUND_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1655,9 +2807,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/maleJake/ROLLING/maleJake_ROLLING_spriteSheet.png
+/build:assets/character/test/joe/JUMPING-GROUND/joe_JUMPING-GROUND_spriteSheet.png
 
-#begin assets/character/test/maleJake/RUNNING/maleJake_RUNNING_spriteSheet.png
+#begin assets/character/test/joe/JUMPING-LOW/joe_JUMPING-LOW_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1667,9 +2819,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/maleJake/RUNNING/maleJake_RUNNING_spriteSheet.png
+/build:assets/character/test/joe/JUMPING-LOW/joe_JUMPING-LOW_spriteSheet.png
 
-#begin assets/character/test/maleJake/WALKING/maleJake_WALKING_spriteSheet.png
+#begin assets/character/test/joe/JUMPING-MID/joe_JUMPING-MID_spriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1679,7 +2831,211 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:assets/character/test/maleJake/WALKING/maleJake_WALKING_spriteSheet.png
+/build:assets/character/test/joe/JUMPING-MID/joe_JUMPING-MID_spriteSheet.png
+
+#begin assets/character/test/joe/JUMPING-NORMAL/joe_JUMPING-NORMAL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/JUMPING-NORMAL/joe_JUMPING-NORMAL_spriteSheet.png
+
+#begin assets/character/test/joe/LANDING-GROUND/joe_LANDING-GROUND_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/LANDING-GROUND/joe_LANDING-GROUND_spriteSheet.png
+
+#begin assets/character/test/joe/LANDING-LOW/joe_LANDING-LOW_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/LANDING-LOW/joe_LANDING-LOW_spriteSheet.png
+
+#begin assets/character/test/joe/LANDING-MID/joe_LANDING-MID_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/LANDING-MID/joe_LANDING-MID_spriteSheet.png
+
+#begin assets/character/test/joe/LANDING-NORMAL/joe_LANDING-NORMAL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/LANDING-NORMAL/joe_LANDING-NORMAL_spriteSheet.png
+
+#begin assets/character/test/joe/ROLLING-GROUND/joe_ROLLING-GROUND_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/ROLLING-GROUND/joe_ROLLING-GROUND_spriteSheet.png
+
+#begin assets/character/test/joe/ROLLING-LOW/joe_ROLLING-LOW_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/ROLLING-LOW/joe_ROLLING-LOW_spriteSheet.png
+
+#begin assets/character/test/joe/ROLLING-MID/joe_ROLLING-MID_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/ROLLING-MID/joe_ROLLING-MID_spriteSheet.png
+
+#begin assets/character/test/joe/ROLLING-NORMAL/joe_ROLLING-NORMAL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/ROLLING-NORMAL/joe_ROLLING-NORMAL_spriteSheet.png
+
+#begin assets/character/test/joe/RUNNING-GROUND/joe_RUNNING-GROUND_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/RUNNING-GROUND/joe_RUNNING-GROUND_spriteSheet.png
+
+#begin assets/character/test/joe/RUNNING-LOW/joe_RUNNING-LOW_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/RUNNING-LOW/joe_RUNNING-LOW_spriteSheet.png
+
+#begin assets/character/test/joe/RUNNING-MID/joe_RUNNING-MID_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/RUNNING-MID/joe_RUNNING-MID_spriteSheet.png
+
+#begin assets/character/test/joe/RUNNING-NORMAL/joe_RUNNING-NORMAL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/RUNNING-NORMAL/joe_RUNNING-NORMAL_spriteSheet.png
+
+#begin assets/character/test/joe/WALKING-GROUND/joe_WALKING-GROUND_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/WALKING-GROUND/joe_WALKING-GROUND_spriteSheet.png
+
+#begin assets/character/test/joe/WALKING-LOW/joe_WALKING-LOW_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/WALKING-LOW/joe_WALKING-LOW_spriteSheet.png
+
+#begin assets/character/test/joe/WALKING-MID/joe_WALKING-MID_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/WALKING-MID/joe_WALKING-MID_spriteSheet.png
+
+#begin assets/character/test/joe/WALKING-NORMAL/joe_WALKING-NORMAL_spriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/character/test/joe/WALKING-NORMAL/joe_WALKING-NORMAL_spriteSheet.png
 
 #begin assets/ui/backgrounds/testSplashBG.png
 /importer:TextureImporter

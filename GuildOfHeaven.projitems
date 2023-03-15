@@ -39,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Objects\ViewportCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\AssetLoadUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Utilities\SpriteSheetPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\Enum\CamLookAngle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

@@ -15,10 +15,13 @@ namespace Engine.Animation
         private bool _characterMoved = false;
         private CharacterAnimationStateManager _animationState;
 
-        public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera) : base(camera)
+        public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> midSheets, List<SpriteSheet> lowSheets, List<SpriteSheet> groundSheets) : base(sheets, camera, midSheets, lowSheets, groundSheets)
         {
             SpriteSheets = sheets;
             _animationState = new CharacterAnimationStateManager(SpriteSheetAnimationState);
+            _spriteSheetsMidCam = midSheets;
+            _spriteSheetsLowCam = lowSheets;
+            _spriteSheetsGroundCam = groundSheets;
         }
 
         public void UpdateCurrentFrame()

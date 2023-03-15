@@ -71,9 +71,14 @@ namespace Engine.Objects.Base
             Debug.WriteLine(string.Format("rot up: {0}", _currentUpDownRotation));
         }
 
+        public float CameraTopAngle
+        {
+            get { return _currentUpDownRotation; }
+        }
+
         public void RotateCameraDown()
         {
-            if(_currentUpDownRotation != -78.75f)
+            if(_currentUpDownRotation != -67.5)//-78.75f)
             {
                 _currentUpDownRotation -= 11.25f;
             }

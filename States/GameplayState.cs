@@ -31,22 +31,50 @@ namespace States
             var startCamPos = new Vector3(startPos.X, startPos.Y, 0);
             _camera = new ViewportCamera(startCamPos, _viewportWidth, _viewportHeight);
 
-            var mainPlayerSheets = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths());
-            var mainPlayerFrameManager = new CharacterFrameManager(mainPlayerSheets, _camera);
+            var mainPlayerSheetsNormal = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.NORMAL));
+            var mainPlayerSheetsMid = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.MID));
+            var mainPlayerSheetsLow = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.LOW));
+            var mainPlayerSheetsGround = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.GROUND));
+            var mainPlayerFrameManager = new CharacterFrameManager(
+                mainPlayerSheetsNormal,
+                _camera,
+                mainPlayerSheetsMid,
+                mainPlayerSheetsLow,
+                mainPlayerSheetsGround
+                );
             _mainCharacter = new CharacterObject(startPos, mainPlayerFrameManager);
             AddGameObject(_mainCharacter);
 
-            var buildingSheets = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(), true);
-            var yOffset = 0;
-            foreach(var sheet in buildingSheets)
+            float yOffset = 0;
+            float xOffset = 0;
+            for (int i = 0; i < 4; i++)
             {
-                var frameManager = new PropFrameManager(sheet, _camera);
+                yOffset += ((float)i) * 200;
+
+                for (int j = 0; j < 4; j++)
+                {
+                    xOffset += ((float)j) * 200;
+                    var buildingSheetsNormal = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.NORMAL), true);
+                    var buildingSheetsMid = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.MID), true);
+                    var buildingSheetsLow = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.LOW), true);
+                    var buildingSheetsGround = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.GROUND), true);
+
+
+
+                    var frameManager = new PropFrameManager(buildingSheetsNormal, _camera, buildingSheetsMid, buildingSheetsLow, buildingSheetsGround);
+                    var position = new Vector3((_viewportWidth / 2) + xOffset, (_viewportHeight / 2) + yOffset, 0);
+                    var envObj = new EnvironmentObject(position, frameManager);
+                    AddGameObject(envObj);
+                    
+                    
+                }
+
                 
-                var position = new Vector3(_viewportWidth / 2, (_viewportHeight / 2) + yOffset, 0);
-                var envObj = new EnvironmentObject(position, frameManager);
-                AddGameObject(envObj);
-                yOffset += (int) frameManager.FrameSize.Y * 2;
+                xOffset = 0;
+
             }
+
+
         }
 
         private List<SpriteSheet> LoadSheets(List<SpriteSheetPacket> paths, bool hasFrames=false)

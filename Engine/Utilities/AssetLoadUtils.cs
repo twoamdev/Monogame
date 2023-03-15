@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reflection.Metadata;
 using Engine.Enum;
 using Newtonsoft.Json.Linq;
 
@@ -23,17 +24,19 @@ namespace Engine.Utilities
         private static string _buildingsDirExtension = "assets/building/test/";
         private static List<string> _buildingLabels = new List<string>()
         {
-            "buildingA", "buildingB", "buildingC"
+            "buildingA"
             
         };
 
 
-        public static List<SpriteSheetPacket> PlayerTextureAndDataPaths()
+        public static List<SpriteSheetPacket> PlayerTextureAndDataPaths(string angle)
         {
             List<SpriteSheetPacket> packets = new List<SpriteSheetPacket>();
+            
+
             foreach(AnimationState state in _mainPlayerAnimationStates)
             {
-                string stateLiteralName = AnimationState.GetName(typeof(AnimationState), state);
+                string stateLiteralName = AnimationState.GetName(typeof(AnimationState), state) + "-" + angle;
                 string texturePath =  _mainPlayerDirExtension + _mainPlayerAssetLabel + "/" + stateLiteralName + "/" + _mainPlayerAssetLabel + "_" + stateLiteralName + "_" + "spriteSheet";
                 string metaDataPath = _jsonRootDir + _mainPlayerDirExtension + _mainPlayerAssetLabel + "/" + stateLiteralName + "/" + _mainPlayerAssetLabel + "_" + stateLiteralName + "_" + "metaData.json";
                 var packet = new SpriteSheetPacket(texturePath, metaDataPath, state);
@@ -42,14 +45,14 @@ namespace Engine.Utilities
             return packets;
         }
 
-        public static List<SpriteSheetPacket> BuildingsTextureAndDataPaths()
+        public static List<SpriteSheetPacket> BuildingsTextureAndDataPaths(string angle)
         {
             List<SpriteSheetPacket> packets = new List<SpriteSheetPacket>();
 
-            string stateLiteralName = AnimationState.GetName(typeof(AnimationState), AnimationState.STATIC);
+            string stateLiteralName = AnimationState.GetName(typeof(AnimationState), AnimationState.STATIC) + "-" + angle;
             foreach (string label in _buildingLabels) { 
-                string texturePath = _buildingsDirExtension + label + "/" + label + "_" + stateLiteralName + "_" + "spriteSheet";
-                string metaDataPath = _jsonRootDir + _buildingsDirExtension + label + "/"  + label + "_" + stateLiteralName + "_" + "metaData.json";
+                string texturePath = _buildingsDirExtension + label + "/" + stateLiteralName + "/" + label + "_" + stateLiteralName + "_" + "spriteSheet";
+                string metaDataPath = _jsonRootDir + _buildingsDirExtension + label + "/" + stateLiteralName + "/" + label + "_" + stateLiteralName + "_" + "metaData.json";
                 var packet = new SpriteSheetPacket(texturePath, metaDataPath, AnimationState.STATIC);
                 packets.Add(packet);
             }

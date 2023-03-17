@@ -114,8 +114,8 @@ namespace Engine.Input
             {
                 _cameraRelease++;
                 _cameraTopAngleRelease++;
-                _cameraRelease = MathUtils.Mod(_cameraRelease, 16);
-                _cameraTopAngleRelease = MathUtils.Mod(_cameraTopAngleRelease, 32);
+                _cameraRelease = MathUtils.Mod(_cameraRelease, 8);
+                _cameraTopAngleRelease = MathUtils.Mod(_cameraTopAngleRelease, 12);
             }
 
             if ( (_keyboardState.IsKeyUp(Keys.Right) && _keyboardState.IsKeyUp(Keys.Left)) &&

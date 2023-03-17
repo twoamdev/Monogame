@@ -10,6 +10,7 @@ using Engine.States.Base;
 using States;
 using Objects;
 using System;
+using System.IO;
 
 namespace GuildOfHeaven
 {
@@ -23,14 +24,15 @@ namespace GuildOfHeaven
         private Rectangle _renderScaleRectangle;
         private const int DESIGNED_RESOLUTION_WIDTH = (int) (1920/3f);
         private const int DESIGNED_RESOLUTION_HEIGHT = (int) (1080/3f);
-
         private const float DESIGNED_RESOLUTION_ASPECT_RATIO = DESIGNED_RESOLUTION_WIDTH / (float)DESIGNED_RESOLUTION_HEIGHT;
 
+        private Effect _postProcessShader;
 
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
         }
 
         protected override void Initialize()
@@ -39,6 +41,13 @@ namespace GuildOfHeaven
             graphics.PreferredBackBufferHeight = (int) (DESIGNED_RESOLUTION_HEIGHT * 1.6f);// 768;
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
+
+            var x = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/myFile.mgfx";
+
+
+            byte[] bytecode = File.ReadAllBytes(x);
+            _postProcessShader = new Effect(graphics.GraphicsDevice, bytecode);
+
 
             _renderTarget = new RenderTarget2D(graphics.GraphicsDevice,
                 DESIGNED_RESOLUTION_WIDTH, DESIGNED_RESOLUTION_HEIGHT,
@@ -128,8 +137,8 @@ namespace GuildOfHeaven
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin();
-
+            _spriteBatch.Begin(effect:_postProcessShader);
+            //_spriteBatch.Begin();
             _currentGameState.Render(_spriteBatch);
 
             _spriteBatch.End();

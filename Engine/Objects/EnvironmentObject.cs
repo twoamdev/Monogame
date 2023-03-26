@@ -15,10 +15,12 @@ namespace Engine.Objects
 	{
         private PropFrameManager _frameManager;
         private bool _isGroundObject;
+        private Effect _motionBlurEffect;
 
-        public EnvironmentObject(Vector3 startPos, PropFrameManager manager, bool isGround = false)
+        public EnvironmentObject(Vector3 startPos, PropFrameManager manager, Effect motionblur, bool isGround = false)
 		{
             _frameManager = manager;
+            _motionBlurEffect = motionblur;
             Position = startPos;
             _frameManager.UpdateDrawRectangles(Position);
             _isGroundObject = isGround;
@@ -29,6 +31,7 @@ namespace Engine.Objects
             var currFrameDir = (int)_frameManager.FrameDirection + shiftAmt;
             currFrameDir = MathUtils.Mod(currFrameDir, 32);
             _frameManager.FrameDirection = (Directions)currFrameDir;
+
         }
 
         public List<BoundingBox> GetColliders()
@@ -47,14 +50,37 @@ namespace Engine.Objects
 
         public override void Render(SpriteBatch spriteBatch)
         {
-         
+
+            _frameManager.UpdateSpriteSheetBasedOnCameraAngle();
             _frameManager.UpdateDrawRectangles(Position);
             zIndex = _isGroundObject ? _frameManager.DrawDepth - 10000f : _frameManager.DrawDepth;
             zIndex = UpdateDrawDepth();
 
+            Vector2 currP = _frameManager.ScreenPosition;
+            Vector2 prevP = _frameManager.PrevScreenPosition;
+            var direction = Vector2.Normalize(Vector2.Subtract(currP, prevP));
+            float mag = Vector2.Distance(currP, prevP);
+            Vector2 hey = Vector2.Multiply(prevP, mag * 0.5f);
+
+            if (Vector2.Distance(Vector2.Zero, direction) > 0)
+            {
+               // _motionBlurEffect.Parameters["blurDirection"].SetValue(new Vector2(direction.X, direction.Y));
+                //_motionBlurEffect.Parameters["blurSpeed"].SetValue(0.035f * mag);
+                
+                spriteBatch.Draw(_frameManager.Texture, _frameManager.PrevScreenPosition, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
+                spriteBatch.Draw(_frameManager.Texture, hey, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
+                spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
+
+
+            }
+            else
+            {
+                spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
+
+            }
+
+
             
-            spriteBatch.Draw(_frameManager.Texture, _frameManager.ScreenPosition, _frameManager.SourceRectangle, Color.White, 0, _frameManager.FrameAnchor, new Vector2(1, 1), SpriteEffects.None, 0);
-            //drawBbox(spriteBatch);
 
         }
 

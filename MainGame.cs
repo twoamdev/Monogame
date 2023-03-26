@@ -42,15 +42,7 @@ namespace GuildOfHeaven
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
-            var x = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/shaders/motionblur.mgfx";
-
-
-            byte[] bytecode = File.ReadAllBytes(x);
-            _postProcessShader = new Effect(graphics.GraphicsDevice, bytecode);
-            _postProcessShader.Parameters["blurDirection"].SetValue(new Vector2(1, 1));
-            _postProcessShader.Parameters["blurSpeed"].SetValue(0.1f);
-
-
+            
             _renderTarget = new RenderTarget2D(graphics.GraphicsDevice,
                 DESIGNED_RESOLUTION_WIDTH, DESIGNED_RESOLUTION_HEIGHT,
                 false,
@@ -103,7 +95,7 @@ namespace GuildOfHeaven
         {
             _currentGameState?.UnloadContent(Content);
             _currentGameState = gameState;
-            _currentGameState.Initialize(Content,DESIGNED_RESOLUTION_WIDTH, DESIGNED_RESOLUTION_HEIGHT);
+            _currentGameState.Initialize(graphics, Content,DESIGNED_RESOLUTION_WIDTH, DESIGNED_RESOLUTION_HEIGHT);
             _currentGameState.LoadContent();
             _currentGameState.OnStateSwitched += CurrentGameState_OnStateSwitched;
             _currentGameState.OnEventNotification += _currentGameState_OnEventNotification;
@@ -153,6 +145,7 @@ namespace GuildOfHeaven
             graphics.GraphicsDevice.Clear(ClearOptions.Target, Color.Black, 1.0f, 0);
 
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
+            
 
             _spriteBatch.Draw(_renderTarget, _renderScaleRectangle, Color.White);
 

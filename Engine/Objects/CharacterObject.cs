@@ -127,11 +127,14 @@ namespace Engine.Objects
                 _frameManager.FrameDirection = (Directions)currDir;
                 _shiftDrawAccumulator = 0;
             }
+           
+            
         }
 
         public override void Render(SpriteBatch spriteBatch)
         {
-           
+
+            _frameManager.UpdateSpriteSheetBasedOnCameraAngle(_frameManager.AnimationState);
             _frameManager.UpdateDrawRectangles(Position, true);
             zIndex = _frameManager.DrawDepth;
             _frameManager.UpdateCurrentFrame();

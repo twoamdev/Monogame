@@ -18,14 +18,16 @@ namespace Engine.States.Base
         private readonly List<BaseGameObject> _gameObjects = new List<BaseGameObject>();
         private const string missingTexture = "assets/ui/icons/errorTexture";
         private ContentManager _contentManager;
+        private GraphicsDeviceManager _graphicsManager;
         protected int _viewportHeight;
         protected int _viewportWidth;
         protected InputManager InputManager { get; set; }
 
         protected abstract void SetInputManager();
 
-        public void Initialize(ContentManager contentManager, int viewportWidth, int viewportHeight)
+        public void Initialize(GraphicsDeviceManager graphicsManager, ContentManager contentManager, int viewportWidth, int viewportHeight)
         {
+            _graphicsManager = graphicsManager;
             _contentManager = contentManager;
             _viewportWidth = viewportWidth;
             _viewportHeight = viewportHeight;
@@ -42,7 +44,14 @@ namespace Engine.States.Base
 
         public abstract void HandleInput();
 
-        
+        public Effect LoadMotionBlurEffect()
+        {
+            var hlslShaderFile = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/shaders/motionblur.mgfx";
+            byte[] bytecode = File.ReadAllBytes(hlslShaderFile);
+            return new Effect(_graphicsManager.GraphicsDevice, bytecode);
+        }
+
+
 
         protected (bool IsErrorTexture, Texture2D LoadedTexture) LoadTexture(string textureName)
         {

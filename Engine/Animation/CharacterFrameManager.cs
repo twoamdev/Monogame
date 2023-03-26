@@ -13,26 +13,23 @@ namespace Engine.Animation
     public class CharacterFrameManager : BaseFrameManager
     {
         private bool _characterMoved = false;
-        private CharacterAnimationStateManager _animationState;
+        private CharacterAnimationStateManager _animStateManager;
 
         public CharacterFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> topSheets, List<SpriteSheet> highSheets, List<SpriteSheet> lowSheets) : base(sheets, camera, topSheets, highSheets, lowSheets)
         {
             SpriteSheets = sheets;
-            _animationState = new CharacterAnimationStateManager(SpriteSheetAnimationState);
-            _spriteSheetsHighCam = highSheets;
-            _spriteSheetsLowCam = lowSheets;
-            _spriteSheetsTopCam = topSheets;
+            _animStateManager = new CharacterAnimationStateManager(SpriteSheetAnimationState);
         }
 
         public void UpdateCurrentFrame()
         {
-            if (_characterMoved || _animationState.IsPlaying || _animationState.IsLooping)
+            if (_characterMoved || _animStateManager.IsPlaying || _animStateManager.IsLooping)
             {
-                CurrentFrame += _animationState.FrameDuration();
+                CurrentFrame += _animStateManager.FrameDuration();
 
                 if (CurrentFrame >= FrameCount)
                 {
-                    _animationState.StoppedPlaying();
+                    _animStateManager.StoppedPlaying();
                 }
 
                 CurrentFrame = MathUtils.Mod(CurrentFrame, (double)FrameCount);
@@ -44,18 +41,18 @@ namespace Engine.Animation
 
         public void ChangeState(AnimationState state)
         {
-            if (_animationState.IsPlaying || state == _animationState.AnimationState) {
+            if (_animStateManager.IsPlaying || state == _animStateManager.AnimationState) {
                 return;
             }
 
-            (var canUpdate, state) = _animationState.ValidateStateChange(state);
+            (var canUpdate, state) = _animStateManager.ValidateStateChange(state);
 
-            if (canUpdate && UpdateCurrentSpriteSheet(state))
+            if (canUpdate && SelectSpriteSheetBasedOnAnimationState(state))
             {
-                _animationState.UpdateAnimationState(state);
-                if (_animationState.PreviousState == AnimationState.IDLE
-                    || _animationState.PlaysOnceOnChange
-                    || _animationState.PlaysOnLoop)
+                _animStateManager.UpdateAnimationState(state);
+                if (_animStateManager.PreviousState == AnimationState.IDLE
+                    || _animStateManager.PlaysOnceOnChange
+                    || _animStateManager.PlaysOnLoop)
                 {
                     CurrentFrame = 0.0;
                 }
@@ -64,12 +61,12 @@ namespace Engine.Animation
 
         public AnimationState AnimationState
         {
-            get { return _animationState.AnimationState; }
+            get { return _animStateManager.AnimationState; }
         }
 
         public AnimationState PreviousAnimationState
         {
-            get { return _animationState.PreviousState; }
+            get { return _animStateManager.PreviousState; }
         }
 
 

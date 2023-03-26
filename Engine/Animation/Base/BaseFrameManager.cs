@@ -12,10 +12,10 @@ namespace Engine.Animation.Base
 	public class BaseFrameManager
 	{
         protected List<SpriteSheet> _spriteSheets;
-        public List<SpriteSheet> _spriteSheetsNormalCam;
-        public List<SpriteSheet> _spriteSheetsTopCam;
-        public List<SpriteSheet> _spriteSheetsHighCam;
-        public List<SpriteSheet> _spriteSheetsLowCam;
+        private List<SpriteSheet> _spriteSheetsNormalCam;
+        private List<SpriteSheet> _spriteSheetsTopCam;
+        private List<SpriteSheet> _spriteSheetsHighCam;
+        private List<SpriteSheet> _spriteSheetsLowCam;
         
 
         protected ViewportCamera _camera;
@@ -25,15 +25,16 @@ namespace Engine.Animation.Base
         protected bool _drawFlipped = false;
         protected Directions _currentDirection = Directions.DIR_0;
         private double _currentFrame = 0.0;
-        protected Vector2 _screenPosition;
+        private Vector2 _screenPosition = Vector2.One;
+        private Vector2 _previousScreenPosition = Vector2.One;
 
         public BaseFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> topSheets, List<SpriteSheet> highSheets, List<SpriteSheet> lowSheets)
         {
             _camera = camera;
             _spriteSheetsTopCam = topSheets;
             _spriteSheetsHighCam = highSheets;
-            _spriteSheetsLowCam = lowSheets;
             _spriteSheetsNormalCam = sheets;
+            _spriteSheetsLowCam = lowSheets;
         }
 
         public ViewportCamera Camera
@@ -61,7 +62,14 @@ namespace Engine.Animation.Base
         public Vector2 ScreenPosition
         {
             get { return _screenPosition; }
-            set { _screenPosition = value; }
+            set {
+                _previousScreenPosition = new Vector2(_screenPosition.X, _screenPosition.Y);
+                _screenPosition = value; }
+        }
+
+        public Vector2 PrevScreenPosition
+        {
+            get { return _previousScreenPosition; }
         }
 
         public bool DrawFlipped
@@ -87,38 +95,37 @@ namespace Engine.Animation.Base
             set { _spriteSheets = value; }
         }
 
+        public void UpdateSpriteSheetBasedOnCameraAngle(AnimationState currentAnimationState = AnimationState.STATIC)
+        {
+            float switchValue = Camera.CameraTopAngle;
+            switch (switchValue)
+            {
+                case -45f:
+                    _spriteSheets = _spriteSheetsNormalCam;
+                    SelectSpriteSheetBasedOnAnimationState(currentAnimationState);
+                    break;
+                case -10f:
+                    _spriteSheets = _spriteSheetsTopCam;
+                    SelectSpriteSheetBasedOnAnimationState(currentAnimationState);
+                    break;
+                case -27.5f:
+                    _spriteSheets = _spriteSheetsHighCam;
+                    SelectSpriteSheetBasedOnAnimationState(currentAnimationState);
+                    break;
+                case -62.5f:
+                    _spriteSheets = _spriteSheetsLowCam;
+                    SelectSpriteSheetBasedOnAnimationState(currentAnimationState);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public void UpdateDrawRectangles(Vector3 position, bool trackWithCamera = false)
         {
-            //-10 -- top
-            //-27.5 -- high
-            //-45   -- normal
-            //-62.5 -- low
-            float angle = Camera.CameraTopAngle;
-            if(angle == -45)
-            {
-                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsNormalCam;
-
-            }
-            if (angle == -10)
-            {
-                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsTopCam;
-            }
-            if (angle == -27.5)
-            {
-                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsHighCam;
-            }
-            if (angle == -62.5)
-            {
-                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsLowCam;
-            }
 
             float height = position.Z;
             SourceRectangle = new Rectangle((int)FrameSourcePos.X, (int)FrameSourcePos.Y, (int)FrameSize.X, (int)FrameSize.Y);
-            //transform 2D world position to the screen camera space
             position = Camera.ToCameraSpace(position.X, position.Y, position.Z);
             DrawDepth = position.Y - FrameAnchor.Y;
             var screenYPosition = Camera.ScreenYPositionFromZComponent(position.Y, height);
@@ -129,7 +136,7 @@ namespace Engine.Animation.Base
         }
 
 
-        public bool UpdateCurrentSpriteSheet(AnimationState state)
+        public bool SelectSpriteSheetBasedOnAnimationState(AnimationState state)
         {
             for (int i = 0; i < _spriteSheets.Count; i++)
             {

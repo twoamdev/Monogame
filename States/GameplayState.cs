@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Engine.Animation;
 using Engine.Enum;
 using Engine.Input;
@@ -56,7 +57,7 @@ namespace States
 
                     var frameManager = new PropFrameManager(buildingSheetsNormal, _camera, buildingSheetsTop, buildingSheetsHigh, buildingSheetsLow);
                     var position = new Vector3((_viewportWidth / 2) + xOffset, (_viewportHeight / 2) + yOffset, 0);
-                    var envObj = new EnvironmentObject(position, frameManager);
+                    var envObj = new EnvironmentObject(position, frameManager, LoadMotionBlurEffect());
                     AddGameObject(envObj);
                     
                     
@@ -126,7 +127,7 @@ namespace States
                         {
                             _mainCharacter.Position = goalPosition;
                             _camera.CameraPosition = new Vector3(_mainCharacter.Position.X, _mainCharacter.Position.Y, 0);
-                        } 
+                        }
                     }
                     
                     if (cmd is GameplayInputCommand.ChangeAnimationState)

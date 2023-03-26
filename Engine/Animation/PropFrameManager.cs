@@ -21,12 +21,7 @@ namespace Engine.Animation
         public PropFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> topSheets, List<SpriteSheet> highSheets, List<SpriteSheet> lowSheets) : base(sheets, camera ,topSheets, highSheets, lowSheets)
 		{
             SpriteSheets = sheets;
-            _spriteSheetsHighCam = highSheets;
-            _spriteSheetsLowCam = lowSheets;
-            _spriteSheetsTopCam = topSheets;
         }
-
-        
 
     }
 }

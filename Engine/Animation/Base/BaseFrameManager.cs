@@ -13,9 +13,10 @@ namespace Engine.Animation.Base
 	{
         protected List<SpriteSheet> _spriteSheets;
         public List<SpriteSheet> _spriteSheetsNormalCam;
-        public List<SpriteSheet> _spriteSheetsMidCam;
+        public List<SpriteSheet> _spriteSheetsTopCam;
+        public List<SpriteSheet> _spriteSheetsHighCam;
         public List<SpriteSheet> _spriteSheetsLowCam;
-        public List<SpriteSheet> _spriteSheetsGroundCam;
+        
 
         protected ViewportCamera _camera;
         protected float _drawDepth;
@@ -26,12 +27,12 @@ namespace Engine.Animation.Base
         private double _currentFrame = 0.0;
         protected Vector2 _screenPosition;
 
-        public BaseFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> midSheets, List<SpriteSheet> lowSheets, List<SpriteSheet> groundSheets)
+        public BaseFrameManager(List<SpriteSheet> sheets, ViewportCamera camera, List<SpriteSheet> topSheets, List<SpriteSheet> highSheets, List<SpriteSheet> lowSheets)
         {
             _camera = camera;
-            _spriteSheetsMidCam = midSheets;
+            _spriteSheetsTopCam = topSheets;
+            _spriteSheetsHighCam = highSheets;
             _spriteSheetsLowCam = lowSheets;
-            _spriteSheetsGroundCam = groundSheets;
             _spriteSheetsNormalCam = sheets;
         }
 
@@ -88,11 +89,10 @@ namespace Engine.Animation.Base
 
         public void UpdateDrawRectangles(Vector3 position, bool trackWithCamera = false)
         {
-            //check cam angle
-            //-45
-            //-56.25
-            //-67.5
-            //-78.75
+            //-10 -- top
+            //-27.5 -- high
+            //-45   -- normal
+            //-62.5 -- low
             float angle = Camera.CameraTopAngle;
             if(angle == -45)
             {
@@ -100,20 +100,20 @@ namespace Engine.Animation.Base
                 _spriteSheets = _spriteSheetsNormalCam;
 
             }
-            if (angle == -56.25)
+            if (angle == -10)
             {
                 CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsMidCam;
+                _spriteSheets = _spriteSheetsTopCam;
             }
-            if (angle == -67.5)
+            if (angle == -27.5)
+            {
+                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
+                _spriteSheets = _spriteSheetsHighCam;
+            }
+            if (angle == -62.5)
             {
                 CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
                 _spriteSheets = _spriteSheetsLowCam;
-            }
-            if (angle == -78.75)
-            {
-                CurrentFrame = CurrentFrame >= FrameCount ? 0.0 : CurrentFrame;
-                _spriteSheets = _spriteSheetsGroundCam;
             }
 
             float height = position.Z;

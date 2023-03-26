@@ -1,19 +1,12 @@
-﻿using Engine.Enum;
-using Objects;
+﻿using System.Collections.Generic;
+using Engine.Animation;
+using Engine.Enum;
+using Engine.Input;
+using Engine.Input.Base;
 using Engine.Objects;
 using Engine.States.Base;
-using Engine.Input.Base;
 using Engine.Utilities;
-using Engine.Input;
-using Engine.Animation;
-
-
-using System.Diagnostics;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace States
 {
@@ -31,16 +24,16 @@ namespace States
             var startCamPos = new Vector3(startPos.X, startPos.Y, 0);
             _camera = new ViewportCamera(startCamPos, _viewportWidth, _viewportHeight);
 
+            var mainPlayerSheetsTop = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.TOP));
+            var mainPlayerSheetsHigh = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.HIGH));
             var mainPlayerSheetsNormal = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.NORMAL));
-            var mainPlayerSheetsMid = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.MID));
             var mainPlayerSheetsLow = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.LOW));
-            var mainPlayerSheetsGround = LoadSheets(AssetLoadUtils.PlayerTextureAndDataPaths(CamLookAngle.GROUND));
             var mainPlayerFrameManager = new CharacterFrameManager(
                 mainPlayerSheetsNormal,
                 _camera,
-                mainPlayerSheetsMid,
-                mainPlayerSheetsLow,
-                mainPlayerSheetsGround
+                mainPlayerSheetsTop,
+                mainPlayerSheetsHigh,
+                mainPlayerSheetsLow
                 );
             _mainCharacter = new CharacterObject(startPos, mainPlayerFrameManager);
             AddGameObject(_mainCharacter);
@@ -55,13 +48,13 @@ namespace States
                 {
                     xOffset += ((float)j) * 200;
                     var buildingSheetsNormal = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.NORMAL), true);
-                    var buildingSheetsMid = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.MID), true);
+                    var buildingSheetsTop = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.TOP), true);
+                    var buildingSheetsHigh = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.HIGH), true);
                     var buildingSheetsLow = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.LOW), true);
-                    var buildingSheetsGround = LoadSheets(AssetLoadUtils.BuildingsTextureAndDataPaths(CamLookAngle.GROUND), true);
 
 
 
-                    var frameManager = new PropFrameManager(buildingSheetsNormal, _camera, buildingSheetsMid, buildingSheetsLow, buildingSheetsGround);
+                    var frameManager = new PropFrameManager(buildingSheetsNormal, _camera, buildingSheetsTop, buildingSheetsHigh, buildingSheetsLow);
                     var position = new Vector3((_viewportWidth / 2) + xOffset, (_viewportHeight / 2) + yOffset, 0);
                     var envObj = new EnvironmentObject(position, frameManager);
                     AddGameObject(envObj);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.8.png</SourceFile>
-  <SourceTime>2023-03-13T15:58:24-04:00</SourceTime>
+  <SourceTime>2023-03-26T12:12:38-04:00</SourceTime>
   <DestFile>/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/bin/DesktopGL/Content/assets/building/test/buildingA/STATIC-LOW/buildingA_STATIC-LOW_spriteSheet.8.xnb</DestFile>
-  <DestTime>2023-03-14T20:50:42.6698766-04:00</DestTime>
+  <DestTime>2023-03-26T13:18:49.581772-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

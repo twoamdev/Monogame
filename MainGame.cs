@@ -42,11 +42,13 @@ namespace GuildOfHeaven
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
-            var x = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/assets/myFile.mgfx";
+            var x = "/Users/bennelson/Documents/Git_Repositories/GuildOfHeaven/GuildOfHeaven/Content/shaders/motionblur.mgfx";
 
 
             byte[] bytecode = File.ReadAllBytes(x);
             _postProcessShader = new Effect(graphics.GraphicsDevice, bytecode);
+            _postProcessShader.Parameters["blurDirection"].SetValue(new Vector2(1, 1));
+            _postProcessShader.Parameters["blurSpeed"].SetValue(0.1f);
 
 
             _renderTarget = new RenderTarget2D(graphics.GraphicsDevice,
@@ -137,8 +139,8 @@ namespace GuildOfHeaven
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin(effect:_postProcessShader);
-            //_spriteBatch.Begin();
+           //_spriteBatch.Begin(effect:_postProcessShader);
+            _spriteBatch.Begin();
             _currentGameState.Render(_spriteBatch);
 
             _spriteBatch.End();

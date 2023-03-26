@@ -89,14 +89,14 @@ namespace Engine.Input
             }
 
             //Move Camera up
-            if ((_keyboardState.IsKeyDown(Keys.Up) || _gamePadState.IsButtonDown(Buttons.RightThumbstickUp))
+            if ((_keyboardState.IsKeyDown(Keys.Up) || _gamePadState.IsButtonDown(Buttons.LeftShoulder))
                 && (_cameraTopAngleRelease == 0))
             {
                 commands.Add(new GameplayInputCommand.CameraRotateDown());
             }
 
             //Move Camera down 
-            if ((_keyboardState.IsKeyDown(Keys.Down) || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
+            if ((_keyboardState.IsKeyDown(Keys.Down) || _gamePadState.IsButtonDown(Buttons.RightShoulder))
                 && (_cameraTopAngleRelease == 0))
             {
                 commands.Add(new GameplayInputCommand.CameraRotateUp());
@@ -109,19 +109,20 @@ namespace Engine.Input
                 || _keyboardState.IsKeyDown(Keys.Down)
                 || _gamePadState.IsButtonDown(Buttons.RightThumbstickRight)
                 || _gamePadState.IsButtonDown(Buttons.RightThumbstickLeft)
-                || _gamePadState.IsButtonDown(Buttons.RightThumbstickUp)
-                || _gamePadState.IsButtonDown(Buttons.RightThumbstickDown))
+                || _gamePadState.IsButtonDown(Buttons.RightShoulder)
+                || _gamePadState.IsButtonDown(Buttons.LeftShoulder)
+               )
             {
                 _cameraRelease++;
                 _cameraTopAngleRelease++;
                 _cameraRelease = MathUtils.Mod(_cameraRelease, 8);
-                _cameraTopAngleRelease = MathUtils.Mod(_cameraTopAngleRelease, 12);
+                _cameraTopAngleRelease = MathUtils.Mod(_cameraTopAngleRelease, 32);
             }
 
             if ( (_keyboardState.IsKeyUp(Keys.Right) && _keyboardState.IsKeyUp(Keys.Left)) &&
                 (_keyboardState.IsKeyUp(Keys.Down) && _keyboardState.IsKeyUp(Keys.Up)) &&
                 (_gamePadState.IsButtonUp(Buttons.RightThumbstickRight) && _gamePadState.IsButtonUp(Buttons.RightThumbstickLeft) &&
-                 _gamePadState.IsButtonUp(Buttons.RightThumbstickUp) && _gamePadState.IsButtonUp(Buttons.RightThumbstickDown)
+                 _gamePadState.IsButtonUp(Buttons.RightShoulder) && _gamePadState.IsButtonUp(Buttons.LeftShoulder)
                 ))
             {
                 _cameraRelease = 0;

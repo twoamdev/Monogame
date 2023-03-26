@@ -17,8 +17,7 @@ namespace Engine.Utilities
         private static List<AnimationState> _mainPlayerAnimationStates = new List<AnimationState>()
         {
             AnimationState.IDLE, AnimationState.WALKING, AnimationState.RUNNING,
-            AnimationState.ROLLING, AnimationState.JUMPING, AnimationState.FALLING,
-            AnimationState.LANDING
+            AnimationState.ROLLING
         };
 
         private static string _buildingsDirExtension = "assets/building/test/";

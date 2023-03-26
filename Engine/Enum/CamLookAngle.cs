@@ -5,10 +5,12 @@ namespace Engine.Enum
     {
         
 
-        public static string NORMAL {get { return "NORMAL"; }}
-        public static string MID { get { return "MID"; } }
+        public static string TOP {get { return "TOP"; }}
+        public static string HIGH { get { return "HIGH"; } }
+        public static string NORMAL { get { return "NORMAL"; } }
         public static string LOW { get { return "LOW"; } }
-        public static string GROUND { get { return "GROUND"; } }
+
+        
     }
 }
 

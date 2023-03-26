@@ -59,16 +59,16 @@ namespace Engine.Objects.Base
 
         public void RotateCameraUp()
         {
-           //-45
-           //-56.25
-           //-67.5
-           //-78.75
-           if(_currentUpDownRotation != -45f)
+            //-10 -- top
+            //-27.5 -- high
+            //-45   -- normal
+            //-62.5 -- low
+            if(_currentUpDownRotation != -10f)
             {
-                _currentUpDownRotation += 11.25f;
+                _currentUpDownRotation += 17.5f;
            
             }
-            Debug.WriteLine(string.Format("rot up: {0}", _currentUpDownRotation));
+            //Debug.WriteLine(string.Format("rot up: {0}", _currentUpDownRotation));
         }
 
         public float CameraTopAngle
@@ -78,11 +78,11 @@ namespace Engine.Objects.Base
 
         public void RotateCameraDown()
         {
-            if(_currentUpDownRotation != -67.5)//-78.75f)
+            if(_currentUpDownRotation != -62.5f)
             {
-                _currentUpDownRotation -= 11.25f;
+                _currentUpDownRotation -= 17.5f;
             }
-            Debug.WriteLine(string.Format("rot down: {0}", _currentUpDownRotation));
+            //Debug.WriteLine(string.Format("rot down: {0}", _currentUpDownRotation));
         }
 
         private void ShiftDirection(bool shiftPositive)
